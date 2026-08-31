@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Probability Theory — C23 Session 1</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="crumb"><a href="../">← Fall 2026 Coordinator</a></div>
+    <div class="eyebrow">GRAD-C23 · Mathematics for Data Science · Session 1</div>
+    <h1>Probability Theory</h1>
+    <p class="standfirst">
+      Tuesday 1 September 2026, 08:00–10:00, Forum (A+B). Jan Gieseler. No quiz this
+      session. Two chapters of Blitzstein and Hwang, about fifty pages.
+    </p>
+  </header>
+
+  <section>
+    <div class="sec-head">
+      <h2>The reading</h2>
+      <p>
+        The syllabus gives printed page numbers. In the PDF edition the numbering runs
+        seventeen pages ahead, so the ranges land here:
+      </p>
+    </div>
+
+    <div class="panel" style="padding: 16px 20px;">
+      <table class="pages">
+        <thead>
+          <tr><th>Assigned</th><th>PDF page</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Chapter 1, pp. 1–28</td><td>18–45</td></tr>
+          <tr><td>Chapter 2, pp. 45–66</td><td>62–83</td></tr>
+          <tr><td>Example 2.7.1, Monty Hall</td><td>85</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin:0; font-size:14px; color:var(--ink-2); max-width:70ch;">
+      Chapter 1 is assigned only as far as p. 28, so the later counting material is out
+      of scope for now. Example 2.7.1 sits at printed p. 68, past the end of the chapter 2
+      range, which is why the syllabus lists it on a line of its own.
+    </p>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Chapter 1 — what probability is, and how to count</h2></div>
+
+    <div class="prose">
+      <h3>The language first</h3>
+      <p>
+        An experiment has a <b>sample space</b>: every outcome that could happen. An
+        <b>event</b> is any subset of it. Once events are sets, the logical connectives
+        become set operations, so "A and B" is intersection, "A or B" is union, "not A"
+        is complement. Most of the early difficulty in this course is translating an
+        English sentence into that notation, not the arithmetic that follows.
+      </p>
+
+      <h3>The naive definition, and why it is called that</h3>
+      <p>
+        If every outcome is equally likely, the probability of an event is the count of
+        favourable outcomes over the count of possible ones. The name is doing real work:
+        it assumes equal likelihood and a finite sample space, and both assumptions fail
+        constantly in practice. The chapter uses it as a stepping stone, not as a
+        definition to keep.
+      </p>
+
+      <h3>Counting, because the naive definition needs it</h3>
+      <p>
+        The multiplication rule chains independent choices. From it come
+        <b>permutations</b>, which are ordered arrangements, and <b>combinations</b>,
+        which are unordered selections written as the binomial coefficient. The
+        organising idea is a two-by-two table: sampling is ordered or unordered, and with
+        or without replacement. Four formulas, but one structure rather than four things
+        to memorise.
+      </p>
+
+      <h3>Story proofs</h3>
+      <p>
+        An argument that establishes an identity by describing two ways of counting the
+        same set, instead of manipulating algebra. This is the house style of the course
+        and it is what the quizzes reward. <code>C(n,k) = C(n,n-k)</code> stops needing a
+        derivation once you say that choosing which k to include is the same act as
+        choosing which n−k to leave out.
+      </p>
+
+      <h3>The axioms</h3>
+      <p>
+        The non-naive definition drops the equally-likely assumption and keeps three
+        rules: probabilities are non-negative, the whole sample space has probability 1,
+        and the probability of a union of disjoint events is the sum of their
+        probabilities. Everything else, the complement rule and inclusion–exclusion
+        included, is derived from those three.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Chapter 2 — conditioning, which is the actual subject</h2></div>
+
+    <div class="prose">
+      <p>
+        <b>Conditional probability</b> is the probability of A given that B occurred,
+        defined as the joint probability divided by P(B). The intuition worth carrying:
+        conditioning shrinks the sample space to B and renormalises so the total is 1
+        again. It is not a modification of A, it is a change of universe.
+      </p>
+      <p>
+        <b>Bayes' rule</b> inverts the conditioning, turning P(A|B) into P(B|A) with the
+        marginals as the correction factor. <b>The law of total probability</b> builds
+        P(B) by splitting the sample space into cases and summing the conditional
+        probabilities, each weighted by how likely its case is. In practice the two are
+        used together: partition, then invert.
+      </p>
+      <p>
+        <b>Independence</b> means conditioning changes nothing, so P(A|B) = P(A). That is
+        a strong claim about the world rather than a convenience, and the chapter is
+        careful to separate it from <b>conditional independence</b>, where A and B are
+        independent given C but not independent on their own. The distinction returns
+        later, in Bayesian analysis and in anything causal.
+      </p>
+      <p>
+        <b>The traps the chapter dwells on</b> are the ones that matter for policy work:
+        confusing P(A|B) with P(B|A), and neglecting the base rate. A test that is 99%
+        accurate for a condition affecting one person in ten thousand still produces
+        mostly false positives. That is Bayes' rule doing the work, and it is the single
+        most transferable thing in the session.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Monty Hall</h2></div>
+    <div class="prose">
+      <p>
+        Called out separately because it sits past the assigned page range, and because
+        it is the standard demonstration that intuition about conditioning is unreliable.
+        The whole result turns on whether the host's choice of door carries information.
+        Read it slowly and make sure you can state precisely <em>what the host knows</em>
+        and how that changes the conditioning. The answer is the uninteresting part next
+        to that step.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>What you should be able to do afterwards</h2></div>
+    <div class="prose">
+      <ul>
+        <li>Translate a word problem into a sample space and events</li>
+        <li>Choose between the four counting cases and justify which one applies</li>
+        <li>State the three axioms and derive the complement rule from them</li>
+        <li>Apply Bayes' rule with a partition, and explain a base-rate error to someone else</li>
+        <li>Say why the naive definition fails when outcomes are not equally likely</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel aside">
+      <span class="lbl">Looking ahead</span>
+      <p>
+        Session 2 on Tuesday 8 September is chapter 3, random variables and their
+        distributions. <b>Assignment 1 is released that same day</b>, due Sunday 20
+        September at 23:59.
+      </p>
+      <p>
+        <b>Quiz 1 is session 3, Tuesday 15 September</b>, at the start of the lecture, pen
+        and paper. It covers this material and chapter 4. All five quizzes count toward
+        the grade with no lowest score dropped, so the first one is a real 5%.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Session primer, written from the assigned chapters.</span>
+    <span><a href="../" style="color:inherit;">Back to the semester overview</a></span>
+  </footer>
+
+</div>
+
+</body>
+</html>
