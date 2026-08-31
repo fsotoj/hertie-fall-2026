@@ -358,47 +358,6 @@ h2 {
 }
 .tt-note + .tt-note { border-top: 0; padding-top: 8px; margin-top: 0; }
 
-/* ---------- clash callout ---------- */
-
-.clash {
-  border-color: var(--flag-rule);
-  background: var(--flag-bg);
-  padding: 18px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.clash h3 {
-  margin: 0;
-  font-family: var(--serif);
-  font-size: 19px;
-  font-weight: 500;
-  color: var(--ink);
-}
-.clash p { margin: 0; font-size: 14px; color: var(--ink-2); max-width: 74ch; }
-.slots { display: flex; flex-wrap: wrap; gap: 10px; }
-.slot {
-  border: 1px solid var(--flag-rule);
-  background: var(--surface);
-  border-radius: 7px;
-  padding: 9px 13px;
-  font-size: 13px;
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  min-width: 190px;
-}
-.slot b { font-weight: 600; }
-.slot span { font-family: var(--mono); font-size: 11.5px; color: var(--muted); }
-.slot.pick { border-color: var(--flag); border-width: 2px; padding: 8px 12px; }
-.slot .tag {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: var(--flag);
-}
-
 /* ---------- course cards ---------- */
 
 .courses {
@@ -570,10 +529,9 @@ footer code { font-family: var(--mono); font-size: 12px; color: var(--ink-2); }
     <div class="eyebrow">Hertie School · Berlin</div>
     <h1>Fall 2026<br><em>four courses, twelve sessions each</em></h1>
     <p class="standfirst">
-      Every session date is known: the official course schedule carries them for all
-      four courses, not just the one whose syllabus published a calendar. The Thursday
-      collision has been resolved by moving the Mathematics lab to Wednesday evening.
-      What stays open is the tail end: three exam days and an impossible deadline.
+      Every session date is known, for all four courses and both labs. What stays open
+      is the tail end: which day inside exam week each final falls on, and one deadline
+      the syllabus dates to a year that has already passed.
     </p>
 
     <div class="counters">
@@ -583,7 +541,7 @@ footer code { font-family: var(--mono); font-size: 12px; color: var(--ink-2); }
       </div>
       <div class="counter"><span class="n">72</span><span class="k">sessions: 48 classes, 24 labs</span></div>
       <div class="counter"><span class="n">14</span><span class="k">graded components</span></div>
-      <div class="counter is-flag"><span class="n">7</span><span class="k">things still unconfirmed</span></div>
+      <div class="counter is-flag"><span class="n">6</span><span class="k">things still unconfirmed</span></div>
     </div>
   </header>
 
@@ -655,56 +613,8 @@ footer code { font-family: var(--mono); font-size: 12px; color: var(--ink-2); }
       </div>
 
       <p class="tt-note">
-        Curricular affairs resolved the Thursday collision by moving the Mathematics lab
-        rather than the Data Science slot. The lab went from Thursday noon to Wednesday
-        evening, so Thursday is clear and Wednesday now runs 10:00–14:00 and again
-        18:00–20:00.
-      </p>
-      <p class="tt-note">
-        Monday still holds the Data Science lab alone. It is tied to the E1339 slot, so
-        it only moves if the lecture does.
-      </p>
-    </div>
-  </section>
-
-  <section>
-    <div class="sec-head">
-      <h2>Thursday resolved, Wednesday grew</h2>
-      <p>
-        The request was to move the Data Science lecture. What moved was the Mathematics
-        lab. Same collision, opposite side, and a different week comes out of it.
-      </p>
-    </div>
-
-    <div class="panel clash">
-      <h3>What changed, and what it costs</h3>
-      <div class="slots">
-        <div class="slot pick">
-          <span class="tag">done</span>
-          <b>Maths lab → C23-Lab3</b>
-          <span>Thu 12:00 becomes Wed 18:00 · 3.30</span>
-        </div>
-        <div class="slot">
-          <span class="tag">unchanged</span>
-          <b>Data Science stays E1339</b>
-          <span>Thu 12:00 · Forum (A+B)</span>
-        </div>
-        <div class="slot">
-          <span class="tag">unchanged</span>
-          <b>Its lab stays Monday</b>
-          <span>E1339-Lab · Mon 16:00</span>
-        </div>
-      </div>
-      <p>
-        Thursday is clear, which was the point. The price is that the week stays four
-        days rather than three: Monday keeps the Data Science lab, and Wednesday now
-        stretches from 10:00 to 20:00 with a four-hour hole in the afternoon.
-      </p>
-      <p>
-        Moving to the C11 slot is still available and would still collapse the week onto
-        Tuesday, Wednesday and Thursday, since the Data Science lab follows its slot and
-        would land on Monday noon or Tuesday afternoon. It is no longer a fix for
-        anything, though. It is a preference about shape.
+        Wednesday is the long day: two classes back to back from 10:00 to 14:00, then a
+        four-hour gap before the Mathematics lab at 18:00.
       </p>
     </div>
   </section>
@@ -1051,12 +961,6 @@ footer code { font-family: var(--mono); font-size: 12px; color: var(--ink-2); }
         <span class="whom">Gieseler</span>
         <span class="what"><b>Whether sessions 4 and 5 follow the website or the syllabus.</b>
           <small>The course site puts calculus on 22 September and continuous random variables on the 29th; the syllabus has them the other way round. It changes which book to read, and what quiz 2 covers.</small>
-        </span>
-      </div>
-      <div class="q c1">
-        <span class="whom">Registration</span>
-        <span class="what"><b>Whether to still ask for the C11 slot.</b>
-          <small>The clash it was meant to fix is gone. Moving would empty Monday and pull the Data Science lab onto Tuesday, collapsing the week onto three days. A preference now, not a fix.</small>
         </span>
       </div>
       <div class="q all">
