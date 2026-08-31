@@ -1,0 +1,1104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root { color-scheme: light dark; }
+  html, body { margin: 0; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+</style>
+<title>Fall 2026 Coordinator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+:root {
+  --plane:   #f2f4f7;
+  --surface: #ffffff;
+  --ink:     #14181d;
+  --ink-2:   #4e5661;
+  --muted:   #838b96;
+  --rule:    #e1e5ea;
+  --rule-2:  #eef1f4;
+
+  --c1: #2f6fbf;  /* Intro Data Science  */
+  --c2: #c05a2b;  /* Mathematics for DS  */
+  --c3: #1f8a63;  /* Econ of Crime       */
+  --c4: #7a52b8;  /* Econ of Media       */
+
+  --flag:     #a35b00;
+  --flag-bg:  #fdf3e4;
+  --flag-rule:#ecd6b4;
+
+  --shadow: 0 1px 2px rgba(20,24,29,.05), 0 8px 24px -16px rgba(20,24,29,.28);
+
+  --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --sans:  "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono:  "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --plane:   #0d0f12;
+    --surface: #16191e;
+    --ink:     #f0f2f5;
+    --ink-2:   #a6aeb9;
+    --muted:   #767e89;
+    --rule:    #262b32;
+    --rule-2:  #1f242a;
+
+    --c1: #4e92dd;
+    --c2: #d4713f;
+    --c3: #2fa57c;
+    --c4: #9877d6;
+
+    --flag:     #e0a54a;
+    --flag-bg:  #2a2115;
+    --flag-rule:#4a3a20;
+
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.8);
+  }
+}
+
+:root[data-theme="dark"] {
+  --plane:   #0d0f12;
+  --surface: #16191e;
+  --ink:     #f0f2f5;
+  --ink-2:   #a6aeb9;
+  --muted:   #767e89;
+  --rule:    #262b32;
+  --rule-2:  #1f242a;
+
+  --c1: #4e92dd;
+  --c2: #d4713f;
+  --c3: #2fa57c;
+  --c4: #9877d6;
+
+  --flag:     #e0a54a;
+  --flag-bg:  #2a2115;
+  --flag-rule:#4a3a20;
+
+  --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.8);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--plane);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 40px 24px 88px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+/* ---------- header ---------- */
+
+.masthead { display: flex; flex-direction: column; gap: 14px; }
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+h1 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(34px, 5.2vw, 52px);
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+  margin: 0;
+  text-wrap: balance;
+}
+h1 em { font-style: italic; color: var(--ink-2); }
+
+.standfirst { max-width: 64ch; color: var(--ink-2); font-size: 16px; margin: 0; }
+
+.counters {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.counter {
+  flex: 1 1 150px;
+  padding: 14px 18px;
+  border-right: 1px solid var(--rule-2);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.counter:last-child { border-right: 0; }
+.counter .n {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.counter .k { font-size: 12px; color: var(--muted); }
+.counter.is-flag .n { color: var(--flag); }
+
+/* ---------- sections ---------- */
+
+section { display: flex; flex-direction: column; gap: 16px; }
+
+h2 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 25px;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+.sec-head { display: flex; flex-direction: column; gap: 4px; }
+.sec-head p { margin: 0; color: var(--ink-2); font-size: 14px; max-width: 70ch; }
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+/* ---------- semester grid ---------- */
+
+.cal { padding: 20px; overflow-x: auto; }
+.cal-grid {
+  display: grid;
+  grid-template-columns: 168px repeat(14, minmax(42px, 1fr));
+  gap: 2px;
+  min-width: 900px;
+  align-items: stretch;
+}
+.cal-grid .hd {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.25;
+  padding-bottom: 6px;
+  font-variant-numeric: tabular-nums;
+}
+.cal-grid .hd.brk { color: var(--ink-2); }
+.cal-grid .rowlab {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 12px;
+  gap: 1px;
+}
+.cal-grid .rowlab b {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.25;
+}
+.cal-grid .rowlab span {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--muted);
+}
+.cell {
+  height: 30px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #fff;
+  background: var(--c);
+  position: relative;
+}
+.cell.faint { background: color-mix(in oklab, var(--c) 42%, var(--surface)); color: var(--ink); }
+.cell.none {
+  background: repeating-linear-gradient(135deg, var(--rule-2) 0 4px, var(--surface) 4px 8px);
+  color: var(--muted);
+  font-size: 10px;
+}
+.cell.quiz::after {
+  content: "";
+  position: absolute;
+  top: 3px; right: 3px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--surface);
+  box-shadow: 0 0 0 1.5px var(--c);
+}
+.r1 { --c: var(--c1); } .r2 { --c: var(--c2); }
+.r3 { --c: var(--c3); } .r4 { --c: var(--c4); }
+
+.cal-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule-2);
+  font-size: 12.5px;
+  color: var(--ink-2);
+  align-items: center;
+}
+.cal-legend i { font-style: normal; display: inline-flex; align-items: center; gap: 7px; }
+.dot-quiz {
+  width: 13px; height: 13px; border-radius: 3px;
+  background: var(--c2); position: relative; display: inline-block;
+}
+.dot-quiz::after {
+  content: ""; position: absolute; top: 2px; right: 2px;
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--surface); box-shadow: 0 0 0 1.5px var(--c2);
+}
+.dot-mu {
+  width: 13px; height: 13px; border-radius: 3px; display: inline-block;
+  background: color-mix(in oklab, var(--c1) 42%, var(--surface));
+}
+.dot-brk {
+  width: 13px; height: 13px; border-radius: 3px; display: inline-block;
+  background: repeating-linear-gradient(135deg, var(--rule-2) 0 4px, var(--surface) 4px 8px);
+  border: 1px solid var(--rule);
+}
+
+/* ---------- weekly timetable ---------- */
+
+.tt { padding: 20px; overflow-x: auto; }
+.tt-grid {
+  display: grid;
+  grid-template-columns: 58px repeat(5, minmax(112px, 1fr));
+  grid-template-rows: auto repeat(12, 34px);
+  min-width: 720px;
+  column-gap: 4px;
+}
+.tt-grid .dh {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+  padding-bottom: 8px;
+}
+.tt-grid .hr {
+  grid-column: 1;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  transform: translateY(-6px);
+  text-align: right;
+  padding-right: 8px;
+}
+.tt-grid .band {
+  grid-column: 2 / -1;
+  border-top: 1px solid var(--rule-2);
+}
+.ev {
+  border-radius: 5px;
+  padding: 5px 8px;
+  margin: 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1px;
+  overflow: hidden;
+  background: var(--c);
+  color: #fff;
+}
+.ev b { font-size: 12px; font-weight: 600; line-height: 1.2; }
+.ev span {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  line-height: 1.25;
+  opacity: .85;
+}
+.ev.alt {
+  background: color-mix(in oklab, var(--c) 9%, var(--surface));
+  border: 1px dashed var(--c);
+  color: color-mix(in oklab, var(--c) 72%, var(--ink));
+}
+.ev.alt span { opacity: 1; color: var(--muted); }
+.ev .tagline {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  opacity: 1;
+}
+.e1 { --c: var(--c1); } .e2 { --c: var(--c2); }
+.e3 { --c: var(--c3); } .e4 { --c: var(--c4); }
+
+.tt-note {
+  margin: 16px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule-2);
+  font-size: 13px;
+  color: var(--ink-2);
+  max-width: 76ch;
+}
+.tt-note + .tt-note { border-top: 0; padding-top: 8px; margin-top: 0; }
+
+/* ---------- clash callout ---------- */
+
+.clash {
+  border-color: var(--flag-rule);
+  background: var(--flag-bg);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.clash h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--ink);
+}
+.clash p { margin: 0; font-size: 14px; color: var(--ink-2); max-width: 74ch; }
+.slots { display: flex; flex-wrap: wrap; gap: 10px; }
+.slot {
+  border: 1px solid var(--flag-rule);
+  background: var(--surface);
+  border-radius: 7px;
+  padding: 9px 13px;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 190px;
+}
+.slot b { font-weight: 600; }
+.slot span { font-family: var(--mono); font-size: 11.5px; color: var(--muted); }
+.slot.pick { border-color: var(--flag); border-width: 2px; padding: 8px 12px; }
+.slot .tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--flag);
+}
+
+/* ---------- course cards ---------- */
+
+.courses {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(390px, 1fr));
+  gap: 18px;
+}
+.course {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-top: 3px solid var(--c);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  padding: 20px 20px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.course.c1 { --c: var(--c1); } .course.c2 { --c: var(--c2); }
+.course.c3 { --c: var(--c3); } .course.c4 { --c: var(--c4); }
+
+.course header { display: flex; flex-direction: column; gap: 3px; }
+.code {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .08em;
+  color: var(--c);
+  font-weight: 500;
+}
+.course h3 {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin: 0;
+  line-height: 1.2;
+}
+.who { font-size: 13px; color: var(--ink-2); }
+.when {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.bar { display: flex; gap: 2px; height: 26px; border-radius: 5px; }
+.seg { position: relative; border-radius: 3px; cursor: default; }
+.seg:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.seg::after {
+  content: attr(data-tip);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 8px);
+  transform: translateX(-50%);
+  background: var(--ink);
+  color: var(--surface);
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.35;
+  white-space: nowrap;
+  padding: 5px 8px;
+  border-radius: 4px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .12s ease;
+  z-index: 5;
+}
+.seg:hover::after, .seg:focus-visible::after { opacity: 1; }
+
+.legend { display: flex; flex-direction: column; }
+.row {
+  display: grid;
+  grid-template-columns: 11px 1fr auto;
+  align-items: baseline;
+  gap: 10px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--rule-2);
+}
+.row:last-child { border-bottom: 0; }
+.swatch { width: 11px; height: 11px; border-radius: 3px; transform: translateY(1px); }
+.row .name { font-size: 13.5px; }
+.row .name small { display: block; color: var(--muted); font-size: 12px; line-height: 1.4; }
+.row .pct {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 13.5px;
+  font-weight: 500;
+}
+.row .pct.passfail {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--flag);
+  background: var(--flag-bg);
+  border: 1px solid var(--flag-rule);
+  border-radius: 999px;
+  padding: 1px 7px 2px;
+  white-space: nowrap;
+}
+.chip::before {
+  content: "";
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* ---------- open questions ---------- */
+
+.q {
+  display: grid;
+  grid-template-columns: 116px 1fr;
+  gap: 18px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--rule-2);
+  align-items: start;
+}
+.q:last-child { border-bottom: 0; }
+.q .whom {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .04em;
+  color: var(--c);
+  padding-top: 3px;
+}
+.q.c1 { --c: var(--c1); } .q.c2 { --c: var(--c2); }
+.q.c3 { --c: var(--c3); } .q.c4 { --c: var(--c4); }
+.q.all { --c: var(--muted); }
+.q .what { font-size: 14px; }
+.q .what b { font-weight: 600; }
+.q .what small { display: block; color: var(--muted); font-size: 12.5px; margin-top: 2px; }
+
+footer {
+  border-top: 1px solid var(--rule);
+  padding-top: 18px;
+  font-size: 12.5px;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+}
+footer code { font-family: var(--mono); font-size: 12px; color: var(--ink-2); }
+
+@media (max-width: 560px) {
+  .wrap { padding: 28px 16px 64px; }
+  .q { grid-template-columns: 1fr; gap: 4px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="eyebrow">Hertie School · Berlin</div>
+    <h1>Fall 2026<br><em>four courses, twelve sessions each</em></h1>
+    <p class="standfirst">
+      Every session date is known: the official course schedule carries them for all
+      four courses, not just the one whose syllabus published a calendar. The Thursday
+      collision has been resolved by moving the Mathematics lab to Wednesday evening.
+      What stays open is the tail end: three exam days and an impossible deadline.
+    </p>
+
+    <div class="counters">
+      <div class="counter">
+        <span class="n" id="countdown">—</span>
+        <span class="k" id="countdown-k">until the first class</span>
+      </div>
+      <div class="counter"><span class="n">72</span><span class="k">sessions: 48 classes, 24 labs</span></div>
+      <div class="counter"><span class="n">14</span><span class="k">graded components</span></div>
+      <div class="counter is-flag"><span class="n">7</span><span class="k">things still unconfirmed</span></div>
+    </div>
+  </header>
+
+  <section>
+    <div class="sec-head">
+      <h2>A normal week</h2>
+      <p>
+        Every teaching week, from the first session on 1 September to the last on
+        26 November. Four days, Monday to Thursday, with Friday empty. Wednesday is the
+        long one: two classes back to back at midday, then the Mathematics lab at 18:00.
+      </p>
+    </div>
+
+    <div class="panel tt">
+      <div class="tt-grid">
+        <div></div>
+        <div class="dh">Mon</div>
+        <div class="dh">Tue</div>
+        <div class="dh">Wed</div>
+        <div class="dh" style="grid-column: 5 / 7;">Thu</div>
+
+        <div class="hr" style="grid-row:2;">08:00</div>
+        <div class="hr" style="grid-row:3;">09:00</div>
+        <div class="hr" style="grid-row:4;">10:00</div>
+        <div class="hr" style="grid-row:5;">11:00</div>
+        <div class="hr" style="grid-row:6;">12:00</div>
+        <div class="hr" style="grid-row:7;">13:00</div>
+        <div class="hr" style="grid-row:8;">14:00</div>
+        <div class="hr" style="grid-row:9;">15:00</div>
+        <div class="hr" style="grid-row:10;">16:00</div>
+        <div class="hr" style="grid-row:11;">17:00</div>
+        <div class="hr" style="grid-row:12;">18:00</div>
+        <div class="hr" style="grid-row:13;">19:00</div>
+
+        <div class="band" style="grid-row:2;"></div>
+        <div class="band" style="grid-row:3;"></div>
+        <div class="band" style="grid-row:4;"></div>
+        <div class="band" style="grid-row:5;"></div>
+        <div class="band" style="grid-row:6;"></div>
+        <div class="band" style="grid-row:7;"></div>
+        <div class="band" style="grid-row:8;"></div>
+        <div class="band" style="grid-row:9;"></div>
+        <div class="band" style="grid-row:10;"></div>
+        <div class="band" style="grid-row:11;"></div>
+        <div class="band" style="grid-row:12;"></div>
+        <div class="band" style="grid-row:13;"></div>
+
+        <div class="ev e1" style="grid-column:2; grid-row:10 / 12;">
+          <b>Data Science lab</b><span>E1339-Lab · 2.30 or 2.61</span>
+        </div>
+
+        <div class="ev e2" style="grid-column:3; grid-row:2 / 4;">
+          <b>Mathematics</b><span>GRAD-C23 · Forum (A+B)</span>
+        </div>
+
+        <div class="ev e3" style="grid-column:4; grid-row:4 / 6;">
+          <b>Econ of Crime</b><span>GRAD-E1169 · 2.32</span>
+        </div>
+        <div class="ev e4" style="grid-column:4; grid-row:6 / 8;">
+          <b>Econ of Media</b><span>GRAD-E1367 · 2.32</span>
+        </div>
+        <div class="ev e2" style="grid-column:4; grid-row:12 / 14;">
+          <b>Mathematics lab</b><span>C23-Lab3 · 3.30</span>
+        </div>
+
+        <div class="ev e1" style="grid-column:5 / 7; grid-row:6 / 8;">
+          <b>Data Science</b><span>GRAD-E1339 · Forum (A+B)</span>
+        </div>
+      </div>
+
+      <p class="tt-note">
+        Curricular affairs resolved the Thursday collision by moving the Mathematics lab
+        rather than the Data Science slot. The lab went from Thursday noon to Wednesday
+        evening, so Thursday is clear and Wednesday now runs 10:00–14:00 and again
+        18:00–20:00.
+      </p>
+      <p class="tt-note">
+        Monday still holds the Data Science lab alone. It is tied to the E1339 slot, so
+        it only moves if the lecture does.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Thursday resolved, Wednesday grew</h2>
+      <p>
+        The request was to move the Data Science lecture. What moved was the Mathematics
+        lab. Same collision, opposite side, and a different week comes out of it.
+      </p>
+    </div>
+
+    <div class="panel clash">
+      <h3>What changed, and what it costs</h3>
+      <div class="slots">
+        <div class="slot pick">
+          <span class="tag">done</span>
+          <b>Maths lab → C23-Lab3</b>
+          <span>Thu 12:00 becomes Wed 18:00 · 3.30</span>
+        </div>
+        <div class="slot">
+          <span class="tag">unchanged</span>
+          <b>Data Science stays E1339</b>
+          <span>Thu 12:00 · Forum (A+B)</span>
+        </div>
+        <div class="slot">
+          <span class="tag">unchanged</span>
+          <b>Its lab stays Monday</b>
+          <span>E1339-Lab · Mon 16:00</span>
+        </div>
+      </div>
+      <p>
+        Thursday is clear, which was the point. The price is that the week stays four
+        days rather than three: Monday keeps the Data Science lab, and Wednesday now
+        stretches from 10:00 to 20:00 with a four-hour hole in the afternoon.
+      </p>
+      <p>
+        Moving to the C11 slot is still available and would still collapse the week onto
+        Tuesday, Wednesday and Thursday, since the Data Science lab follows its slot and
+        would land on Monday noon or Tuesday afternoon. It is no longer a fix for
+        anything, though. It is a preference about shape.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>The semester, week by week</h2>
+      <p>
+        From the official Fall 2026 course schedule. Nothing meets during the fall
+        break week of 19 October. The December column is the make-up week each course
+        holds in reserve.
+      </p>
+    </div>
+
+    <div class="panel cal">
+      <div class="cal-grid">
+        <div></div>
+        <div class="hd">Aug 31<br>Sep 3</div>
+        <div class="hd">Sep<br>7–10</div>
+        <div class="hd">Sep<br>14–17</div>
+        <div class="hd">Sep<br>21–24</div>
+        <div class="hd">Sep 28<br>Oct 1</div>
+        <div class="hd">Oct<br>5–8</div>
+        <div class="hd">Oct<br>12–15</div>
+        <div class="hd brk">Oct<br>19–25</div>
+        <div class="hd">Oct<br>26–29</div>
+        <div class="hd">Nov<br>2–5</div>
+        <div class="hd">Nov<br>9–12</div>
+        <div class="hd">Nov<br>16–19</div>
+        <div class="hd">Nov<br>23–26</div>
+        <div class="hd">Nov 30<br>Dec 3</div>
+
+        <div class="rowlab"><b>Mathematics for Data Science</b><span>Tue 08:00 · Forum</span></div>
+        <div class="cell r2">1</div>
+        <div class="cell r2">2</div>
+        <div class="cell r2 quiz">3</div>
+        <div class="cell r2">4</div>
+        <div class="cell r2 quiz">5</div>
+        <div class="cell r2">6</div>
+        <div class="cell r2 quiz">7</div>
+        <div class="cell none">brk</div>
+        <div class="cell r2">8</div>
+        <div class="cell r2 quiz">9</div>
+        <div class="cell r2">10</div>
+        <div class="cell r2 quiz">11</div>
+        <div class="cell r2">12</div>
+        <div class="cell faint r2">mu</div>
+
+        <div class="rowlab"><b>Mathematics lab</b><span>Wed 18:00 · 3.30</span></div>
+        <div class="cell r2">1</div>
+        <div class="cell r2">2</div>
+        <div class="cell r2">3</div>
+        <div class="cell r2">4</div>
+        <div class="cell r2">5</div>
+        <div class="cell r2">6</div>
+        <div class="cell r2">7</div>
+        <div class="cell none">brk</div>
+        <div class="cell r2">8</div>
+        <div class="cell r2">9</div>
+        <div class="cell r2">10</div>
+        <div class="cell r2">11</div>
+        <div class="cell r2">12</div>
+        <div class="cell faint r2">mu</div>
+
+        <div class="rowlab"><b>Economics of Crime</b><span>Wed 10:00 · 2.32</span></div>
+        <div class="cell r3">1</div>
+        <div class="cell r3">2</div>
+        <div class="cell r3">3</div>
+        <div class="cell r3">4</div>
+        <div class="cell r3">5</div>
+        <div class="cell r3">6</div>
+        <div class="cell r3">7</div>
+        <div class="cell none">brk</div>
+        <div class="cell r3">8</div>
+        <div class="cell r3">9</div>
+        <div class="cell r3">10</div>
+        <div class="cell r3">11</div>
+        <div class="cell r3">12</div>
+        <div class="cell faint r3">mu</div>
+
+        <div class="rowlab"><b>Economics of Media</b><span>Wed 12:00 · 2.32</span></div>
+        <div class="cell r4">1</div>
+        <div class="cell r4">2</div>
+        <div class="cell r4">3</div>
+        <div class="cell r4">4</div>
+        <div class="cell r4">5</div>
+        <div class="cell r4">6</div>
+        <div class="cell r4">7</div>
+        <div class="cell none">brk</div>
+        <div class="cell r4">8</div>
+        <div class="cell r4">9</div>
+        <div class="cell r4">10</div>
+        <div class="cell r4">11</div>
+        <div class="cell r4">12</div>
+        <div class="cell faint r4">mu</div>
+
+        <div class="rowlab"><b>Introduction to Data Science</b><span>Thu 12:00 · Forum</span></div>
+        <div class="cell r1">1</div>
+        <div class="cell r1">2</div>
+        <div class="cell r1">3</div>
+        <div class="cell r1">4</div>
+        <div class="cell r1">5</div>
+        <div class="cell r1">6</div>
+        <div class="cell r1">7</div>
+        <div class="cell none">brk</div>
+        <div class="cell r1">8</div>
+        <div class="cell r1">9</div>
+        <div class="cell r1">10</div>
+        <div class="cell r1">11</div>
+        <div class="cell r1">12</div>
+        <div class="cell faint r1">mu</div>
+
+        <div class="rowlab"><b>Data Science lab</b><span>Mon 16:00 · 2.30 or 2.61</span></div>
+        <div class="cell r1">1</div>
+        <div class="cell r1">2</div>
+        <div class="cell r1">3</div>
+        <div class="cell r1">4</div>
+        <div class="cell r1">5</div>
+        <div class="cell r1">6</div>
+        <div class="cell r1">7</div>
+        <div class="cell none">brk</div>
+        <div class="cell r1">8</div>
+        <div class="cell r1">9</div>
+        <div class="cell r1">10</div>
+        <div class="cell r1">11</div>
+        <div class="cell r1">12</div>
+        <div class="cell faint r1">mu</div>
+      </div>
+
+      <div class="cal-legend">
+        <i><span class="dot-quiz"></span> Mathematics quiz — Sep 15, Sep 29, Oct 13, Nov 3, Nov 17</i>
+        <i><span class="dot-mu"></span> make-up week</i>
+        <i><span class="dot-brk"></span> fall break</i>
+        <i>Hackathon: Fri 6 Nov 12:00 → Mon 9 Nov 12:00</i>
+        <i>Last day of classes 27 Nov · finals 7–11 Dec</i>
+      </div>
+      <p class="tt-note" style="border-top:0; padding-top:12px;">
+        The Tuesday lab runs 1 September to 24 November with a make-up on 1 December,
+        in step with everything else. Moving off the Monday lab also drops its oddity:
+        that series was dated from 31 August, a week before the first lecture.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>How each grade is built</h2>
+      <p>Every bar adds up to 100%. The darkest segment is the one that weighs most.</p>
+    </div>
+
+    <div class="courses">
+
+      <!-- ── C11 / E1339 ─────────────────────────────────── -->
+      <article class="course c1">
+        <header>
+          <span class="code">GRAD-C11 / E1339</span>
+          <h3>Introduction to Data Science</h3>
+          <span class="who">Simon Munzert · submissions through GitHub</span>
+          <span class="when">Thu 12:00 · Forum (A+B) · lab Mon 16:00 · Sep 3 → Nov 26</span>
+        </header>
+
+        <div class="bar" role="img" aria-label="Grade composition: exam 40%, hackathon 36%, quizzes 24%.">
+          <div class="seg" tabindex="0" data-tip="In-class exam · 40%" style="flex:40; background: var(--c1);"></div>
+          <div class="seg" tabindex="0" data-tip="Hackathon · 36%" style="flex:36; background: color-mix(in oklab, var(--c1) 66%, var(--surface));"></div>
+          <div class="seg" tabindex="0" data-tip="Quizzes · 24%" style="flex:24; background: color-mix(in oklab, var(--c1) 38%, var(--surface));"></div>
+        </div>
+
+        <div class="legend">
+          <div class="row">
+            <span class="swatch" style="background: var(--c1);"></span>
+            <span class="name">In-class exam <small>Exam week, 7–11 Dec <span class="chip">day TBD</span></small></span>
+            <span class="pct">40%</span>
+          </div>
+          <div class="row">
+            <span class="swatch" style="background: color-mix(in oklab, var(--c1) 66%, var(--surface));"></span>
+            <span class="name">Hackathon <small>72-hour sprint, 6–9 November</small></span>
+            <span class="pct">36%</span>
+          </div>
+          <div class="row">
+            <span class="swatch" style="background: color-mix(in oklab, var(--c1) 38%, var(--surface));"></span>
+            <span class="name">Quizzes <small>8 of 10 × 3%, at the start of class</small></span>
+            <span class="pct">24%</span>
+          </div>
+          <div class="row">
+            <span class="swatch" style="background: var(--rule);"></span>
+            <span class="name">Homework <small>Thursdays 10:00, the week after the lecture. At least 75% must pass</small></span>
+            <span class="pct passfail">pass/fail</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- ── C23 ─────────────────────────────────────────── -->
+      <article class="course c2">
+        <header>
+          <span class="code">GRAD-C23</span>
+          <h3>Mathematics for Data Science</h3>
+          <span class="who">Jan Gieseler · labs with Camilo Pedraza · materials on GitHub</span>
+          <span class="when">Tue 08:00 · Forum (A+B) · lab Wed 18:00 · Sep 1 → Nov 24</span>
+        </header>
+
+        <div class="bar" role="img" aria-label="Grade composition: final exam 45%, quizzes 25%, participation 15%, problem sets 15%.">
+          <div class="seg" tabindex="0" data-tip="Final exam · 45%" style="flex:45; background: var(--c2);"></div>
+          <div class="seg" tabindex="0" data-tip="5 in-class quizzes · 25%" style="flex:25; background: color-mix(in oklab, var(--c2) 66%, var(--surface));"></div>
+          <div class="seg" tabindex="0" data-tip="Participation · 15%" style="flex:15; background: color-mix(in oklab, var(--c2) 44%, var(--surface));"></div>
+          <div class="seg" tabindex="0" data-tip="3 problem sets · 15%" style="flex:15; background: color-mix(in oklab, var(--c2) 24%, var(--surface));"></div>
+        </div>
+
+        <div class="legend">
+          <div class="row">
+            <span class="swatch" style="background: var(--c2);"></span>
+            <span class="name">Final exam <small>In class, exam week, 7–11 Dec <span class="chip">day TBD</span></small></span>
+            <span class="pct">45%</span>
+          </div>
+          <div class="row">
+            <span class="swatch" style="background: color-mix(in oklab, var(--c2) 66%, var(--surface));"></span>
+            <span class="name">5 in-class quizzes <small>5% each — Sep 15, Sep 29, Oct 13, Nov 3, Nov 17. All five count: no drop, unlike Data Science</small></span>
+            <span class="pct">25%</span>
+          </div>
+          <div class="row">
+            <span class="swatch" style="background: color-mix(in oklab, var(--c2) 44%, var(--surface));"></span>
+            <span class="name">Participation</span>
+            <span class="pct">15%</span>
+          </div>
+          <div class="row">
+            <span class="swatch" style="background: color-mix(in oklab, var(--c2) 24%, var(--surface));"></span>
+            <span class="name">3 problem sets <small>5% each. PS1 out 8 Sep, due 20 Sep · PS2 out 22 Sep, due 4 Oct <span class="chip">PS3 not posted</span></small></span>
+            <span class="pct">15%</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- ── E1169 ───────────────────────────────────────── -->
+      <article class="course c3">
+        <header>
+          <span class="code">GRAD-E1169</span>
+          <h3>Economics of Crime and Security</h3>
+          <span class="who">Christian Traxler · submissions through Moodle</span>
+          <span class="when">Wed 10:00–12:00 · room 2.32 · Sep 2 → Nov 25</span>
+        </header>
+
+        <div class="bar" role="img" aria-label="Grade composition: presentation 45%, final exam 40%, participation 15%.">
+          <div class="seg" tabindex="0" data-tip="Paper presentation · 45%" style="flex:45; background: var(--c3);"></div>
+          <div class="seg" tabindex="0" data-tip="Final exam · 40%" style="flex:40; background: color-mix(in oklab, var(--c3) 62%, var(--surface));"></div>
+          <div class="seg" tabindex="0" data-tip="Participation · 15%" style="flex:15; background: color-mix(in oklab, var(--c3) 32%, var(--surface));"></div>
+        </div>
+
+        <div class="legend">
+          <div class="row">
+            <span class="swatch" style="background: var(--c3);"></span>
+            <span class="name">Paper presentation <small>15 minutes, on a Wednesday. Slides as PDF emailed to Traxler the Tuesday evening before <span class="chip">paper not assigned</span></small></span>
+            <span class="pct">45%</span>
+          </div>
+          <div class="row">
+            <span class="swatch" style="background: color-mix(in oklab, var(--c3) 62%, var(--surface));"></span>
+            <span class="name">Final exam <small>Written, one hour, exam week, 7–11 Dec <span class="chip">day TBA</span></small></span>
+            <span class="pct">40%</span>
+          </div>
+          <div class="row">
+            <span class="swatch" style="background: color-mix(in oklab, var(--c3) 32%, var(--surface));"></span>
+            <span class="name">Participation <small>Includes the <i>resident expert</i> role in some sessions: read past the required list and act as the reference for everyone else</small></span>
+            <span class="pct">15%</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- ── E1367 ───────────────────────────────────────── -->
+      <article class="course c4">
+        <header>
+          <span class="code">GRAD-E1367</span>
+          <h3>Economics of Media</h3>
+          <span class="who">Arianna Ornaghi · submissions through Moodle</span>
+          <span class="when">Wed 12:00–14:00 · room 2.32 · Sep 2 → Nov 25</span>
+        </header>
+
+        <div class="bar" role="img" aria-label="Grade composition: research design 45%, debate as critic 25%, debate as defender 20%, participation 10%.">
+          <div class="seg" tabindex="0" data-tip="Research design · 45%" style="flex:45; background: var(--c4);"></div>
+          <div class="seg" tabindex="0" data-tip="Debate, critic role · 25%" style="flex:25; background: color-mix(in oklab, var(--c4) 66%, var(--surface));"></div>
+          <div class="seg" tabindex="0" data-tip="Debate, defender role · 20%" style="flex:20; background: color-mix(in oklab, var(--c4) 44%, var(--surface));"></div>
+          <div class="seg" tabindex="0" data-tip="Participation · 10%" style="flex:10; background: color-mix(in oklab, var(--c4) 24%, var(--surface));"></div>
+        </div>
+
+        <div class="legend">
+          <div class="row">
+            <span class="swatch" style="background: var(--c4);"></span>
+            <span class="name">Research design <small>The syllabus dates it 15 December 2025 <span class="chip">erratum</span></small></span>
+            <span class="pct">45%</span>
+          </div>
+          <div class="row">
+            <span class="swatch" style="background: color-mix(in oklab, var(--c4) 66%, var(--surface));"></span>
+            <span class="name">Debate, critic role <small>Ten-minute intervention. The deadline follows whichever debate you draw</small></span>
+            <span class="pct">25%</span>
+          </div>
+          <div class="row">
+            <span class="swatch" style="background: color-mix(in oklab, var(--c4) 44%, var(--surface));"></span>
+            <span class="name">Debate, defender role <small>The second of the two debates in the semester</small></span>
+            <span class="pct">20%</span>
+          </div>
+          <div class="row">
+            <span class="swatch" style="background: color-mix(in oklab, var(--c4) 24%, var(--surface));"></span>
+            <span class="name">Participation</span>
+            <span class="pct">10%</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Still to ask</h2>
+      <p>
+        The schedule closed the dates question. What is left is announcement-shaped:
+        it arrives by email or on Moodle, not in any document you already hold.
+      </p>
+    </div>
+
+    <div class="panel">
+      <div class="q all">
+        <span class="whom">All three</span>
+        <span class="what"><b>Which day inside exam week each final falls on.</b>
+          <small>The week is fixed: 7–11 December. The days are not. Data Science 40%, Mathematics 45%, Econ of Crime 40%, all onsite. A missed final goes to the make-up week of 1–5 February 2027.</small>
+        </span>
+      </div>
+      <div class="q c4">
+        <span class="whom">Ornaghi</span>
+        <span class="what"><b>The real research design deadline.</b>
+          <small>The syllabus says 15 December 2025 and the semester is Fall 2026. It is worth 45%.</small>
+        </span>
+      </div>
+      <div class="q c3">
+        <span class="whom">Traxler</span>
+        <span class="what"><b>Which paper to present, and in which session.</b>
+          <small>Each student gets a different one. The session fixes the Tuesday the slides are due.</small>
+        </span>
+      </div>
+      <div class="q c4">
+        <span class="whom">Ornaghi</span>
+        <span class="what"><b>Which two debates each role falls in.</b>
+          <small>Critic and defender are 45% combined and both deadlines hang off those dates.</small>
+        </span>
+      </div>
+      <div class="q c2">
+        <span class="whom">Gieseler</span>
+        <span class="what"><b>Whether sessions 4 and 5 follow the website or the syllabus.</b>
+          <small>The course site puts calculus on 22 September and continuous random variables on the 29th; the syllabus has them the other way round. It changes which book to read, and what quiz 2 covers.</small>
+        </span>
+      </div>
+      <div class="q c1">
+        <span class="whom">Registration</span>
+        <span class="what"><b>Whether to still ask for the C11 slot.</b>
+          <small>The clash it was meant to fix is gone. Moving would empty Monday and pull the Data Science lab onto Tuesday, collapsing the week onto three days. A preference now, not a fix.</small>
+        </span>
+      </div>
+      <div class="q all">
+        <span class="whom">Office hours</span>
+        <span class="what"><b>Ornaghi's slot, and confirmation of Traxler's.</b>
+          <small>Ornaghi's are listed as TBD; Traxler proposes Mondays 10:00–12:00 but marks it “t.b.c.”, booked through Calendly.</small>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Session dates from the official Fall 2026 course schedule; weights from the four syllabi.</span>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  var start = new Date(2026, 8, 1);          // 1 September 2026, Mathematics session 1
+  var last  = new Date(2026, 11, 3);         // 3 December, last make-up date
+  var now   = new Date();
+  var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  var day   = 86400000;
+
+  var n = document.getElementById('countdown');
+  var k = document.getElementById('countdown-k');
+  var d = Math.round((start - today) / day);
+
+  if (d > 1)        { n.textContent = d; k.textContent = 'days until the first class'; }
+  else if (d === 1) { n.textContent = 1; k.textContent = 'day until the first class'; }
+  else if (d === 0) { n.textContent = 'today'; k.textContent = 'the semester starts'; }
+  else if (today <= last) {
+    var wk = Math.floor((today - start) / (7 * day)) + 1;
+    n.textContent = 'wk ' + wk;
+    k.textContent = 'of 14 scheduled weeks';
+  } else {
+    n.textContent = '—';
+    k.textContent = 'scheduled sessions are over';
+  }
+})();
+</script>
+
+</body>
+</html>
