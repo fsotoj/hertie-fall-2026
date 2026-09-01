@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What is Data Science? — E1339 Session 1</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="crumb"><a href="../">← Fall 2026 Coordinator</a></div>
+    <div class="eyebrow">GRAD-C11 / E1339 · Introduction to Data Science · Session 1</div>
+    <h1>What is data science?</h1>
+    <p class="standfirst">
+      Thursday 3 September 2026, 12:00–14:00, Forum (A+B). Simon Munzert. Two required
+      readings, one chapter each from Kelleher and Tierney and from Salganik, both
+      framing rather than technical. The lab that accompanies this session already ran
+      on Monday 31 August.
+    </p>
+  </header>
+
+  <section>
+    <div class="sec-head">
+      <h2>The reading</h2>
+      <p>
+        Required first, then the two optional books that the rest of the course leans on
+        and that are free online.
+      </p>
+    </div>
+
+    <div class="panel" style="padding: 16px 20px;">
+      <div class="prose" style="gap: 14px;">
+        <p>
+          <b>Kelleher, J. and B. Tierney (2018), <i>Data Science</i>, MIT Press
+          Essential Knowledge series, chapter 1, "What Is Data Science?"</b>
+          On Moodle.
+        </p>
+        <p>
+          <b>Salganik, M. (2017), <i>Bit by Bit: Social Research in the Digital Age</i>,
+          Princeton University Press, chapters 1 and 2.</b> Free at
+          bitbybitbook.com.
+        </p>
+        <p style="font-size:14px; color:var(--ink-2);">
+          Optional: <b>R4DS</b> chapters 1–4 (r4ds.hadley.nz), the course's main
+          textbook, and <b>Advanced R</b> chapters 1–5 (adv-r.hadley.nz), which the
+          syllabus recommends only if you already have substantial R experience.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>What the two readings are for</h2>
+      <p>
+        They answer the same question from opposite ends: what the field is made of, and
+        what it does to research.
+      </p>
+    </div>
+
+    <div class="prose">
+      <p>
+        <b>Kelleher and Tierney</b> define the field by its lineage. The chapter's thread
+        is the 1990s problem that produced it: organisations accumulating data they could
+        not analyse, held in separate databases that were built for storage and retrieval
+        rather than for analytical work, and the data warehouse as the answer to that.
+        Statistics, machine learning, database engineering and what got called big data
+        arrive as the components. Read it for the vocabulary and the boundaries of the
+        term, not for method.
+      </p>
+      <p>
+        <b>Salganik chapter 2, "Observing Behavior", is the one with structure to hold
+        on to.</b> It sets out <b>ten common characteristics of big data</b>, and the list
+        is worth memorising because half of it is bad news: big, always-on and
+        nonreactive on the good side; incomplete, inaccessible, nonrepresentative,
+        drifting, algorithmically confounded, dirty and sensitive on the other. Then
+        three research strategies that work with such data anyway: <b>counting things,
+        forecasting and nowcasting, and approximating experiments</b>.
+      </p>
+      <p>
+        Chapter 1 is the shorter setup: what changes when research moves into the digital
+        age, and the distinction the book runs on between data made for research and data
+        made for something else that a researcher repurposes. Both chapters are about
+        judgement rather than tooling, which is the point of putting them in week one.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>The lab, which runs ahead of the lecture</h2>
+    </div>
+
+    <div class="prose">
+      <p>
+        The Data Science lab is Mondays 16:00–18:00, and the official schedule dates the
+        series <b>31 August to 23 November, with a make-up on 30 November</b>. Every lab
+        therefore falls on the Monday <i>before</i> the Thursday lecture it is numbered
+        with: lab 1 was Monday 31 August, three days ahead of this session. Its stated
+        job for session 1 is getting you set up to wrangle data in R the tidyverse way.
+      </p>
+      <p>
+        Two groups, both at the same hour: <b>Lab 1</b> in room 2.30 with Laia Domenech
+        Burin, <b>Lab 2</b> in room 2.61 with Linus Hagemann. Which group each student
+        belongs to is not stated in the schedule file.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>What starts running this week</h2>
+      <p>Four assessments, and three of them begin producing deadlines immediately.</p>
+    </div>
+
+    <div class="prose">
+      <ul>
+        <li>
+          <b>Homework, pass/fail.</b> Due Thursdays at 10:00 in the week after the
+          lecture, through GitHub, so the first one is due <b>Thursday 10 September at
+          10:00</b>. Collaboration is encouraged, submissions are individual, and at
+          least 75% of them must pass.
+        </li>
+        <li>
+          <b>Quizzes, 24%.</b> Ten short quizzes at the beginning of the lecture, of
+          which the best eight count at 3% each. Two misses cost nothing, which is the
+          opposite of the Mathematics rule, where all five count.
+        </li>
+        <li>
+          <b>Hackathon, 36%.</b> A 72-hour sprint, 6 November 12:00 to 9 November 12:00,
+          in teams of three or four, on one given dataset plus a creative project of your
+          own with the same data. Kick-off is tentatively 6 November, 10:00–12:00. It is
+          extracurricular: it does not replace a session.
+        </li>
+        <li>
+          <b>In-class exam, 40%.</b> Exam week, 7–11 December, day still unannounced. Pen
+          and paper, no laptops, no internet.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Setup and rules that differ from the other courses</h2>
+    </div>
+
+    <div class="prose">
+      <p>
+        <b>Software.</b> RStudio/Posit, Markdown and Git/GitHub, with basic R assumed.
+        Everything is submitted through GitHub, so the account and the workflow need to
+        exist before the first homework is due rather than on the day.
+      </p>
+      <p>
+        <b>The AI policy is the strict one.</b> Generative AI is permitted <i>only for
+        specific assignments</i>, against the instructions given for each one, and a
+        Statement of Authorship goes in every written assignment. Economics of Crime
+        permits it throughout the course; do not carry that habit across.
+      </p>
+      <p>
+        <b>Attendance.</b> Two of twelve, if no course assignments are affected, and
+        Munzert states that he does not want to be told in advance.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>What you should be able to do afterwards</h2></div>
+    <div class="prose">
+      <ul>
+        <li>Say what data science is made of, and which parts are older than the label</li>
+        <li>Recite the ten characteristics of big data, and name which ones are problems</li>
+        <li>Match a research question to counting, forecasting or approximating an experiment</li>
+        <li>Explain why nonrepresentative and algorithmically confounded are different failures</li>
+        <li>Have R, RStudio, Git and a GitHub account working before the first homework</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel aside" style="border-left-color: var(--c1); background: color-mix(in oklab, var(--c1) 6%, var(--surface));">
+      <span class="lbl" style="color: var(--c1);">Looking ahead</span>
+      <p>
+        The course is four blocks. <b>Fundamentals</b>, sessions 1–4: this one, then
+        functions and debugging, iteration and automation, and the command line.
+        <b>Collecting data</b>, 5–7: web data and technologies, web scraping and APIs,
+        relational databases and SQL. <b>Analyzing data</b>, 8–9: modeling and
+        visualization, with the hackathon straight after. <b>Recurring parts of the
+        workflow</b>, 10–12: monitoring and communication, ethics, and AI in the data
+        science workflow.
+      </p>
+      <p>
+        Session 2, Thursday 10 September, is Programming I: functional programming tools
+        and a general debugging strategy before the specific tools. R4DS chapter 25 and
+        Advanced R chapter 22. The first homework is due that morning at 10:00.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Session primer, written from the syllabus, the official schedule file and the free online editions.</span>
+    <span><a href="../" style="color:inherit;">Back to the semester overview</a></span>
+  </footer>
+
+</div>
+
+</body>
+</html>
