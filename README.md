@@ -15,6 +15,10 @@ One file per session in `sessions/`, named `<course>-s<NN>.html`, for example
 the **Session notes** list on `index.html`, using the course's colour class
 (`c1` Data Science, `c2` Mathematics, `c3` Econ of Crime, `c4` Econ of Media).
 
+A lab session is named `<course>-lab<NN>.html` and works the same way. Where the lab
+materials have not been published yet, the primer says so and prepares from the
+lecture the lab extends, rather than guessing at the sheet.
+
 ## Changing the weekly timetable
 
 Each class is one `.ev` inside its `.tt-day`, and its hours live only in
