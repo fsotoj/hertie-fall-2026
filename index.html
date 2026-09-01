@@ -46,12 +46,6 @@
 
     <div class="panel tt">
       <div class="tt-grid">
-        <div></div>
-        <div class="dh">Mon</div>
-        <div class="dh">Tue</div>
-        <div class="dh">Wed</div>
-        <div class="dh" style="grid-column: 5 / 7;">Thu</div>
-
         <div class="hr" style="grid-row:2;">08:00</div>
         <div class="hr" style="grid-row:3;">09:00</div>
         <div class="hr" style="grid-row:4;">10:00</div>
@@ -78,26 +72,38 @@
         <div class="band" style="grid-row:12;"></div>
         <div class="band" style="grid-row:13;"></div>
 
-        <div class="ev e1" style="grid-column:2; grid-row:10 / 12;">
-          <b>Data Science lab</b><span>E1339-Lab · 2.30 or 2.61</span>
+        <div class="tt-day" data-day="mon">
+          <div class="dh">Mon</div>
+          <div class="ev e1" data-at="16:00–18:00">
+            <b>Data Science lab</b><span>E1339-Lab · 2.30 or 2.61</span>
+          </div>
         </div>
 
-        <div class="ev e2" style="grid-column:3; grid-row:2 / 4;">
-          <b>Mathematics</b><span>GRAD-C23 · Forum (A+B)</span>
+        <div class="tt-day" data-day="tue">
+          <div class="dh">Tue</div>
+          <div class="ev e2" data-at="08:00–10:00">
+            <b>Mathematics</b><span>GRAD-C23 · Forum (A+B)</span>
+          </div>
         </div>
 
-        <div class="ev e3" style="grid-column:4; grid-row:4 / 6;">
-          <b>Econ of Crime</b><span>GRAD-E1169 · 2.32</span>
-        </div>
-        <div class="ev e4" style="grid-column:4; grid-row:6 / 8;">
-          <b>Econ of Media</b><span>GRAD-E1367 · 2.32</span>
-        </div>
-        <div class="ev e2" style="grid-column:4; grid-row:12 / 14;">
-          <b>Mathematics lab</b><span>C23-Lab3 · 3.30</span>
+        <div class="tt-day" data-day="wed">
+          <div class="dh">Wed</div>
+          <div class="ev e3" data-at="10:00–12:00">
+            <b>Econ of Crime</b><span>GRAD-E1169 · 2.32</span>
+          </div>
+          <div class="ev e4" data-at="12:00–14:00">
+            <b>Econ of Media</b><span>GRAD-E1367 · 2.32</span>
+          </div>
+          <div class="ev e2" data-at="18:00–20:00">
+            <b>Mathematics lab</b><span>C23-Lab3 · 3.30</span>
+          </div>
         </div>
 
-        <div class="ev e1" style="grid-column:5 / 7; grid-row:6 / 8;">
-          <b>Data Science</b><span>GRAD-E1339 · Forum (A+B)</span>
+        <div class="tt-day" data-day="thu">
+          <div class="dh">Thu</div>
+          <div class="ev e1" data-at="12:00–14:00">
+            <b>Data Science</b><span>GRAD-E1339 · Forum (A+B)</span>
+          </div>
         </div>
       </div>
 
@@ -140,6 +146,8 @@
     </div>
 
     <div class="panel cal">
+      <p class="swipe" aria-hidden="true">scroll sideways for the whole semester →</p>
+      <div class="cal-scroll">
       <div class="cal-grid">
         <div></div>
         <div class="hd">Aug 31<br>Sep 3</div>
@@ -252,6 +260,7 @@
         <div class="cell r1">11</div>
         <div class="cell r1">12</div>
         <div class="cell faint r1">mu</div>
+      </div>
       </div>
 
       <div class="cal-legend">
@@ -489,6 +498,27 @@
 </div>
 
 <script>
+// The weekly timetable carries each event's hours once, in data-at. The grid rows
+// are derived from it here, so the time text and the block position cannot drift.
+// Without JS the same markup stays a day-by-day list, which is the phone layout.
+(function () {
+  var grid = document.querySelector('.tt-grid');
+  if (!grid) return;
+  var evs = grid.querySelectorAll('.ev[data-at]');
+  var placed = 0;
+  for (var i = 0; i < evs.length; i++) {
+    var m = /(\d{1,2}):(\d{2})\s*[\u2013-]\s*(\d{1,2}):(\d{2})/.exec(evs[i].getAttribute('data-at'));
+    if (!m) continue;
+    var from = +m[1] + (+m[2]) / 60;
+    var to   = +m[3] + (+m[4]) / 60;
+    if (!(to > from)) continue;
+    // row 2 is the 08:00 band, so a row line is the hour minus six.
+    evs[i].style.gridRow = (Math.floor(from) - 6) + ' / ' + (Math.ceil(to) - 6);
+    placed++;
+  }
+  if (placed === evs.length) grid.classList.add('is-grid');
+})();
+
 (function () {
   var start = new Date(2026, 8, 1);          // 1 September 2026, Mathematics session 1
   var last  = new Date(2026, 11, 3);         // 3 December, last make-up date
