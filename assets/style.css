@@ -281,6 +281,14 @@ h2 {
   background: var(--surface);
   box-shadow: 0 0 0 1.5px var(--c);
 }
+.cell.pres::after {
+  content: "";
+  position: absolute;
+  left: 3px; bottom: 3px;
+  width: 6px; height: 6px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1.5px var(--c);
+}
 .r1 { --c: var(--c1); } .r2 { --c: var(--c2); }
 .r3 { --c: var(--c3); } .r4 { --c: var(--c4); }
 
@@ -304,6 +312,15 @@ h2 {
   content: ""; position: absolute; top: 2px; right: 2px;
   width: 5px; height: 5px; border-radius: 50%;
   background: var(--surface); box-shadow: 0 0 0 1.5px var(--c2);
+}
+.dot-pres {
+  width: 13px; height: 13px; border-radius: 3px;
+  background: var(--c3); position: relative; display: inline-block;
+}
+.dot-pres::after {
+  content: ""; position: absolute; left: 2px; bottom: 2px;
+  width: 5px; height: 5px;
+  background: var(--surface); box-shadow: 0 0 0 1.5px var(--c3);
 }
 .dot-exam {
   width: 13px; height: 13px; border-radius: 3px; display: inline-block;
