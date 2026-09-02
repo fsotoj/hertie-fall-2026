@@ -441,6 +441,11 @@ h2 {
   .tt-grid.is-grid .tt-day { display: contents; }
   .tt-grid.is-grid .tt-day > .dh,
   .tt-grid.is-grid .tt-day > .ev { grid-column: var(--col) / span var(--span, 1); }
+
+  /* two blocks at the same hour: sit them side by side rather than on top of
+     each other, which also reads as the mutual exclusion that they are */
+  .tt-grid.is-grid .tt-day > .ev[data-half="a"] { grid-column: var(--col) / span 1; }
+  .tt-grid.is-grid .tt-day > .ev[data-half="b"] { grid-column: calc(var(--col) + 1) / span 1; }
   .tt-grid.is-grid .tt-day > .dh {
     grid-row: 1;
     text-align: center;

@@ -39,11 +39,9 @@
       <h2>A normal week</h2>
       <p>
         Every teaching week, from the first session on 1 September to the last on
-        26 November. Four days, Monday to Thursday, with Friday empty. Two labs appear
-        twice, because a second group works as well as the assigned one: Mathematics on
-        Thursday afternoon, same room and same teaching assistant, and the Data Science
-        lab on Tuesday afternoon, which belongs to the other lecture slot and so runs on
-        Tuesday dates.
+        26 November. Solid blocks are the registered week: four days, Monday to Thursday,
+        with Friday empty. Dashed blocks are slots that are also available, drawn at the
+        hour they would occupy.
       </p>
     </div>
 
@@ -108,8 +106,16 @@
 
         <div class="tt-day" data-day="thu">
           <div class="dh">Thu</div>
-          <div class="ev e1" data-at="12:00–14:00">
+          <div class="ev e1 alt" data-at="10:00–12:00">
+            <span class="tagline">or here</span>
+            <b>Data Science</b><span>GRAD-C11 · Forum (A+B)</span>
+          </div>
+          <div class="ev e1" data-at="12:00–14:00" data-half="a">
             <b>Data Science</b><span>GRAD-E1339 · Forum (A+B)</span>
+          </div>
+          <div class="ev e2 alt" data-at="12:00–14:00" data-half="b">
+            <span class="tagline">only with C11</span>
+            <b>Mathematics lab</b><span>C23-Lab1 · 2.30</span>
           </div>
           <div class="ev e2 alt" data-at="16:00–18:00">
             <span class="tagline">or here</span>
@@ -120,9 +126,22 @@
 
       <p class="tt-note">
         Wednesday is the long day: two classes back to back from 10:00 to 14:00, then a
-        four-hour gap before the Mathematics lab at 18:00. Taking the Thursday group
-        instead closes that gap and ends Wednesday at 14:00, at the cost of a later
-        Thursday.
+        four-hour gap before the Mathematics lab at 18:00. The Thursday 16:00 lab closes
+        that gap on its own, same room and same teaching assistant.
+      </p>
+      <p class="tt-note">
+        <b>The two Thursday alternatives are one decision, not two.</b> C23-Lab1 sits at
+        12:00, underneath the Data Science lecture, so it only becomes possible by moving
+        that lecture to its earlier C11 slot at 10:00. Taking both gives a straight
+        Thursday from 10:00 to 14:00 and ends Wednesday at 14:00. The Data Science lab
+        follows the lecture slot, so it would move too, to one of the C11 groups: the
+        Tuesday 16:00 one is already drawn above. The week then runs Tuesday to Thursday
+        and Monday empties out.
+      </p>
+      <p class="tt-note">
+        In November none of this applies: C23-Lab1 and C23-Lab2 both meet on 19 and
+        26 November, inside the Chile window, where the Wednesday lab costs only the
+        25th.
       </p>
     </div>
   </section>
@@ -225,7 +244,7 @@
         <div class="cell faint r2">mu</div>
         <div class="cell exam">ex</div>
 
-        <div class="rowlab"><b>Mathematics lab</b><span>Wed 18:00 or Thu 16:00 · 3.30</span></div>
+        <div class="rowlab"><b>Mathematics lab</b><span>Wed 18:00 · 3.30 · or Thu 12:00/16:00</span></div>
         <div class="cell r2">1</div>
         <div class="cell r2">2</div>
         <div class="cell r2">3</div>
@@ -276,7 +295,7 @@
         <div class="cell faint r4">mu</div>
         <div class="cell exam">RD</div>
 
-        <div class="rowlab"><b>Introduction to Data Science</b><span>Thu 12:00 · Forum</span></div>
+        <div class="rowlab"><b>Introduction to Data Science</b><span>Thu 12:00 or 10:00 · Forum</span></div>
         <div class="cell r1">1</div>
         <div class="cell r1">2</div>
         <div class="cell r1">3</div>
