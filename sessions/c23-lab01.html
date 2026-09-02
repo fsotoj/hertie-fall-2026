@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lab 1, Probability in Practice — C23</title>
+<title>Lab 1, Simulating Probability — C23</title>
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
@@ -13,86 +13,103 @@
   <header class="masthead">
     <div class="crumb"><a href="../">← Fall 2026 Coordinator</a></div>
     <div class="eyebrow">GRAD-C23-Lab3 · Mathematics for Data Science · Lab 1</div>
-    <h1>Lab 1: the first session, worked by hand</h1>
+    <h1>Simulating the birthday problem</h1>
     <p class="standfirst">
-      Wednesday 2 September 2026, 18:00–20:00, room 3.30. The lab materials have not
-      been published yet, so this is preparation from the lecture the lab follows rather
-      than from a lab sheet.
+      Wednesday 2 September 2026, 18:00–20:00, room 3.30. Python, NumPy and pandas, with
+      the session 1 probability material turned into simulations: birthdays, dice, and
+      the drunken passenger. The handout and a skeleton notebook are in the course
+      materials repository.
     </p>
   </header>
 
   <section>
     <div class="sec-head">
-      <h2>The materials are not out</h2>
+      <h2>Set up before you arrive, not in the room</h2>
+      <p>
+        The handout opens with an environment, and installing one during a two-hour lab
+        costs a quarter of it.
+      </p>
     </div>
 
     <div class="prose">
       <p>
-        The course website still says, for this session, that <i>materials for lab 1 are
-        not yet released</i> and that they will appear under
-        <code>materials/labs/01_lab</code> in the course's GitHub organisation when they
-        are. Checked again today.
+        The lab runs on <b>Python, not R</b>. That is the first thing to get straight if
+        you have been living in the Data Science course, which is R throughout. The
+        handout uses <code>uv</code> to manage both the interpreter and the packages:
+        install uv, run <code>uv init</code> to create a <code>pyproject.toml</code>,
+        then <code>uv add numpy pandas matplotlib jupyter</code>, and open the notebook
+        with <code>uv run jupyter lab</code> or in VS Code. Without uv, Python 3.10 or
+        newer and the same four packages through pip do the same job.
       </p>
       <p>
-        <b>That repository returns 404 until you are a member of the organisation, and
-        membership is not automatic.</b> It is granted by opening a "Join course" issue
-        in the organisation's welcome repository and pasting the enrolment code that the
-        teaching team emails to your Hertie address. If that has not gone through, the
-        lab is the right place and the right moment to sort it out: the TA can see the
-        membership list, and every later lab and problem set is distributed the same way.
+        Every cell in the notebook imports from that set: <code>numpy</code>,
+        <code>pandas</code>, <code>matplotlib.pyplot</code>, and <code>factorial</code>
+        and <code>comb</code> from the standard library's <code>math</code>.
       </p>
     </div>
   </section>
 
   <section>
     <div class="sec-head">
-      <h2>What the lab is for</h2>
+      <h2>What the lab actually asks</h2>
+      <p>Six blocks, moving from syntax to two genuinely interesting problems.</p>
     </div>
 
     <div class="prose">
       <p>
-        The syllabus describes the course as lectures that carry the main content plus
-        <b>small-group lab sessions that reinforce and extend the material</b>, with
-        hands-on tutorials alongside the regular assignments and the in-class quizzes.
-        The labs are not optional in the syllabus's own framing: it asks for consistent
-        weekly effort across readings, assignments <i>and</i> regular attendance of both
-        the lecture and the lab.
+        <b>Warm-up, exercises 1 to 3.</b> Arrays and data frames, then indexing and
+        summarising: mean, min, max, sum, and the proportion of elements above a
+        threshold. Then the probability primitives: <code>factorial</code>,
+        <code>comb</code>, and NumPy's random generator for sampling with and without
+        replacement, with your own probabilities, rolling one die, two dice, and a loaded
+        die. It closes on seeding, and the question of what a seed actually does.
       </p>
       <p>
-        This one follows session 1 by a day, so it works over probability theory:
-        <a href="c23-s01.html">the session 1 primer</a> has the material. Sample spaces
-        and events as sets, the naive definition and why it is called naive, the four
-        counting cases from ordered or unordered against with or without replacement, the
-        axioms, conditioning, Bayes with a partition, independence against conditional
-        independence, and Monty Hall as the demonstration that intuition about
-        conditioning is unreliable.
+        <b>Simulation, exercise 4: the birthday problem.</b> One simulated class of 35
+        people first, then a hundred thousand of them, counting how many contain a repeat
+        and reading the proportion as the frequentist probability. The last step compares
+        that against the closed form derived in the lecture. This is the session's real
+        content: the same number arrived at twice, once by counting and once by
+        experiment.
       </p>
       <p>
-        Worth arriving with a specific question rather than a general one. The parts of
-        session 1 that survive contact with exercises are the two-by-two counting table
-        and the difference between P(A|B) and P(B|A); those are where a worked example
-        pays.
+        <b>Plotting, exercise 5.</b> Rebuild the birthday curve for classes of 1 to 100
+        people, into a two-column data frame, then a scatter plot with axis labels, a
+        title, and a red horizontal line at 0.5 so the crossing point is visible.
       </p>
-    </div>
-  </section>
-
-  <section>
-    <div class="sec-head">
-      <h2>Who is teaching it is genuinely unsettled</h2>
-    </div>
-
-    <div class="prose">
       <p>
-        The syllabus assigns <b>Jackson Luckey</b> to lab 3 and Camilo Pedraza Jiménez to
-        labs 1 and 2. The official schedule file puts <b>Camilo Pedraza</b> on all three,
-        and the course website lists him as the only teaching assistant. Two documents
-        against one, but the syllabus is the one that names an email address for him.
-        Whoever walks into 3.30 settles it.
+        <b>Exercise 6: the drunken passenger.</b> A hundred passengers board a hundred-seat
+        plane; the first sits at random, and everyone after takes their own seat if it is
+        free and a random free one otherwise. What is the probability the last passenger
+        gets their assigned seat? The lab builds it up in steps, wraps it in a function,
+        runs it ten thousand times, then generalises to any number of passengers to show
+        the answer does not depend on it. Part g asks for the argument rather than the
+        simulation, and points at the solution to exercise 59 in Blitzstein and Hwang.
       </p>
       <p style="font-size:14px; color:var(--ink-2);">
-        The course website also lists every lab at Wednesday 09:00, which cannot be right
-        for three groups meeting on two different days. The schedule file is the document
-        to trust on times: this group is Wednesday 18:00–20:00 in 3.30.
+        Worth knowing the answer to 6 before you start coding, because the simulation is
+        much easier to debug when you know what it should converge to. Two seats matter
+        and they are symmetric.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Where the materials live</h2>
+    </div>
+
+    <div class="prose">
+      <p>
+        <code>labs/01_lab/</code> in the course materials repository, as
+        <code>lab1_handout.pdf</code> and <code>lab1_student.ipynb</code>, the second
+        being the same document as a notebook with empty cells to fill.
+      </p>
+      <p>
+        <b>The course website is behind the repository.</b> Its schedule page still says
+        the lab 1 materials have not been released, while both files are sitting in
+        <code>labs/01_lab</code>. Check the repository directly rather than waiting for
+        the site to say the material exists.
       </p>
     </div>
   </section>
@@ -100,40 +117,36 @@
   <section>
     <div class="sec-head">
       <h2>What this lab feeds into</h2>
-      <p>Two deadlines follow it closely enough to be worth raising tomorrow.</p>
     </div>
 
     <div class="prose">
       <ul>
         <li>
           <b>Problem set 1, released Tuesday 8 September, due Sunday 20 September at
-          23:59.</b> Three problem sets over the semester, 5% each. Solutions must be
-          typed, LaTeX strongly recommended but not required, and every step shown: the
-          syllabus asks to be able to trace the whole process and to run any submitted
-          code unchanged.
+          23:59.</b> Typed solutions, LaTeX strongly recommended, all work shown, and any
+          submitted code has to run unchanged on the instructor's machine.
         </li>
         <li>
-          <b>Small groups are assigned for the problem sets</b>, with one solution set
-          handed in per group. Who is in which group is not in any document here, so it
-          is a question for the lab.
+          <b>Small groups are assigned for the problem sets</b>, one solution set per
+          group, and the assignment is not written down anywhere. Ask.
         </li>
         <li>
           <b>Quiz 1 is session 3, Tuesday 15 September</b>, at the start of the lecture,
-          pen and paper. All five quizzes count with no lowest score dropped, so the lab
-          in the week before it is the cheapest place to find out what you cannot yet do.
+          pen and paper. All five quizzes count with no lowest score dropped.
         </li>
       </ul>
     </div>
   </section>
 
   <section>
-    <div class="sec-head"><h2>Worth having before you walk in</h2></div>
+    <div class="sec-head"><h2>What you should be able to do afterwards</h2></div>
     <div class="prose">
       <ul>
-        <li>Session 1 read, not skimmed: the lab extends it rather than repeating it</li>
-        <li>Membership of the course GitHub organisation, or the question ready if it has not arrived</li>
-        <li>A way to type mathematics, since the first problem set lands in six days</li>
-        <li>The Blitzstein PDF, remembering that it runs seventeen pages ahead of the printed numbers</li>
+        <li>Sample with and without replacement, with custom probabilities, and say when each applies</li>
+        <li>Explain what seeding buys you, and what it does not</li>
+        <li>Write a Monte-Carlo loop and read its output as a probability</li>
+        <li>Recover the birthday formula and check it against the simulation</li>
+        <li>Say why the drunken passenger answer is one half, without running anything</li>
       </ul>
     </div>
   </section>
@@ -145,13 +158,13 @@
         Lab 2 is Wednesday 9 September, the day after session 2 on random variables and
         their distributions, and the same day problem set 1 is released. The lab series
         runs every Wednesday the course meets, through 25 November, with a make-up on
-        2 December.
+        2 December. The Thursday 16:00 group is interchangeable with this one.
       </p>
     </div>
   </section>
 
   <footer>
-    <span>Lab primer, written from the syllabus and the course website. The lab's own materials were not published when this was written.</span>
+    <span>Lab primer, written from the lab handout and the course syllabus.</span>
     <span><a href="../" style="color:inherit;">Back to the semester overview</a></span>
   </footer>
 
