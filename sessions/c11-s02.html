@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Functions and Debugging — C11 Session 2</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="crumb"><a href="../">← Fall 2026 Coordinator</a></div>
+    <div class="eyebrow">GRAD-C11 · Introduction to Data Science · Session 2</div>
+    <h1>Programming I: functions and debugging</h1>
+    <p class="standfirst">
+      Thursday 10 September 2026, 10:00–12:00, Forum (A+B). Simon Munzert. Two chapters,
+      one from each textbook: writing functions, then finding out why they do not work.
+      <b>Homework 1 is due at 10:00 that morning</b>, which is now the moment the lecture
+      starts.
+    </p>
+  </header>
+
+  <section>
+    <div class="sec-head">
+      <h2>The deadline moved under your feet</h2>
+    </div>
+
+    <div class="prose">
+      <p>
+        Homework is due Thursdays at 10:00 in the week after the lecture, so homework 1,
+        from session 1, is due <b>Thursday 10 September at 10:00</b>. Until this week that
+        left two hours of margin before the 12:00 lecture. In the earlier C11 slot the
+        deadline and the lecture start at the same minute.
+      </p>
+      <p>
+        So treat Wednesday evening as the real cutoff. It is submitted through GitHub, and
+        the pass mark matters in aggregate rather than per assignment: at least 75% of the
+        homework must pass, and each one is pass/fail with no contribution to the grade.
+      </p>
+      <p style="font-size:14px; color:var(--ink-2);">
+        Quizzes also run at the start of the lecture, ten of them across twelve sessions,
+        with the best eight counting at 3% each. Session 2 is the earliest one that can
+        carry the first, so arrive as though it does.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>The reading</h2>
+      <p>One chapter from each of the two books, both free online.</p>
+    </div>
+
+    <div class="panel" style="padding: 16px 20px;">
+      <div class="prose" style="gap: 14px;">
+        <p>
+          <b>R4DS chapter 25, "Functions"</b> — r4ds.hadley.nz. The course's main
+          textbook.
+        </p>
+        <p>
+          <b>Advanced R chapter 22, "Debugging"</b> — adv-r.hadley.nz.
+        </p>
+        <p style="font-size:14px; color:var(--ink-2);">
+          Optional: <b>Advanced R chapters 6 to 8</b> — Functions, Environments and
+          Conditions, which are the machinery underneath both required chapters — and
+          Grolemund, <i>Hands-On Programming with R</i>, at
+          rstudio-education.github.io/hopr.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>R4DS 25 — three kinds of function, not one</h2>
+      <p>
+        The chapter's organising move is that "write a function" means three different
+        jobs in R, and each has its own trap.
+      </p>
+    </div>
+
+    <div class="prose">
+      <p>
+        <b>The trigger for writing one at all</b> is repetition: copy and paste a block
+        more than twice and it should have been a function. The payoff the chapter argues
+        for is not brevity but correctness — a fix applied in one place rather than in
+        every copy you made.
+      </p>
+      <p>
+        <b>Vector functions</b> take one or more vectors and return a vector. These behave
+        the way functions do in most languages, and they are the straightforward case.
+      </p>
+      <p>
+        <b>Data frame functions</b> are where R stops behaving like other languages. Passing
+        a column name into a function does not work naively, because tidyverse verbs use
+        data masking: they evaluate bare column names inside the data frame. The chapter's
+        answer is <i>embracing</i>, wrapping an argument in <code>{{ }}</code> so the
+        function passes the expression through rather than evaluating it too early. If one
+        idea from this session shows up in your homework, it is this one.
+      </p>
+      <p>
+        <b>Plot functions</b> are the same problem again in ggplot2, where
+        <code>aes()</code> does the data masking. The chapter closes on <b>style</b>:
+        naming, and why a function's name should be a verb describing what it does.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Advanced R 22 — a strategy first, then the tools</h2>
+      <p>
+        The learning objective phrases it in that order deliberately: the general approach
+        matters more than knowing which function to call.
+      </p>
+    </div>
+
+    <div class="prose">
+      <p>
+        <b>The four steps</b>, in the chapter's own order. Google the error message, with
+        the variable-specific parts stripped out. Make it repeatable, which means reducing
+        it to a minimal reproducible example. Figure out where it is, by forming hypotheses
+        and testing them one at a time rather than changing things at random. Then fix it
+        <i>and test it</i>, to confirm both that the bug is gone and that you have not
+        introduced another.
+      </p>
+      <p>
+        The middle step is the one people skip. Reducing a failure to the smallest case
+        that still fails usually identifies the cause on its own, before any debugger is
+        opened.
+      </p>
+      <p>
+        <b>The tools</b>, grouped by what they are for. Locating an error:
+        <code>traceback()</code> for the call sequence that led to it. Stopping inside a
+        running function: <code>browser()</code>, RStudio breakpoints,
+        <code>debug()</code> and <code>debugonce()</code>, <code>trace()</code> for
+        inserting code at a chosen point, and <code>options(error = recover)</code> to
+        land in any frame after a failure. For code that is not running interactively,
+        <code>dump.frames()</code>. The chapter also covers <b>non-error failures</b>,
+        where nothing crashes but the answer is wrong, which is the harder category and
+        the one that matters most in data analysis.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>The third thing, which is not in the reading</h2>
+    </div>
+
+    <div class="prose">
+      <p>
+        The learning objective adds that the session discusses <b>a robust project
+        setup</b>, and neither required chapter covers it. Expect the material on project
+        structure, paths and reproducibility to come from the lecture itself rather than
+        from something you can read beforehand. Given that everything in this course is
+        submitted through GitHub, this is the part worth taking notes on.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>What you should be able to do afterwards</h2></div>
+    <div class="prose">
+      <ul>
+        <li>Say when a repeated block should become a function, and why</li>
+        <li>Write a function that takes a column name as an argument, using <code>{{ }}</code></li>
+        <li>Explain what data masking is and why it makes data frame functions awkward</li>
+        <li>Reduce a failing script to a minimal reproducible example</li>
+        <li>Choose between <code>traceback()</code>, <code>browser()</code> and <code>debugonce()</code> for a given failure</li>
+        <li>Debug a wrong answer, not just a crash</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel aside" style="border-left-color: var(--c1); background: color-mix(in oklab, var(--c1) 6%, var(--surface));">
+      <span class="lbl" style="color: var(--c1);">Looking ahead</span>
+      <p>
+        Session 3, Thursday 17 September, is Programming II: iteration, automation and
+        scheduling — the same functional programming thread applied to repetitive tasks.
+        R4DS chapter 26 and Jenny Bryan's "All the automation things".
+      </p>
+      <p>
+        The lab that accompanies this session is Tuesday 15 September at 16:00 in 2.34,
+        under the Tuesday series. It now falls in the same week as the lecture it belongs
+        to, which was not true of the old Monday series.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Session primer, written from the syllabus and the two assigned chapters.</span>
+    <span><a href="../" style="color:inherit;">Back to the semester overview</a></span>
+  </footer>
+
+</div>
+
+</body>
+</html>
