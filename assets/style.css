@@ -313,14 +313,15 @@ h2 {
   width: 5px; height: 5px; border-radius: 50%;
   background: var(--surface); box-shadow: 0 0 0 1.5px var(--c2);
 }
+/* the marker takes its row's colour in the grid, so the legend swatch stays neutral */
 .dot-pres {
   width: 13px; height: 13px; border-radius: 3px;
-  background: var(--c3); position: relative; display: inline-block;
+  background: var(--muted); position: relative; display: inline-block;
 }
 .dot-pres::after {
   content: ""; position: absolute; left: 2px; bottom: 2px;
   width: 5px; height: 5px;
-  background: var(--surface); box-shadow: 0 0 0 1.5px var(--c3);
+  background: var(--surface); box-shadow: 0 0 0 1.5px var(--muted);
 }
 .dot-exam {
   width: 13px; height: 13px; border-radius: 3px; display: inline-block;
