@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Random Variables — C23 Session 2</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="crumb"><a href="../">← Fall 2026 Coordinator</a></div>
+    <div class="eyebrow">GRAD-C23 · Mathematics for Data Science · Session 2</div>
+    <h1>Random variables and their distributions</h1>
+    <p class="standfirst">
+      Tuesday 8 September 2026, 08:00–10:00, Forum (A+B). Jan Gieseler. One chapter of
+      Blitzstein and Hwang, about thirty pages. No quiz this session — the first is a week
+      later. <b>Problem set 1 is released today.</b>
+    </p>
+  </header>
+
+  <section>
+    <div class="sec-head">
+      <h2>The reading</h2>
+      <p>
+        The syllabus gives printed page numbers, and the PDF runs seventeen pages ahead of
+        them.
+      </p>
+    </div>
+
+    <div class="panel" style="padding: 16px 20px;">
+      <table class="pages">
+        <thead>
+          <tr><th>Assigned</th><th>PDF page</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Chapter 3, pp. 103–133</td><td>120–150</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin:0; font-size:14px; color:var(--ink-2); max-width:70ch;">
+      One chapter this week rather than two, and it is the chapter the rest of the course
+      is built on.
+    </p>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>The course repository lists readings the syllabus does not</h2>
+    </div>
+
+    <div class="prose">
+      <p>
+        Under <code>readings/02_week-2</code> the materials repository adds, beyond the
+        required chapter, four chapters of <b>Will Kurt, <i>Bayesian Statistics the Fun
+        Way</i></b>: chapters 3 to 6, pp. 21–31, 33–43, 45–55 and 59–65. About forty pages
+        total, and they appear under "Additional Readings" rather than required.
+      </p>
+      <p>
+        This is worth knowing because the syllabus does not mention that book at all, and
+        neither did session 1. The repository has been ahead of the course website all
+        week, so it is the place to check before each session rather than after.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>What chapter 3 does</h2>
+      <p>
+        Session 1 was about events, which are sets. This chapter replaces them with
+        numbers, and that shift is the whole point of it.
+      </p>
+    </div>
+
+    <div class="prose">
+      <p>
+        <b>A random variable is a function</b>, not a variable. It maps each outcome in
+        the sample space to a number. That definition sounds like bookkeeping and is not:
+        it is what lets you do arithmetic on uncertainty, and everything later in the
+        course — expectation, variance, estimators, loss functions — depends on it.
+      </p>
+      <p>
+        <b>The distribution is separate from the variable.</b> Two random variables
+        defined on completely different experiments can share a distribution. The
+        <b>probability mass function</b> gives the probability of each value, and the
+        chapter is careful that the PMF describes the distribution rather than the
+        variable itself. Beginners routinely collapse the two.
+      </p>
+      <p>
+        <b>Then the named distributions</b>, each introduced by the story that generates
+        it rather than by its formula: <b>Bernoulli</b>, a single trial;
+        <b>Binomial</b>, a count of successes in independent trials with the same
+        probability; <b>Hypergeometric</b>, the same count when sampling without
+        replacement, so the trials are not independent; and the discrete uniform. The
+        book's method is to make the story primary, so that you recognise which
+        distribution applies from the setup instead of matching formulas.
+      </p>
+      <p>
+        <b>Cumulative distribution functions</b> come next, giving the probability of
+        being at most some value. The CDF is the tool that survives into continuous
+        random variables in session 4 or 5, where the PMF does not exist.
+      </p>
+      <p>
+        The chapter closes on <b>functions of random variables</b> and
+        <b>independence of random variables</b>, which is a stronger condition than the
+        independence of events from session 1, and on the connection between the Binomial
+        and the Hypergeometric.
+      </p>
+      <p style="font-size:14px; color:var(--ink-2);">
+        Section numbering above follows the second edition. The assigned range is the
+        whole chapter.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Problem set 1 is released today</h2>
+      <p>Twelve days, and the syllabus is explicit that it is not a one-evening job.</p>
+    </div>
+
+    <div class="prose">
+      <ul>
+        <li>
+          <b>Released Tuesday 8 September, due Sunday 20 September at 23:59</b>, through
+          Moodle. 5% of the grade, one of three problem sets.
+        </li>
+        <li>
+          <b>Typed solutions, all work shown.</b> LaTeX is strongly recommended but not
+          required, and the syllabus asks to be able to trace every step and to run any
+          submitted code unchanged.
+        </li>
+        <li>
+          <b>Assigned small groups, one solution set per group.</b> If the group is still
+          not known, this is the week it stops being a theoretical question.
+        </li>
+        <li>
+          The syllabus says to start early in as many words: the sets are designed to take
+          time and thought and cannot be completed the night before.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>What you should be able to do afterwards</h2></div>
+    <div class="prose">
+      <ul>
+        <li>Say why a random variable is a function, and what its domain is</li>
+        <li>Distinguish a random variable from its distribution</li>
+        <li>Recognise Bernoulli, Binomial and Hypergeometric from the story, not the formula</li>
+        <li>Explain why sampling without replacement breaks the Binomial assumption</li>
+        <li>Build a CDF from a PMF and say what the CDF is good for that the PMF is not</li>
+        <li>Distinguish independence of events from independence of random variables</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel aside">
+      <span class="lbl">Looking ahead</span>
+      <p>
+        Session 3, Tuesday 15 September, is expectation and joint distributions:
+        Blitzstein and Hwang chapter 4 sections 1–3 and 5–7, plus chapter 7 sections 1 and
+        4. <b>Quiz 1 is at the start of that lecture</b>, pen and paper, covering this
+        material. All five quizzes count with no lowest score dropped, so it is a real 5%.
+      </p>
+      <p>
+        The lab for this session is Wednesday 9 September at 18:00 in 3.30, or Thursday
+        10 September at 12:00 in 2.30, whichever suits: neither group is enforced. The
+        Thursday sitting runs straight after the Data Science lecture in the next room.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Session primer, written from the syllabus, the course materials repository and the assigned chapter.</span>
+    <span><a href="../" style="color:inherit;">Back to the semester overview</a></span>
+  </footer>
+
+</div>
+
+</body>
+</html>
