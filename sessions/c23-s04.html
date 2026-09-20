@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculus for Data Science · C23 Session 4</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="crumb"><a href="../">← Fall 2026 Coordinator</a></div>
+    <div class="eyebrow">GRAD-C23 · Mathematics for Data Science · Session 4</div>
+    <h1>Calculus for data science</h1>
+    <p class="standfirst">
+      Tuesday 22 September 2026, 08:00–10:00, Forum (A+B). Jan Gieseler. Derivatives,
+      optimisation and Taylor series from Herman and Strang, about seventy pages. No quiz
+      this session, but quiz 2 next week covers this lecture and the previous one.
+      <b>Assignment 1 is due Sunday 20 September at 23:59; assignment 2 opens today.</b>
+    </p>
+  </header>
+
+  <section>
+    <div class="panel aside">
+      <span class="lbl">Before anything else: assignment 1, Sunday 23:59</span>
+      <p>
+        The 1–2 minute video. <b>The submission route changed on 17 September:</b> the
+        course website's assignment page now says to upload the video to your
+        <code>assignment-1-&lt;handle&gt;</code> repository, with the Moodle link as an
+        optional alternative. The repository's own README still says Moodle. Either way,
+        name the file <code>lastname_firstname_assignment1</code> and keep it inside two
+        minutes: the format item is worth a point.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Which lecture this is</h2>
+      <p>
+        The syllabus says continuous random variables; the website says calculus. The
+        materials repository settles it for calculus.
+      </p>
+    </div>
+
+    <div class="prose">
+      <p>
+        <code>readings/04_week-4</code> in the materials repository lists Herman and
+        Strang, and <code>readings/05_week-5</code> lists the Blitzstein and Hwang chapters
+        on continuous random variables and limit theorems. Both files have been there since
+        5 September, and the website's session pages agree with them. The syllabus has the
+        two sessions the other way round. The order also makes sense: the lecture 1 deck
+        already said calculus is "needed for probability theory with continuous random
+        variables".
+      </p>
+      <p>
+        <b>The lecture 4 deck was not out as of Saturday 19 September.</b> Decks have
+        appeared on the morning of the lecture or the day after. Everything below comes
+        from the readings, and the deck, not this page, will define what quiz 2 can ask.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>The reading</h2>
+      <p>
+        Herman and Strang, <i>Calculus</i>, volumes 1 and 2 (OpenStax, free). In the
+        current OpenStax PDFs both volumes run eight pages ahead of the printed numbers.
+      </p>
+    </div>
+
+    <div class="panel" style="padding: 16px 20px;">
+      <table class="pages" style="max-width: 640px;">
+        <thead>
+          <tr><th>Assigned</th><th>Section</th><th>PDF page</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Vol. 1, pp. 247–260</td><td>3.3 Differentiation rules</td><td>255–268</td></tr>
+          <tr><td>Vol. 1, pp. 270–272</td><td>3.4 Population change; cost and revenue</td><td>278–280</td></tr>
+          <tr><td>Vol. 1, pp. 287–289</td><td>3.6 The chain rule, opening</td><td>295–297</td></tr>
+          <tr><td>Vol. 1, pp. 323–327</td><td>3.9 Exponential and log derivatives</td><td>331–335</td></tr>
+          <tr><td>Vol. 1, pp. 366–375</td><td>4.3 Maxima and minima</td><td>374–383</td></tr>
+          <tr><td>Vol. 1, pp. 390–402</td><td>4.5 Derivatives and the shape of a graph</td><td>398–410</td></tr>
+          <tr><td>Vol. 2, pp. 470–477</td><td>6.1 Power series and functions</td><td>478–485</td></tr>
+          <tr><td>Vol. 2, pp. 497–511</td><td>6.3 Taylor and Maclaurin series</td><td>505–519</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin:0; font-size:14px; color:var(--ink-2); max-width:70ch;">
+      The heaviest week so far by page count, though much of it is worked examples. If
+      time is short, read 3.9, 4.3 and 4.5 first, then 6.3, and keep 3.3 as reference. The
+      syllabus version of this list also names Example 3.54 on p. 292 (the chain rule
+      combined with the product rule), which the repository's range leaves out. Nothing on
+      integration is assigned, although the continuous random variables of session 5 are
+      defined through integrals.
+    </p>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>What the reading does</h2>
+      <p>
+        Three probability lectures described data-generating processes. This one supplies
+        the tool for fitting them: a model is fitted by optimising a function, and
+        optimising is calculus.
+      </p>
+    </div>
+
+    <div class="prose">
+      <p>
+        <b>Derivatives as rates of change.</b> The derivative is the local slope: how much
+        the output moves per unit of input. Section 3.3 is the toolkit (power, product,
+        quotient rules), and 3.4's two excerpts are the part a policy student already
+        knows under another name: <b>marginal cost is C′(x), marginal revenue is R′(x)</b>,
+        and the derivative at x approximates the cost or revenue of the next unit.
+      </p>
+      <p>
+        <b>The chain rule.</b> For f(g(x)), the derivative is f′(g(x))·g′(x): rates multiply
+        through a chain. Every model later in the course is a chain of this kind
+        (parameters, then a prediction, then a loss), and differentiating the loss with
+        respect to the parameters is the chain rule applied repeatedly.
+      </p>
+      <p>
+        <b>The exponential and the logarithm.</b> eˣ is its own derivative: growth
+        proportional to size. The derivative of ln g(x) is g′(x)/g(x), a relative change,
+        which is why log points read as percentages. And logs turn products into sums
+        before you differentiate, which is exactly the move maximum likelihood makes in
+        session 6.
+      </p>
+      <p>
+        <b>Maxima and minima.</b> Critical points are where the derivative is zero
+        <i>or undefined</i>. Fermat's theorem says a smooth local extremum has a zero
+        derivative, but not the reverse (x³ at zero). The Extreme Value Theorem guarantees
+        an absolute maximum and minimum for a continuous function on a closed interval, and
+        they are found by comparing the critical points <i>and the endpoints</i>.
+      </p>
+      <p>
+        <b>The shape of a graph.</b> The first derivative test reads the sign change of f′
+        around a critical point; the second derivative test reads the curvature, and says
+        nothing when f″ is zero there. Concavity is what makes a likelihood have a single
+        peak, and the curvature at the peak later becomes a measure of precision.
+      </p>
+      <p>
+        <b>Power series and Taylor series.</b> A smooth function is, locally, a line or a
+        parabola: the Taylor polynomial matches its value and first few derivatives at a
+        point, and the remainder term says how fast the approximation degrades with
+        distance. Two series to know by heart: 1/(1 − x) as the geometric series, and eˣ as
+        the sum of xⁿ/n!. The second is why the Poisson probabilities, which open lab 4,
+        add up to one.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Assignment 2 opens today, as a team</h2>
+    </div>
+
+    <div class="prose">
+      <ul>
+        <li>
+          <b>Released Tuesday 22 September, due Sunday 4 October at 23:59</b>, into a
+          private <code>assignment-2-&lt;your-team&gt;</code> repository. The handout was
+          still marked pending on the course website on 19 September.
+        </li>
+        <li>
+          <b>The repository is the submission:</b> "what is on main at the grading cutoff is
+          what is marked". Late work loses 10% per day, for up to 10 days.
+        </li>
+        <li>
+          <b>Teams are assigned, three people each</b>, one solution per team, according to
+          the lecture 1 deck. How teams are communicated has not been announced.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>The grade weights are not settled</h2>
+      <p>The syllabus and the lecture 1 deck give different numbers.</p>
+    </div>
+
+    <div class="panel" style="padding: 16px 20px;">
+      <table class="pages text" style="max-width: 640px;">
+        <thead>
+          <tr><th>Component</th><th>Syllabus</th><th>Lecture 1 deck</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Assignments</td><td>15%</td><td>45%: three group at 10%, one individual at 15%</td></tr>
+          <tr><td>Quizzes</td><td>25%</td><td>25%</td></tr>
+          <tr><td>Final exam</td><td>45%</td><td>30%</td></tr>
+          <tr><td>Participation</td><td>15%</td><td>not mentioned</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin:0; font-size:14px; color:var(--ink-2); max-width:70ch;">
+      The deck's structure, one individual assignment and three group ones, is what the
+      course actually runs; the syllabus's three problem sets are not. Neither set of
+      weights has been confirmed, and the difference decides how much the team assignments
+      and the final exam are worth. Worth asking in class.
+    </p>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>What you should be able to do afterwards</h2></div>
+    <div class="prose">
+      <ul>
+        <li>Differentiate products, quotients, compositions, eˣ and ln x by hand without hesitating</li>
+        <li>Read a derivative as a marginal effect and use it to approximate the next unit</li>
+        <li>Find critical points, including where the derivative is undefined</li>
+        <li>Find absolute extrema on a closed interval, endpoints included</li>
+        <li>Classify a critical point with either derivative test, and say when the second fails</li>
+        <li>Find where a function is concave up or down, and its inflection points</li>
+        <li>Write a second-order Taylor polynomial, and the series for eˣ and 1/(1 − x)</li>
+        <li>Explain why taking logs before differentiating a product is legitimate</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel aside">
+      <span class="lbl">Looking ahead</span>
+      <p>
+        <b>Quiz 2 opens session 5, Tuesday 29 September</b>, and covers lectures 3 and 4:
+        expectation and joint distributions, and this calculus lecture. Session 5 itself is
+        continuous random variables and limit theorems, Blitzstein and Hwang chapters 5, 7
+        and 10 (add seventeen to every printed page number).
+      </p>
+      <p>
+        Lab 4 is Thursday 24 September at 12:00 in 2.30, or Wednesday 23 September at 18:00
+        and Thursday at 16:00, both in 3.30. Its materials were not released as of
+        19 September; the lab 3 handout says it opens with the Poisson distribution.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Session primer, written from the course materials repository, the course website and the assigned sections, before the lecture deck was released.</span>
+    <span><a href="../" style="color:inherit;">Back to the semester overview</a></span>
+  </footer>
+
+</div>
+
+</body>
+</html>

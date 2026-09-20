@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Measuring media bias · E1367 Session 4</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="crumb"><a href="../">← Fall 2026 Coordinator</a></div>
+    <div class="eyebrow">GRAD-E1367 · Economics of Media · Session 4</div>
+    <h1>Measuring media bias</h1>
+    <p class="standfirst">
+      Wednesday 23 September 2026, 12:00–14:00, room 2.32. Arianna Ornaghi. Sessions 2
+      and 3 took media content as given and asked what it does. This one asks the prior
+      question: how do you put a number on slant, and once you have it, what drives it?
+      Two answers sixteen years apart, one for newspaper text and one for video.
+    </p>
+  </header>
+
+  <section>
+    <div class="sec-head">
+      <h2>The reading</h2>
+      <p>Both required, both on Moodle. No optional reading is listed for this session.</p>
+    </div>
+
+    <div class="panel" style="padding: 16px 20px;">
+      <div class="prose" style="gap: 14px;">
+        <p>
+          <b>Gentzkow, M. and Shapiro, J.M. (2010), "What Drives Media Slant? Evidence from
+          US Daily Newspapers",</b> <i>Econometrica</i> 78(1), pp. 35–71. [United States]
+        </p>
+        <p>
+          <b>Ciccarone, A. (2026), "An Image is Worth 1000 Words",</b> Working Paper.
+          [United States] The current draft is titled "An Image is Worth 1000 Words?
+          Partisanship and Attention in Videos", Ciccarone's job market paper.
+        </p>
+        <p style="font-size:14px; color:var(--ink-2);">
+          The numbers below come from the full text of both papers: the published
+          <i>Econometrica</i> article, and Ciccarone's author draft dated 16 June 2026. The
+          Moodle copy of a working paper can be a later version; where the two disagree,
+          the Moodle copy wins. Start with Gentzkow and Shapiro: it is the method Ciccarone
+          extends, and the harder read.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Gentzkow and Shapiro: slant as the language of Congress</h2>
+    </div>
+
+    <div class="prose">
+      <p>
+        <b>The question.</b> What determines the political slant of news: readers, or
+        owners, politicians and journalists? The stake is regulatory. US ownership rules
+        assume that diverse owners produce diverse viewpoints.
+      </p>
+      <p>
+        <b>The measure.</b> From the 2005 Congressional Record, pick the 1,000 two- and
+        three-word phrases that best separate Democratic from Republican speakers: "death
+        tax", "tax relief", "war on terror" against "estate tax", "tax break", "war in
+        Iraq". Then score each newspaper by how Republican a member of Congress using its
+        phrase mix would be. Applied to the news content of 433 dailies, 74% of US daily
+        circulation. Honest about its limits: among members of Congress the index
+        correlates 0.61 with true ideology, so the authors estimate that about 63% of the
+        variance in newspaper slant is noise.
+      </p>
+      <p>
+        <b>The identification.</b> Demand: within one market, does a right-leaning paper
+        sell relatively more in Republican zip codes? Using only within-market variation
+        sidesteps the fact that papers choose slant to suit their market. Supply: is slant
+        higher where the market votes Republican, with church attendance as an instrument
+        for the market's politics, and do co-owned papers share a slant once geography is
+        accounted for?
+      </p>
+      <ul>
+        <li>Readers prefer like-minded news, robust to zip-code fixed effects.</li>
+        <li>
+          <b>Ten points more Bush vote share moves slant by 0.015.</b> Reader ideology
+          explains about <b>20%</b> of the variance in slant (22% within states).
+        </li>
+        <li>
+          Owners explain about <b>4%</b>, statistically indistinguishable from zero. The
+          raw similarity of co-owned papers disappears once geography is controlled for:
+          chains buy papers in similar places.
+        </li>
+        <li>
+          The average paper sits close to its profit-maximising slant (0.473 against
+          0.460). Moving one standard deviation away costs about 18% of variable profit,
+          imprecisely estimated.
+        </li>
+      </ul>
+      <p>
+        <b>The weak point.</b> The index cannot separate what a paper covers from how it
+        covers it. A paper that simply reports more on estate taxes scores Republican even
+        with neutral framing, and the phrase list is frozen to one year of one Congress.
+        The authors say openly there is no benchmark of unbiased reporting. On the supply
+        side, church attendance must affect slant only through readers' politics.
+      </p>
+      <p>
+        <b>Read the conclusion's caveats.</b> Owners may still steer coverage where their
+        interest is strong; results may not travel to other institutions (they cite
+        Berlusconi); a local monopoly need not deliver the right amount of diversity.
+        Session 6, on ownership, starts from exactly these.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Ciccarone: slant in pictures, under limited attention</h2>
+    </div>
+
+    <div class="prose">
+      <p>
+        <b>The question.</b> Slant measures read text and assume a reader who takes all of
+        it in. Most political news is now video, watched in fragments. How much partisan
+        content travels through images, and does that change when attention is short?
+      </p>
+      <p>
+        <b>The measure.</b> Train on 15,427 US political TV ads (2016–2020), labelled by
+        the sponsor's party. Embed frames and transcript chunks with CLIP, a model that
+        places images and text in one shared space, and fit one classifier per modality.
+        Images alone reach an out-of-sample AUC of 0.911, text 0.909, both 0.945. Then
+        apply the classifiers unchanged to 5,156 YouTube news videos on immigration from
+        Fox News, MSNBC, CNN and others. The logic is Gentzkow and Shapiro's: learn
+        partisanship from politicians' own output, then look for it in the media.
+      </p>
+      <ul>
+        <li>
+          <b>Full attention:</b> text is the stronger single signal, but on its own it
+          understates the Fox–MSNBC gap by 5.5 points, about a fifth.
+        </li>
+        <li>
+          <b>Short attention:</b> scoring random 5-second chunks, images win. Twenty
+          seconds of images carry as much partisan signal as 45 seconds (about 137 words)
+          of text; one frame is worth about 40 words.
+        </li>
+        <li>
+          <b>The experiment:</b> about 3,400 Prolific respondents, half Republican, watch
+          real Fox and MSNBC footage of one immigration event with visuals and narration
+          recombined, in 30-second or 2-minute clips. Republican images raise perceived
+          Republican leaning by 0.2 SD at both lengths, raise fear and anger, and in short
+          clips reduce donations to a pro-immigrant charity, but do not move policy
+          attitudes. Republican text moves attitudes by about 0.07 SD, and only in long
+          clips.
+        </li>
+      </ul>
+      <p>
+        <b>The weak points.</b> "Partisan" means resembling one party's ads, which are
+        persuasion products with their own visual grammar; the author notes immigration
+        content scores Republican as a topic. The attention result measures how fast a
+        CLIP-based classifier accumulates signal, not how fast viewers do, and CLIP's text
+        side was built for short captions rather than speech. In the experiment,
+        "Republican images" means one broadcast's footage, and the narration is re-voiced
+        with a generated voice, which strips out tone.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Why the two are assigned together</h2>
+      <p>The same idea of slant, in two media, with opposite causal questions.</p>
+    </div>
+
+    <div class="panel" style="padding: 16px 20px;">
+      <table class="pages text" style="max-width: 100%;">
+        <thead>
+          <tr><th>Gentzkow &amp; Shapiro</th><th>Ciccarone</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Newspaper text, 2005</td><td>TV news video, 2024–25</td></tr>
+          <tr><td>Benchmark: congressional speech</td><td>Benchmark: political ads, by sponsor party</td></tr>
+          <tr><td>Asks what drives slant: readers or owners</td><td>Asks what slant does to viewers, by modality</td></tr>
+          <tr><td>Within-market demand, instrument for supply</td><td>Survey experiment</td></tr>
+          <tr><td>Blind spot: topic and framing mixed</td><td>Blind spot: the same, plus the jump from ads to news</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="prose" style="margin-top: 14px;">
+      <p>
+        The discussion question worth having ready: both papers define slant as
+        similarity to what partisans say. Is that bias, or coverage of the issues one party
+        owns? And if images carry emotion rather than argument, does an index built for
+        text still measure what matters for persuasion?
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>What you should be able to do afterwards</h2></div>
+    <div class="prose">
+      <ul>
+        <li>Explain the Gentzkow–Shapiro index in two sentences, and why a 0.61 correlation implies that most measured slant is noise</li>
+        <li>Say why within-market variation identifies demand even though slant is chosen to suit the market, and what the church-attendance instrument has to assume</li>
+        <li>State the 20% against 4% result, and the caveats the authors attach to it</li>
+        <li>Say what "an image is worth 40 words" describes (a classifier) and which part of the paper speaks to actual viewers</li>
+        <li>Propose one change to the experiment that would separate "images" from "this particular footage"</li>
+      </ul>
+      <p style="font-size:14px; color:var(--ink-2);">
+        The syllabus does not list which papers are debated in which session. If a debate
+        runs today, everyone not in it is still on the hook through participation: read
+        both papers and expect cold calls, where an answer that admits uncertainty is
+        explicitly acceptable.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel aside" style="border-left-color: var(--c4); background: color-mix(in oklab, var(--c4) 6%, var(--surface));">
+      <span class="lbl" style="color: var(--c4);">Worth asking this week</span>
+      <p>
+        <b>The debate essay mechanics, two weeks before the first debate that is yours.</b>
+        The syllabus fixes the weight and says "short essay, submitted in advance", and
+        nothing else: no length, no format, no exact deadline, no rubric, and no word on
+        whether the critic's text reaches the defender before the defender's essay is due.
+        Office hours are Tuesdays 14:00–15:00 by booking; after class works too.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel aside" style="border-left-color: var(--c4); background: color-mix(in oklab, var(--c4) 6%, var(--surface));">
+      <span class="lbl" style="color: var(--c4);">Looking ahead</span>
+      <p>
+        Session 5, Wednesday 30 September: advertising. Djourelova, Durante and Martin
+        (2025), "The Impact of Online Competition on Local Newspapers: Evidence from the
+        Introduction of Craigslist", <i>Review of Economic Studies</i> 92(3), and Wochner
+        (2026), "Public Funds, Private Coverage: The Political Returns to Media Capture",
+        a working paper on Austria. From what drives slant on the reader side to what
+        drives it on the revenue side.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Session primer, written from the syllabus and the full text of both papers (Ciccarone: author draft of 16 June 2026).</span>
+    <span><a href="../" style="color:inherit;">Back to the semester overview</a></span>
+  </footer>
+
+</div>
+
+</body>
+</html>

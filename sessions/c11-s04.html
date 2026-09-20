@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Working at the Command Line · C11 Session 4</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="crumb"><a href="../">← Fall 2026 Coordinator</a></div>
+    <div class="eyebrow">GRAD-C11 · Introduction to Data Science · Session 4</div>
+    <h1>Working at the command line</h1>
+    <p class="standfirst">
+      Thursday 24 September 2026, 10:00-12:00, Forum (A+B). Simon Munzert. One book, four
+      short chapters: what Unix is, how to get a terminal, the shell, and the Unix tools
+      around it.
+      <b>Quiz 3 runs in the first five minutes</b>, and it covers last week's lecture plus
+      this reading, not today's lecture. Assignment 2 is released the same day.
+    </p>
+  </header>
+
+  <section>
+    <div class="sec-head">
+      <h2>Quiz 3 covers iteration and automation, plus the reading</h2>
+      <p>
+        The rule from the session 1 deck: content comes from the lecture of the past week
+        and the readings of the current one.
+      </p>
+    </div>
+
+    <div class="prose">
+      <p>
+        So quiz 3 is <b>the session 3 lecture</b>, iteration, automation and scheduling,
+        together with <b>this week's Unix Workbench chapters, 1 to 4 without the
+        "Search" subsection</b>. Thursday's command line
+        lecture is not on it, although it covers much of the same ground as the reading.
+        The course's <code>assignments-schedule</code> repository puts Q3 and A2 on
+        session 4.
+      </p>
+      <p>
+        From the session 3 deck, the likeliest material: the three parts of a
+        <code>for</code> loop and its two rookie mistakes (growing the output, and
+        <code>1:length(x)</code> on an empty vector); <code>map()</code> returning a list
+        against the typed <code>map_dbl()</code> and friends; <code>walk()</code> for side
+        effects; <code>possibly()</code>, <code>safely()</code> and <code>quietly()</code>;
+        <code>across()</code> and <code>if_any()</code>. Then pipelines as graphs of scripts
+        and files, a <code>source()</code> master script against <code>Rscript</code> calls
+        from the shell, <code>set -eux</code>, Make's targets and prerequisites, and cron
+        syntax with its five fields.
+      </p>
+      <p>
+        Five minutes, <b>single choice</b>, pen and paper. The best eight of ten count, 3%
+        each. <b>Taking the quiz is how attendance is recorded.</b>
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>The reading</h2>
+      <p>Free online at seankross.com/the-unix-workbench.</p>
+    </div>
+
+    <div class="panel" style="padding: 16px 20px;">
+      <table class="pages text" style="max-width: 100%;">
+        <thead>
+          <tr><th>Chapter</th><th>What it covers</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1 · What is Unix?</td><td>Unix as an operating system and a set of tools; the shell as the command line interface; why the book uses Bash. About half a page</td></tr>
+          <tr><td>2 · Getting Unix</td><td>Mac and Ubuntu open Terminal; Windows enables Bash on Ubuntu on Windows, or runs Ubuntu in VirtualBox. About half a page</td></tr>
+          <tr><td>3 · Command Line Basics</td><td>The prompt, paths and navigation, creating and inspecting files, redirection, moving, copying and deleting</td></tr>
+          <tr><td>4 · Working with Unix</td><td>Help pages, wildcards, history and aliases, diff and hashes, pipes, make. <b>Not the "Search" subsection</b>: grep, regular expressions and find are out</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="prose" style="margin-top: 14px;">
+      <p>
+        The syllabus names only "chapters on the command line and shell scripting", which
+        Munzert called a bit vague in a Moodle announcement on Thursday 17 September. That
+        announcement sets the reading: chapters 1 to 4, skipping the whole "Search"
+        subsection because regular expressions come back later in the course. So chapter 5,
+        the one the syllabus's "shell scripting" points at, is out.
+      </p>
+      <p style="font-size:14px; color:var(--ink-2);">
+        Optional: Software Carpentry's <i>The Unix Shell</i>, Janssens's <i>Data Science at
+        the Command Line</i>, and the command line game Terminus.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Chapter 3: the shell as a place you can move around in</h2>
+    </div>
+
+    <div class="prose">
+      <p>
+        Every command has the same shape, <code>command options arguments</code>. The shell
+        always sits in a <b>working directory</b>; <code>pwd</code> prints it,
+        <code>cd</code> changes it, and a bare <code>cd</code> goes home. The root
+        <code>/</code> contains everything, <code>~</code> is home, <code>..</code> the
+        parent. Absolute paths start from the root, relative paths from where you are.
+      </p>
+      <p>
+        Then the everyday tools: <code>mkdir</code> and <code>touch</code> to create,
+        <code>ls -l</code> to inspect (a leading <code>d</code> is a directory),
+        <code>wc</code> for lines, words and characters, <code>cat</code>,
+        <code>less</code>, <code>head</code> and <code>tail</code> to read.
+        <b><code>&gt;</code> overwrites a file and <code>&gt;&gt;</code> appends</b>, and the
+        chapter's recurring warning is that there is no undo: <code>rm</code> deletes for
+        good, and folders need <code>-r</code> for both <code>cp</code> and
+        <code>rm</code>.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Chapter 4: small tools, chained</h2>
+    </div>
+
+    <div class="prose">
+      <p>
+        <b>The heaviest part of this chapter, Search, is the part to skip.</b>
+        <code>grep</code>, regular expressions and <code>find</code> live there, and the
+        announcement takes them out of the reading: R4DS chapter 15 covers the same syntax
+        in a later session. What remains is the help pages, <code>man</code> and
+        <code>apropos</code>; the wildcard <code>*</code>; <code>history</code> and aliases
+        in <code>~/.bash_profile</code>; and <code>diff</code>, <code>sdiff</code> and the
+        content hashes <code>md5</code> and <code>shasum</code>.
+      </p>
+      <p>
+        The <b>pipe</b> <code>|</code> turns one program's output into the next one's input:
+        <code>ls *.jpg | wc -l</code> counts the JPEG files in a directory. The chapter
+        closes on <b><code>make</code></b>: rules made of a target, its
+        dependencies and Tab-indented commands, which run only when the target is missing
+        or a dependency has changed. That is the same idea as last week's lecture, from the
+        shell side.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Chapter 5 is not in the reading</h2>
+    </div>
+
+    <div class="prose">
+      <p>
+        Bash as a programming language, arithmetic, variables, exit status, <code>if</code>,
+        arrays, functions and <code>PATH</code>, is the chapter the syllabus's "shell
+        scripting" pointed at, and the announcement leaves it out. Nothing from it can be on
+        the quiz. It is still worth a read once the quiz is done, because Thursday's lecture
+        and the later scraping sessions build on it.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel aside">
+      <span class="lbl">The deck is not the final one yet</span>
+      <p>
+        The session 4 deck in the <code>lectures</code> repository is still last year's: it
+        was last touched on 2 September, and its closing slide refers to "assignments 4 and
+        5" and to a next lecture on packaging, neither of which fits this year. Decks 2 and 3
+        were each refreshed a few days before their lecture, so expect this one around
+        Monday 21 September.
+      </p>
+      <p>
+        The current draft runs through shell basics, help, navigation, file management, text
+        tools (<code>grep</code>, <code>sed</code>, <code>cut</code>,
+        <code>sort | uniq</code>), redirects, pipes and <code>for</code> loops, and
+        scripting with <code>Rscript</code> and command line arguments. Largely the reading,
+        in a different order.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>What you should be able to do afterwards</h2></div>
+    <div class="prose">
+      <ul>
+        <li>Open a terminal from RStudio and move around the file system without a file browser</li>
+        <li>Create, copy, move, rename and delete files and folders, knowing what cannot be undone</li>
+        <li>Filter and count lines with <code>grep</code>, a regular expression and a pipe</li>
+        <li>Send output to a file with <code>&gt;</code> or <code>&gt;&gt;</code>, and know which one you need</li>
+        <li>Write a short <code>.sh</code> script with a shebang, make it executable and run it</li>
+        <li>Run an R script from the shell with <code>Rscript</code>, passing it arguments</li>
+        <li>Explain where the shell fits in a reproducible pipeline, next to Make and cron</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel aside" style="border-left-color: var(--c1); background: color-mix(in oklab, var(--c1) 6%, var(--surface));">
+      <span class="lbl" style="color: var(--c1);">This week and next</span>
+      <p>
+        <b>Lab, Tuesday 22 September, 16:00, room 2.34</b> (C11-Lab3). The lab repository
+        numbers it lab 3, "Debugging, Automation and Scheduling", so it follows last week's
+        lecture: condition handling with <code>try()</code>, <code>tryCatch()</code> and
+        <code>possibly()</code>; the lecture's Lord of the Rings pipeline laid out as a
+        project with a master script, plus exercises to extend it; and scheduling with
+        <code>cronR</code> or <code>taskscheduleR</code>. Open the lab's
+        <code>.Rproj</code> first, since every path in it is written from the repository
+        root.
+      </p>
+      <p>
+        <b>Assignment 2</b> is released on Thursday 24 September. On the course's rule,
+        Fridays at 18:00 in the week after release, it is due <b>Friday 2 October at
+        18:00</b>. Its content is not published yet.
+      </p>
+      <p>
+        Session 5, Thursday 1 October, is web data and technologies, opened by quiz 4 on
+        today's lecture. Reading: R4DS chapters 12 to 16, with the focus on 15, regular
+        expressions.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Session primer, written from the Unix Workbench chapters, the session 3 and 4 decks and the course GitHub organisation.</span>
+    <span><a href="../" style="color:inherit;">Back to the semester overview</a></span>
+  </footer>
+
+</div>
+
+</body>
+</html>

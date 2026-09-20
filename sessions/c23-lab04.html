@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 4, the Poisson and After · C23</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="crumb"><a href="../">← Fall 2026 Coordinator</a></div>
+    <div class="eyebrow">GRAD-C23-Lab1 · Mathematics for Data Science · Lab 4</div>
+    <h1>Lab 4: the Poisson, and whatever follows it</h1>
+    <p class="standfirst">
+      Thursday 24 September 2026, 12:00–14:00, room 2.30, Camilo Pedraza. Also Wednesday
+      23 September at 18:00 and Thursday at 16:00, both in 3.30; no group is enforced.
+      <b>The materials were not released as of Saturday 19 September</b>, so this page says
+      what is known and what to prepare regardless.
+    </p>
+  </header>
+
+  <section>
+    <div class="sec-head">
+      <h2>When to expect the materials</h2>
+    </div>
+
+    <div class="prose">
+      <p>
+        The course website says lab 4's files will appear in <code>labs/04_lab</code> of
+        the materials repository. The lab 2 and lab 3 handouts both landed on the Wednesday
+        of their week at 07:00 Berlin time, with solutions two to four days later, so the
+        likeliest moment is <b>Wednesday 23 September in the morning</b>. That is a
+        pattern, not an announcement.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>What is already known: it opens with the Poisson</h2>
+      <p>
+        The lab 3 handout says so in its first paragraph: "The Poisson, the fourth member of
+        that tour, opens lab 4." What comes after it is not stated anywhere.
+      </p>
+    </div>
+
+    <div class="prose">
+      <p>
+        <b>The story.</b> The number of events when there are many opportunities and each
+        is unlikely: emails in an hour, typos on a page, earthquakes in a year.
+      </p>
+      <p>
+        <b>The PMF</b> is P(X = k) = e<sup>−λ</sup>λ<sup>k</sup>/k! for k = 0, 1, 2, …, with
+        no upper limit. It sums to one because Σ λ<sup>k</sup>/k! = e<sup>λ</sup>, the
+        Taylor series of the exponential from this week's calculus reading: a clean bridge
+        between the two halves of the course.
+      </p>
+      <p>
+        <b>Mean and variance are both λ</b>, which is the quick check for whether count data
+        look Poisson. And <b>Bin(n, p) is close to Pois(np)</b> when n is large and p small:
+        the probability of zero successes is 0.1326 for Bin(100, 0.02) and 0.1353 for
+        Pois(2).
+      </p>
+      <p>
+        It is section 4.7 of Blitzstein and Hwang, inside the session 3 reading range. The
+        lecture 3 slides never showed it, so it only matters for quiz 2 if the lecture 4
+        deck brings it in.
+      </p>
+      <p style="font-size:14px; color:var(--ink-2);">
+        The rest of the lab is probably this week's calculus done numerically, since each
+        lab so far has followed the lecture of its week. That is an inference. The
+        environment has not changed: NumPy, pandas, Matplotlib and SciPy, no symbolic
+        algebra package.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Unfinished business from lab 3</h2>
+    </div>
+
+    <div class="prose">
+      <p>
+        The lab 3 solutions are in <code>labs/03_lab/solutions</code>. Exercises 1 to 4 are
+        the best quiz 2 practice available: the hypergeometric by simulation, the mean and
+        variance of the Binomial built from Bernoullis, LOTUS comparing E(X³) with E(X)³,
+        and the lecture's own joint table taken apart into margins, conditionals and an
+        independence check. Exercises 5 to 7 are optional and nothing later depends on them.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>What you should be able to do afterwards</h2></div>
+    <div class="prose">
+      <ul>
+        <li>Recognise a Poisson situation from the story, and write its PMF</li>
+        <li>Say why the Poisson PMF sums to one, using the series for e<sup>λ</sup></li>
+        <li>Use the Poisson as an approximation to the Binomial, and say when it is good</li>
+        <li>Simulate Poisson counts and compare their mean and variance</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel aside">
+      <span class="lbl">What it feeds</span>
+      <p>
+        <b>Quiz 2 on Tuesday 29 September</b>, covering lectures 3 and 4. <b>Assignment 2</b>,
+        released 22 September and due 4 October, as a team.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Lab primer, written before the lab materials were released, from the lab 3 handout and the course materials repository.</span>
+    <span><a href="../" style="color:inherit;">Back to the semester overview</a></span>
+  </footer>
+
+</div>
+
+</body>
+</html>

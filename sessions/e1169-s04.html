@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Policing II: management and prediction · E1169 Session 4</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="crumb"><a href="../">← Fall 2026 Coordinator</a></div>
+    <div class="eyebrow">GRAD-E1169 · Economics of Crime and Security · Session 4</div>
+    <h1>Policing II: public management and predictive policing</h1>
+    <p class="standfirst">
+      Wednesday 23 September 2026, 10:00–12:00, room 2.32. Christian Traxler. Second seminar
+      session: two required papers, each presented by a student and then discussed. One
+      paper changes how many police are on the street and how they are managed; the other
+      keeps the police fixed and changes what they know.
+    </p>
+  </header>
+
+  <section>
+    <div class="sec-head">
+      <h2>The reading</h2>
+      <p>
+        Two required papers, both on Moodle. The syllabus frames the session as the
+        management of police forces plus predictive and hot-spot policing, technology and AI.
+      </p>
+    </div>
+
+    <div class="panel" style="padding: 16px 20px;">
+      <div class="prose" style="gap: 14px;">
+        <p><b>Required.</b></p>
+        <p>
+          Cheng, Cheng and Wei Long (2018), "Improving police services: Evidence from the
+          French Quarter Task Force", <i>Journal of Public Economics</i> 164, 1–18.
+        </p>
+        <p>
+          Mastrobuoni, Giovanni (2020), "Crime is Terribly Revealing: Information Technology
+          and Police Productivity", <i>Review of Economic Studies</i> 87(6), 2727–2753.
+        </p>
+        <p style="font-size:14px; color:var(--ink-2);">
+          How much of this page rests on what: Mastrobuoni is summarised from the full
+          accepted manuscript (October 2019), so its numbers and table references are from
+          the paper itself. Cheng and Long is paywalled with no public working-paper version,
+          so only its abstract was read. Anything below about that paper beyond the abstract's
+          numbers is marked as unverified.
+        </p>
+      </div>
+    </div>
+
+    <div class="panel" style="padding: 16px 20px; margin-top: 14px;">
+      <table class="pages text" style="max-width: 100%;">
+        <thead>
+          <tr><th>Optional</th><th>What it gives (from the abstract)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Linos (2018)</td><td>police recruitment postcards: challenge or career messages drew about three times as many applicants as the control, especially people of color and women</td></tr>
+          <tr><td>Stevenson &amp; Doleac</td><td>algorithmic risk scores in Virginia sentencing: judges deviated systematically, so no detectable gain in safety or incarceration</td></tr>
+          <tr><td>Anker, Doleac &amp; Landersø</td><td>Denmark's DNA database expansion cut recidivism within a year by up to 42%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Cheng and Long: the French Quarter Task Force</h2>
+      <p>
+        Visible policing, and then the question of whether management changes what the same
+        officers deliver.
+      </p>
+    </div>
+
+    <div class="prose">
+      <p>
+        <b>The setting.</b> In March 2015 a private resident of the French Quarter in New
+        Orleans funded off-duty city police officers to patrol the Quarter on all-terrain
+        vehicles around the clock, reachable through a smartphone app, and managed them like
+        a private business: GPS tracking and dismissal of underperformers. Press and
+        secondary summaries (not verified against the paper) say he ran it only until late
+        June 2015, after which a public body took over and largely dropped those practices.
+      </p>
+      <p>
+        <b>Design.</b> Difference-in-differences: the Quarter against other New Orleans
+        neighbourhoods, before and after the launch (the comparison group is from secondary
+        summaries). The second result uses the change in management within the program.
+      </p>
+      <p>
+        <b>Results, from the abstract.</b> The task force reduced robberies by
+        <b>37.4%</b>, aggravated assaults by <b>16.9%</b> and thefts by <b>13%</b>. More
+        monitoring and performance incentives reduced robberies by <b>22.12</b> and
+        aggravated assaults by <b>5.56 per quarter</b>. Those last two are counts, so they
+        need the paper's baseline before they can be compared with the percentages.
+      </p>
+      <p>
+        <b>Where to push.</b> The management result. If the private regime lasted about
+        three months, "more monitoring against less" is also spring against summer, novelty
+        against routine and one funder against another, all in a single treated area. Ask
+        how many quarters of the private regime the data contain, and what separates the
+        management effect from the program simply wearing off. Displacement into
+        neighbouring districts and the effect of the app on crime reporting are the two
+        fallback questions.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Mastrobuoni: predictive policing in Milan</h2>
+      <p>
+        The police stay fixed; what changes is the information they patrol with.
+      </p>
+    </div>
+
+    <div class="prose">
+      <p>
+        <b>The technology.</b> KeyCrime, built by a Milan police officer and in use from
+        2008, links commercial robberies into sequences by the same group and predicts that
+        group's next target type, neighbourhood, day and time. It predicts offenders, not
+        places, which sets it apart from the hot-spot software most of the policy debate is
+        about.
+      </p>
+      <p>
+        <b>Design.</b> Milan has two police forces. The <i>Polizia</i> had KeyCrime, the
+        <i>Carabinieri</i> did not, and the city's three sectors rotate between them every
+        six hours, so which force handles a given robbery is close to random. Because the
+        forces might simply differ in skill, three second differences net that out: a
+        group's first robbery (nothing yet to predict from), robberies on the same day as
+        the previous one (victims are interviewed the next day, so the prediction has not
+        been updated), and the 2010 order that forced the <i>Polizia</i> to share its reports.
+      </p>
+      <p>
+        <b>Results, from the manuscript.</b> Data: all 2,164 commercial robberies in Milan,
+        2008 to mid-2011. No gap between the forces on first robberies. On later robberies
+        the <i>Polizia</i> clears about 10 percentage points more, on a <i>Carabinieri</i>
+        base near 5.6%: almost three times as often. The difference-in-differences is
+        <b>7.8 points</b> (significant only at 10%) using first against later robberies, and
+        <b>13.3 points</b> using same-day against later-day robberies. The gap closes once
+        reports are shared. Since a serial group keeps robbing until caught, expected
+        robberies per group are about one over the clearance rate: <b>17.8 without the
+        software, 6.4 with it</b>. The author puts the avoided direct losses near
+        €2.5 million against under €100,000 a year in staff.
+      </p>
+      <p>
+        <b>Where to push.</b> The treated force builds the treatment variable: the
+        <i>Polizia</i> decides which robberies belong to a sequence, and so which count as
+        "later". The author answers with the same-day and data-sharing designs, which do not
+        use the sequence count; whether they fully escape it, when they still rest on
+        <i>Polizia</i> linkages, is the sharp question. Two fallbacks: each estimate on its
+        own is imprecise (the strength is that three designs agree), and serial professional
+        robbers caught on CCTV are close to the best case for prediction, so the result says
+        little about place-based tools and the bias concerns from session 3.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>How the two fit together</h2>
+    </div>
+
+    <div class="prose">
+      <ul>
+        <li>
+          <b>Two jobs of the police.</b> Cheng and Long change visible presence and measure
+          crime: mostly deterrence. Mastrobuoni changes information and measures arrests:
+          the police as apprehension agents, with the crime effect coming through
+          incapacitation.
+        </li>
+        <li>
+          <b>Management as a technology.</b> GPS and dismissal in New Orleans, data and
+          prediction in Milan. Both ask whether the same officers can produce more.
+        </li>
+        <li>
+          <b>One treated place each.</b> Milan escapes it through random rotation inside the
+          city; the French Quarter design, as far as the abstract shows, has no such
+          option. That is the shortest honest comparison of the two.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>What you should be able to do afterwards</h2></div>
+    <div class="prose">
+      <ul>
+        <li>State each paper's comparison in one sentence: which group against which, which period against which</li>
+        <li>Explain why a six-hour sector rotation makes the handling force as good as random, and why a second difference is still needed</li>
+        <li>Turn a clearance rate into expected robberies per serial group, and say why that is incapacitation rather than deterrence</li>
+        <li>Name what could pass for a management effect in the French Quarter</li>
+        <li>Say what the Milan result does and does not tell you about hot-spot prediction and biased policing</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel aside" style="border-left-color: var(--c3); background: color-mix(in oklab, var(--c3) 6%, var(--surface));">
+      <span class="lbl" style="color: var(--c3);">Looking ahead</span>
+      <p>
+        Session 5, Wednesday 30 September: prisons. Drago, Galbiati and Vertova (2009),
+        <i>JPE</i>, on the deterrent effect of prison from the Italian collective pardon, and
+        Drago and Galbiati (2012), <i>AEJ: Applied</i>, on its indirect effects through
+        social ties. A direct continuation of the incapacitation logic in Mastrobuoni.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Session primer, written from the syllabus, the Mastrobuoni manuscript and the Cheng and Long abstract.</span>
+    <span><a href="../" style="color:inherit;">Back to the semester overview</a></span>
+  </footer>
+
+</div>
+
+</body>
+</html>
