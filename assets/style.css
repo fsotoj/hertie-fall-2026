@@ -795,3 +795,20 @@ table.pages.text td:first-child { white-space: nowrap; }
   color: var(--c2);
 }
 
+
+/* Earlier session primers, folded away: open it and it looks like the list above. */
+details.archive { margin-top: 10px; }
+details.archive > summary {
+  cursor: pointer;
+  list-style: none;
+  font: 500 13px/1 var(--sans);
+  color: var(--muted);
+  padding: 10px 2px;
+  border-top: 1px solid var(--rule-2);
+}
+details.archive > summary::-webkit-details-marker { display: none; }
+details.archive > summary::before { content: "\25B8 "; }
+details.archive[open] > summary::before { content: "\25BE "; }
+details.archive > summary:hover { color: var(--ink-2); }
+details.archive > summary:focus-visible { outline: 2px solid var(--c1); outline-offset: 2px; }
+details.archive .panel { margin-top: 6px; }
