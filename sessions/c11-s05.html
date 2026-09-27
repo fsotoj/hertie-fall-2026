@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web Data and Technologies · C11 Session 5</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="crumb"><a href="../">← Fall 2026 Coordinator</a></div>
+    <div class="eyebrow">GRAD-C11 · Introduction to Data Science · Session 5</div>
+    <h1>Web data and technologies</h1>
+    <p class="standfirst">
+      Thursday 1 October 2026, 10:00-12:00, Forum (A+B). Simon Munzert. Two books: five
+      chapters of R for Data Science on logicals, numbers, strings, regular expressions and
+      factors, and five chapters of Munzert's own <i>Automated Data Collection with R</i> on
+      HTML, XML, JSON, XPath and regular expressions.
+      <b>Quiz 4 runs in the first five minutes</b>, and it covers last week's command line
+      lecture plus these readings, not today's lecture. Assignment 2 is due the next day.
+    </p>
+  </header>
+
+  <section>
+    <div class="sec-head">
+      <h2>Quiz 4 covers the command line, plus the reading</h2>
+      <p>
+        The rule from the session 1 deck: content comes from the lecture of the past week
+        and the readings of the current one.
+      </p>
+    </div>
+
+    <div class="prose">
+      <p>
+        So quiz 4 is <b>the session 4 lecture</b>, working with the command line, in the
+        version revised the night before it was given, together with <b>this week's
+        readings</b>. Thursday's web data lecture is not on it, although it covers much of
+        the same ground as the second book. The course's <code>assignments-schedule</code>
+        repository puts Q4 on session 5.
+      </p>
+      <p>
+        From the session 4 deck, the likeliest material: what the kernel, the shell and the
+        terminal each are, and which shell is the default where; option syntax
+        (<code>ls -lah</code>, <code>sort -ru</code>); reading an <code>ls -l</code> line;
+        <code>rmdir</code> against <code>rm -rf</code>, the wildcards <code>*</code> and
+        <code>?</code>; <code>tail -n +2</code>, <code>sed</code> printing rather than
+        editing, <code>uniq</code> needing <code>sort</code>; <code>&gt;</code> against
+        <code>&gt;&gt;</code>, exit codes with <code>&amp;&amp;</code> and
+        <code>||</code>, the loop that combines CSVs with one header. And the new section on
+        AI agents: <code>export</code> and environment variables, <code>PATH</code> and
+        "command not found", <code>ps</code> and <code>kill</code>, and the four questions to
+        ask before approving an agent's command.
+      </p>
+      <p>
+        Five minutes, <b>single choice</b>, pen and paper. The best eight of ten count, 3%
+        each. <b>Taking the quiz is how attendance is recorded.</b>
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>The reading</h2>
+      <p>R4DS is free at r4ds.hadley.nz. <i>Automated Data Collection with R</i> is on Moodle; its code and example files are at r-datacollection.com.</p>
+    </div>
+
+    <div class="panel" style="padding: 16px 20px;">
+      <table class="pages text" style="max-width: 100%;">
+        <thead>
+          <tr><th>Chapter</th><th>What it covers</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>R4DS 12 · Logical vectors</td><td>Comparisons, <code>NA</code> and why <code>NA == NA</code> is <code>NA</code>, Boolean algebra, <code>%in%</code>, <code>sum()</code> and <code>mean()</code> of logicals, <code>if_else()</code>, <code>case_when()</code></td></tr>
+          <tr><td>R4DS 13 · Numbers</td><td>Parsing numbers, counts, recycling, integer division, rounding, <code>cut()</code>, ranks, <code>lag()</code> and <code>lead()</code>, summaries</td></tr>
+          <tr><td>R4DS 14 · Strings</td><td>Escapes and raw strings, <code>str_c()</code>, <code>str_glue()</code>, <code>str_flatten()</code>, the <code>separate_*</code> family, <code>str_sub()</code>, encodings</td></tr>
+          <tr><td><b>R4DS 15 · Regular expressions</b></td><td><b>The focus of the week.</b> Metacharacters, quantifiers, classes, anchors, escaping, precedence, groups and back references, flags, the stringr functions</td></tr>
+          <tr><td>R4DS 16 · Factors</td><td>Levels, <code>fct()</code> against <code>factor()</code>, reordering and recoding with forcats</td></tr>
+          <tr><td>ADCR 1 · Introduction</td><td>A worked case: the Wikipedia list of World Heritage Sites in Danger, scraped, cleaned and mapped</td></tr>
+          <tr><td>ADCR 2 · HTML</td><td>Elements, tags and attributes, the document tree, parsing a page in R</td></tr>
+          <tr><td>ADCR 3 · XML and JSON</td><td>XML's rules and how R navigates it; JSON objects and arrays and how they become R vectors and lists</td></tr>
+          <tr><td>ADCR 4 · XPath</td><td>Paths, axes and predicates to select exactly the nodes you want</td></tr>
+          <tr><td>ADCR 8 · Regular expressions</td><td>The same syntax as R4DS 15, with POSIX classes, greedy and lazy matching, and the stringr toolkit</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="prose" style="margin-top: 14px;">
+      <p>
+        This is the syllabus's list as it stands. Last week Munzert narrowed an over-broad
+        reading by a Moodle announcement on the Thursday before; no such announcement has
+        come for this session, so it is worth checking Moodle before Thursday.
+      </p>
+      <p style="font-size:14px; color:var(--ink-2);">
+        Optional: regexcrossword.com, the CRAN task view on web technologies, and the
+        <code>jsonlite</code> repository.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>R4DS 12 to 16: the vector types, with regular expressions at the centre</h2>
+    </div>
+
+    <div class="prose">
+      <p>
+        The first chapters are about small exact rules that are easy to get wrong.
+        <b>A missing value is contagious</b>: <code>NA == NA</code> is <code>NA</code>, so
+        <code>filter(x == NA)</code> keeps nothing and <code>is.na()</code> is the tool.
+        <code>month == 11 | 12</code> selects every row, because the <code>12</code> is read as
+        <code>TRUE</code>; <code>%in%</code> avoids the trap. <code>case_when()</code> takes the
+        first condition that matches. <code>round(2.5)</code> is 2, because R rounds halves to
+        the even number. <code>str_c()</code> keeps a missing value missing, while
+        <code>str_glue()</code> writes the letters "NA". <code>factor()</code> silently turns a
+        value outside its levels into <code>NA</code>; <code>fct()</code> refuses.
+      </p>
+      <p>
+        <b>Chapter 15 is the one the syllabus flags.</b> A regular expression is a compact
+        language for patterns: <code>.</code> any character, <code>?</code>, <code>+</code> and
+        <code>*</code> for how many, <code>[abc]</code> and <code>[^abc]</code> for sets,
+        <code>^</code> and <code>$</code> for the start and end. In R every backslash is written
+        twice, so a literal dot is <code>"\\."</code>. Matches never overlap, alternation binds
+        loosely (so <code>^a|b$</code> means "starts with a, or ends with b"), and parentheses
+        both group and capture. The chapter ends with advice worth more than any single rule:
+        test a pattern against examples that should and should not match.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>ADCR: how a web page is built, and how to point at a piece of it</h2>
+    </div>
+
+    <div class="prose">
+      <p>
+        <i>Automated Data Collection with R</i> (2015) is the instructor's own book, and these
+        chapters are the groundwork for scraping. <b>HTML is a tree</b> of elements, each with a
+        start tag, content and an end tag, and attributes such as <code>href</code> in the start
+        tag. <b>XML</b> follows the same shape under stricter rules: one root, every element
+        closed, properly nested. <b>JSON</b> is lighter, built from objects in braces and arrays
+        in brackets, and R turns an array of mixed types into a vector of the most general one.
+      </p>
+      <p>
+        <b>XPath</b> is how you point at nodes. <code>/html/body/div</code> is a full path from
+        the root; <code>//p/i</code> finds italics inside paragraphs anywhere. One slash means
+        a direct child and two mean any descendant, so on the book's example page
+        <code>//div/i</code> finds nothing and <code>//div//i</code> finds both quotes.
+        Predicates in brackets filter: <code>[1]</code>, <code>[last()]</code>,
+        <code>[@date='June/2003']</code>, <code>[contains(text(), 'magic')]</code>.
+      </p>
+      <p>
+        Chapter 8 teaches the same regular expressions as R4DS 15 in a different dialect,
+        mostly POSIX classes such as <code>[[:alpha:]]</code>, on a jumbled Simpsons phone book
+        and one example sentence. Two of its points are traps: a POSIX class needs double
+        brackets, and <code>.+</code> is greedy while <code>.+?</code> stops at the first match.
+        The book's code uses the older <code>XML</code> package; the ideas carry over to
+        <code>rvest</code>, the function names do not.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel aside">
+      <span class="lbl">The deck is not the final one yet</span>
+      <p>
+        The session 5 deck in the <code>lectures</code> repository is still last year's: it was
+        last touched on 2 September. Decks 2, 3 and 4 were each revised in the days before
+        their lecture, and the command line deck changed substantially the night before, so
+        expect this one to move too.
+      </p>
+      <p>
+        The current draft runs through what web data is and why it is attractive, the
+        technologies behind the web, HTML and the DOM tree, inspecting a page in the browser,
+        XPath, CSS selectors, and regular expressions. Largely the second book, in a different
+        order, plus CSS selectors, which neither reading covers.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>What you should be able to do afterwards</h2></div>
+    <div class="prose">
+      <ul>
+        <li>Say what counts as web data, and name the technologies behind a web page and a web service</li>
+        <li>Read an HTML document as a tree of elements and attributes</li>
+        <li>Write an XPath expression, with a predicate, that selects exactly the nodes you want</li>
+        <li>Write a CSS selector for the same nodes</li>
+        <li>Tell well-formed XML from forgiving HTML, and read JSON objects and arrays</li>
+        <li>Write, test and debug a regular expression with stringr</li>
+        <li>Inspect a live page with the browser's developer tools to find what to extract</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel aside" style="border-left-color: var(--c1); background: color-mix(in oklab, var(--c1) 6%, var(--surface));">
+      <span class="lbl" style="color: var(--c1);">This week and next</span>
+      <p>
+        <b>Lab, Tuesday 29 September, 16:00, room 2.34</b> (C11-Lab3). The lab repository
+        numbers it lab 4, "Working on the Command Line", week 40: lab numbers follow the
+        lecture numbers, one week later. It is the command line lecture again, hands-on, on a
+        small file of bird-watching notes: navigation, <code>grep</code> with a first taste of
+        regular expressions, pipelines with <code>sort | uniq -c</code>, redirects, shell
+        variables and <code>PATH</code>, a short script that calls <code>Rscript</code>, and the
+        AI agent checklist. On the weekend before, the materials were still on a branch, not
+        on <code>main</code>, so the README's links do not work yet. On Windows, set RStudio's
+        terminal to Git Bash first.
+      </p>
+      <p>
+        <b>Assignment 2</b>, "Iteration, automation, and the command line", is due <b>Friday
+        2 October at 18:00</b>, and the latest commit to <code>main</code> is the submission.
+        Unpack and inspect yearly UNHCR refugee files in the shell, import them with
+        <code>purrr</code>, then iterate with <code>map()</code> and <code>across()</code>;
+        automation with <code>Rscript</code>, cron and <code>make</code> is an optional bonus.
+        Shell tasks go in <code>bash</code> chunks, which is the part to test early on Windows.
+      </p>
+      <p>
+        Session 6, Thursday 8 October, is web scraping and APIs, opened by quiz 5 on today's
+        lecture. Reading: R4DS chapter 24 and the first two chapters of <i>APIs for Social
+        Scientists</i>, plus at least one chapter on a specific API. Assignment 3 is released
+        that day.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Session primer, written from R4DS chapters 12 to 16, the code and example files of <i>Automated Data Collection with R</i>, the session 4 and 5 decks and the course GitHub organisation.</span>
+    <span><a href="../" style="color:inherit;">Back to the semester overview</a></span>
+  </footer>
+
+</div>
+
+</body>
+</html>

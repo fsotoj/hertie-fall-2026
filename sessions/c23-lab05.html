@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 5, Continuous Variables · C23</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="crumb"><a href="../">← Fall 2026 Coordinator</a></div>
+    <div class="eyebrow">GRAD-C23-Lab1 · Mathematics for Data Science · Lab 5</div>
+    <h1>Lab 5: continuous random variables</h1>
+    <p class="standfirst">
+      Thursday 1 October 2026, 12:00–14:00, room 2.30, Camilo Pedraza. Also Wednesday
+      30 September at 18:00 and Thursday at 16:00, both in 3.30; no group is enforced.
+      <b>The materials were not released as of Sunday 27 September</b>, so this page says
+      what lab 4 announced and what to prepare regardless.
+    </p>
+  </header>
+
+  <section>
+    <div class="sec-head">
+      <h2>When to expect the materials</h2>
+    </div>
+
+    <div class="prose">
+      <p>
+        They will appear in <code>labs/05_lab</code> of the materials repository. Labs 2
+        and 3 landed on the Wednesday of their week at 07:00 Berlin time, lab 4 at 09:00,
+        and the website dates the lab 5 entry Wednesday 30 September at 09:00. So
+        <b>Wednesday morning</b>, most likely by 09:00. A pattern, not an announcement.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>What lab 4 says comes next</h2>
+      <p>
+        "From here on, calculus is a tool rather than a topic. Everything we do with
+        continuous random variables in the next lab rests on it."
+      </p>
+    </div>
+
+    <div class="prose">
+      <p>
+        Lab 4's solutions add that for a continuous variable the CDF climbs smoothly
+        instead of in jumps, and that its derivative, which plays the role of the PMF, "is
+        exactly where the next section, and the next lab, are heading". So the topic is
+        stated. The contents are not.
+      </p>
+      <p style="font-size:14px; color:var(--ink-2);">
+        A reasonable guess from how labs 3 and 4 were built (simulate, then compare with
+        the exact answer): densities as derivatives of CDFs and probabilities as areas;
+        sampling the Uniform, Normal and Exponential and laying the density over the
+        histogram; a joint density taken apart into marginals; the law of large numbers as
+        a running average and the central limit theorem as a histogram of sample means.
+        That is an inference. The environment has not changed: NumPy, pandas, Matplotlib
+        and SciPy.
+      </p>
+      <p>
+        <b>One trap worth knowing before you start.</b> NumPy's exponential sampler takes
+        the scale 1/λ, not the rate λ, and its Normal sampler takes the standard deviation,
+        not the variance.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Catch-up: lab 4, exercise 4</h2>
+      <p>
+        The TA said on Moodle that the Thursday 12:00 group skipped it by mistake, and
+        pointed to the released solutions. It is lecture 4 material, so it is also quiz 2
+        material.
+      </p>
+    </div>
+
+    <div class="prose">
+      <p>
+        <b>The worked function.</b> f(x) = x³ − 3x² + 1 has f′ = 3x(x − 2) and
+        f″ = 6(x − 1). The sign of f′ goes +, −, + around 0 and 2, so there is a local
+        maximum at 0 (value 1) and a local minimum at 2 (value −3); the second derivative
+        agrees (−6 and 6). Concavity flips at x = 1, the inflection point. Neither extremum
+        is global.
+      </p>
+      <p>
+        <b>Doing it numerically.</b> Apply <code>np.gradient</code> once for f′ and again
+        for f″, find where f′ changes sign on the grid, and read the sign of f″ there.
+      </p>
+      <p>
+        <b>Why f″ = 0 says nothing.</b> x⁴, −x⁴ and x³ all have f′(0) = f″(0) = 0, and they
+        are a minimum, a maximum and neither. Only the first derivative test, which reads
+        the sign of f′ on both sides, tells them apart.
+      </p>
+      <p>
+        <b>The optional preview.</b> Maximising the likelihood p³(1 − p)⁷ through its
+        logarithm gives p = 3/10, the observed share: the first maximum likelihood
+        estimate, and the topic of session 6.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>What you should be able to do afterwards</h2></div>
+    <div class="prose">
+      <ul>
+        <li>Turn a CDF into a density and a density into probabilities, by hand and numerically</li>
+        <li>Simulate the Uniform, Normal and Exponential with the right parameters</li>
+        <li>Check a simulated histogram against the exact density</li>
+        <li>Show the law of large numbers and the central limit theorem by simulation</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel aside">
+      <span class="lbl">What it feeds</span>
+      <p>
+        <b>Quiz 3 on Tuesday 13 October</b>, covering lectures 5 and 6. <b>Assignment 2</b>,
+        due Sunday 4 October, does not use continuous variables.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Lab primer, written before the lab materials were released, from the lab 4 handout and solutions and the course materials repository.</span>
+    <span><a href="../" style="color:inherit;">Back to the semester overview</a></span>
+  </footer>
+
+</div>
+
+</body>
+</html>

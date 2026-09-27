@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Continuous Random Variables · C23 Session 5</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="crumb"><a href="../">← Fall 2026 Coordinator</a></div>
+    <div class="eyebrow">GRAD-C23 · Mathematics for Data Science · Session 5</div>
+    <h1>Continuous random variables and limit theorems</h1>
+    <p class="standfirst">
+      Tuesday 29 September 2026, 08:00–10:00, Forum (A+B). Jan Gieseler. Densities, the
+      Uniform, Normal and Exponential, joint densities and covariance, then the law of
+      large numbers and the central limit theorem, from Blitzstein and Hwang chapters 5,
+      7 and 10. <b>Quiz 2 opens the session and covers lectures 3 and 4.</b>
+      <b>Assignment 2 is due Sunday 4 October at 23:59.</b>
+    </p>
+  </header>
+
+  <section>
+    <div class="panel aside">
+      <span class="lbl">Provisional until the deck lands</span>
+      <p>
+        The lecture 5 slides were not out on Sunday 27 September. Decks have appeared at
+        06:00 Berlin time on the morning of their lecture. Everything below comes from the
+        assigned reading and from the preview on the last slides of lecture 4, and the
+        deck, not this page, defines what quiz 3 can ask.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>First: quiz 2</h2>
+      <p>Ten multiple-choice questions on paper, 5% of the grade, no drop and no make-up.</p>
+    </div>
+    <div class="prose">
+      <p>
+        It covers lectures 3 and 4: expectation and joint distributions, and calculus. The
+        graded quiz 1 is now in the materials repository with worked solutions, and it
+        shows the style. Many options are <b>unevaluated expressions</b>, where the wrong
+        ones are named mistakes (the independence formula used where events overlap, the
+        specificity used where the false-positive rate belongs), and several questions ask
+        <b>what condition a rule needs</b> rather than for a number. For quiz 2 that means
+        rehearsing the hypotheses too: when l'Hôpital applies, when variances add, when
+        mixed partial derivatives agree, what counts as a critical point.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>The reading</h2>
+      <p>
+        Blitzstein and Hwang, <i>Introduction to Probability</i>, second edition (free at
+        probabilitybook.net). The PDF runs seventeen pages ahead of the printed numbers.
+      </p>
+    </div>
+
+    <div class="panel" style="padding: 16px 20px;">
+      <table class="pages" style="max-width: 640px;">
+        <thead>
+          <tr><th>Assigned</th><th>Section</th><th>PDF page</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>pp. 213–223</td><td>5.1 Densities; 5.2 Uniform</td><td>230–240</td></tr>
+          <tr><td>pp. 231–244</td><td>5.4 Normal; 5.5 Exponential</td><td>248–261</td></tr>
+          <tr><td>pp. 312–320</td><td>7.1 Joint distributions, continuous part, stop before Ex. 7.1.25</td><td>329–337</td></tr>
+          <tr><td>pp. 324–332</td><td>7.2 2D LOTUS; 7.3 Covariance and correlation</td><td>341–349</td></tr>
+          <tr><td>pp. 337–343</td><td>7.5 Multivariate Normal</td><td>354–360</td></tr>
+          <tr><td>pp. 467–476</td><td>10.2 Law of large numbers; 10.3 Central limit theorem</td><td>484–493</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin:0; font-size:14px; color:var(--ink-2); max-width:70ch;">
+      Sixty printed pages. If time is short, read 5.1, then 10.3, then 5.4. The PDF page
+      numbers apply the offset and were not re-opened this week; the section names follow
+      the edition's structure.
+    </p>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>What the reading does</h2>
+      <p>
+        Lecture 4 ended by saying why it existed: a density is the derivative of a CDF, and
+        a probability is an area or a volume. This lecture is where that gets used.
+      </p>
+    </div>
+
+    <div class="prose">
+      <p>
+        <b>Densities.</b> A continuous variable puts probability zero on every single
+        value, so the PMF is useless and the CDF takes over. Its derivative, the density
+        f, plays the PMF's role: probabilities are integrals of f, expectation and LOTUS
+        swap the sum for an integral, and linearity is unchanged. A density can exceed 1;
+        it is probability per unit length.
+      </p>
+      <p>
+        <b>Three named distributions.</b> The <b>Uniform</b>, where probability is
+        proportional to length, with variance (b − a)²/12. The <b>Normal</b>: standardise
+        with Z = (X − μ)/σ, then use Φ, which has no formula because e<sup>−x²/2</sup> has
+        no elementary antiderivative; 68, 95 and 99.7% within one, two and three standard
+        deviations, and 1.96 for a 95% interval. The <b>Exponential</b>, the waiting time
+        with mean 1/λ, whose defining property is memorylessness: having waited tells you
+        nothing about the remaining wait.
+      </p>
+      <p>
+        <b>Joint densities.</b> Lecture 3's joint table with integrals: marginals by
+        integrating the other variable out, conditionals by rescaling a slice,
+        independence when the density factors. Then <b>covariance</b>, which supplies the
+        missing term in Var(X + Y) = Var X + Var Y + 2 Cov(X, Y), and <b>correlation</b>,
+        its unit-free version. Independent variables are uncorrelated, but not the
+        reverse, except inside a <b>multivariate Normal</b>.
+      </p>
+      <p>
+        <b>The two limit theorems.</b> The law of large numbers says a sample mean settles
+        on the true mean, provided the mean exists (the St. Petersburg game in lab 4 is the
+        case where it does not). The central limit theorem says how it fluctuates on the
+        way: approximately Normal with standard deviation σ/√n, whatever the shape of the
+        underlying variable. It is why a Binomial looks Normal, and it is the basis of every
+        standard error later in the course.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Assignment 2, due Sunday 4 October at 23:59</h2>
+    </div>
+
+    <div class="prose">
+      <ul>
+        <li>
+          <b>Multinomial sampling, PMFs and Naive Bayes, 38 points.</b> Question 1 (15)
+          uses a toy topic model after a short talk by David Blei linked on Moodle;
+          question 2 (10) builds a PMF from a video game and ends at the negative binomial;
+          question 3 (13) derives a Naive Bayes spam filter, codes it on a 20-word table
+          and plots the spam probability against the prior.
+        </li>
+        <li>
+          <b>The team repository is the submission</b>: what is on main at the cutoff is
+          marked. Commit the notebook, one clear answer per question, names at the top, and
+          each member's contribution in <code>CONTRIBUTIONS.md</code>. Show derivations: a
+          bare number earns partial credit at best. Late work loses 10% per day for up to
+          10 days.
+        </li>
+        <li>
+          <b>Teams are self-formed, up to four people</b>, through the course's welcome
+          repository, and formation closes on 4 October. That replaces the lecture 1
+          deck's "assigned groups of three".
+        </li>
+        <li>
+          The website gives 23:59; the handout gives only the date. Neither names a time
+          zone.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>What you should be able to do afterwards</h2></div>
+    <div class="prose">
+      <ul>
+        <li>Explain why a continuous variable has probability zero at every point</li>
+        <li>Check a density, and get probabilities, the mean and the variance from it</li>
+        <li>Use the Uniform, Normal and Exponential, and say which story each fits</li>
+        <li>Standardise a Normal and read Φ, with the 68–95–99.7 rule and 1.96</li>
+        <li>Get marginals and conditionals from a joint density, and test independence</li>
+        <li>Compute a covariance and a correlation, and expand the variance of a sum</li>
+        <li>Give dependent variables with zero correlation, and name where that cannot happen</li>
+        <li>State the law of large numbers and the central limit theorem, with their conditions</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel aside">
+      <span class="lbl">Looking ahead</span>
+      <p>
+        <b>Quiz 3 on Tuesday 13 October covers lectures 5 and 6</b>: this lecture and
+        session 6, maximum likelihood estimation, on 6 October. Assignment 3 opens on
+        6 October and is due Sunday 18 October at 23:59.
+      </p>
+      <p>
+        Lab 5 is Thursday 1 October at 12:00 in 2.30, or Wednesday 30 September at 18:00
+        and Thursday at 16:00, both in 3.30. Its materials were not out on 27 September.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Session primer, written from the course materials repository, the course website and the assigned sections, before the lecture deck was released.</span>
+    <span><a href="../" style="color:inherit;">Back to the semester overview</a></span>
+  </footer>
+
+</div>
+
+</body>
+</html>
