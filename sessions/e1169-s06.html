@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Re-Integration · E1169 Session 6</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="crumb"><a href="../">← Fall 2026 Coordinator</a></div>
+    <div class="eyebrow">GRAD-E1169 · Economics of Crime and Security · Session 6</div>
+    <h1>Re-integration: expected and unexpected effects</h1>
+    <p class="standfirst">
+      Wednesday 7 October 2026, 10:00–12:00, room 2.32. Christian Traxler. Seminar
+      session: two required papers whose results run against intuition. In Norway a prison
+      spell helps some defendants back into work; in New Jersey and New York City a policy
+      meant to help ex-offenders into work widens the racial gap in callbacks.
+    </p>
+  </header>
+
+  <section>
+    <div class="sec-head">
+      <h2>The reading</h2>
+      <p>
+        Two required papers. The syllabus frames the session as the expected and unexpected
+        effects of re-integration policies.
+      </p>
+    </div>
+
+    <div class="panel" style="padding: 16px 20px;">
+      <div class="prose" style="gap: 14px;">
+        <p><b>Required.</b></p>
+        <p>
+          Bhuller, Manudeep, Gordon B. Dahl, Katrine V. Løken and Magne Mogstad (2020),
+          "Incarceration, Recidivism, and Employment", <i>Journal of Political Economy</i>
+          128(4), 1269–1324.
+        </p>
+        <p>
+          Agan, Amanda and Sonja Starr (2018), "Ban the Box, Criminal Records, and Racial
+          Discrimination: A Field Experiment", <i>Quarterly Journal of Economics</i> 133(1),
+          191–235.
+        </p>
+        <p style="font-size:14px; color:var(--ink-2);">
+          How much of this page rests on what: both journal versions are paywalled. Bhuller
+          et al. is summarised from the NBER working paper as revised in February 2019, whose
+          headline numbers match the published abstract. Agan and Starr is summarised from the
+          June 2016 working paper plus the published abstract; the numbers moved slightly
+          between versions, and the published ones are used where they differ.
+        </p>
+      </div>
+    </div>
+
+    <div class="panel" style="padding: 16px 20px; margin-top: 14px;">
+      <table class="pages text" style="max-width: 100%;">
+        <thead>
+          <tr><th>Optional</th><th>What it gives</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Munyo &amp; Rossi (2015), <i>JPubE</i></td><td>Montevideo: the number of inmates released on a given day raises the number of offences that same day, and a larger cash gratuity at release removes the effect (from the abstract)</td></tr>
+          <tr><td>Doleac &amp; Hansen (2020), <i>JOLE</i></td><td>US, staggered timing of Ban the Box laws: employment of young, low-skilled black men falls by 3.4 percentage points, or 5.1% (from the abstract)</td></tr>
+          <tr><td>Vox and NPR Planet Money</td><td>media coverage of Ban the Box linked in the syllabus</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Bhuller, Dahl, Løken and Mogstad: is prison criminogenic or preventive?</h2>
+      <p>
+        Random judges in Norway, and a result that depends on whether you had a job.
+      </p>
+    </div>
+
+    <div class="prose">
+      <p>
+        <b>Design.</b> Norwegian law assigns criminal cases to judges at random within a
+        court, and judges differ in how often they send defendants to prison. The instrument
+        is a judge's incarceration rate in his or her other cases. A judge with a 10 point
+        higher rate raises the chance of a prison sentence by about 5 points. Two defendants
+        in the same court and year differ only in the judge they drew. There is no plea
+        bargaining, which removes a classic problem of the US versions of this design.
+      </p>
+      <p>
+        <b>Data.</b> Linked registers on crime and work for the whole population;
+        33,548 non-confession cases from 2005 to 2009. Prison spells are short: about
+        six months actually served, almost nine in ten under a year.
+      </p>
+      <p>
+        <b>Result.</b> Incarceration lowers the probability of being charged again within
+        five years by <b>29 percentage points</b> and cuts charges by <b>11</b> (published
+        abstract). Against a complier baseline of about 73%, that is roughly a 40% reduction,
+        with a wide confidence interval. It is not just incapacitation: almost nobody is still
+        inside after two years, yet reoffending between months 25 and 60 still falls by about
+        25 points. Ordinary regressions give the opposite sign, which the authors read as
+        selection.
+      </p>
+      <p>
+        <b>The real message is the split.</b> Defendants not working before prison take up
+        job training, raise their employment by <b>36 points</b> and cut reoffending by
+        <b>43 points</b>. Defendants who had a job, about half the sample, commit no less crime
+        and lose <b>30 points</b> of employment, mostly by losing the job they had.
+      </p>
+      <p>
+        <b>Where to push.</b> Whose effect is this? Compliers in a system that spends heavily
+        per inmate, keeps one prisoner per cell, runs open prisons and offers training. The
+        same design in Texas found prison raises recidivism. So the paper shows that
+        Norwegian prison can be preventive, not that prison is. Fallbacks: charges are not
+        crimes, and a strict judge is also strict on fines and probation, which the exclusion
+        restriction has to rule out.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Agan and Starr: does hiding criminal records help black men get jobs?</h2>
+      <p>
+        An audit experiment wrapped around a policy change.
+      </p>
+    </div>
+
+    <div class="prose">
+      <p>
+        <b>Design.</b> About 15,000 fictitious online applications from young men to
+        entry-level jobs in New Jersey and New York City, before and after each adopted Ban
+        the Box in 2015. Race (through names) and a felony conviction are randomised. Whether
+        an employer asked about records was not: chains chose it. The policy effect therefore
+        comes from a triple difference, comparing how the white-black callback gap changed at
+        employers that had to remove the box with employers that never had one.
+      </p>
+      <p>
+        <b>Result, from the published abstract.</b> Records matter: employers that asked were
+        <b>63% more likely</b> to call back an applicant without one. And Ban the Box widens
+        the racial gap: at affected employers, white applicants got <b>7% more callbacks</b>
+        than similar black applicants before the law and <b>43% more</b> after. The authors'
+        reading is that employers rely on exaggerated impressions of racial differences in
+        conviction rates.
+      </p>
+      <p>
+        <b>Where to push.</b> The headline is about who loses, black applicants without a
+        record, not about the policy's total effect. What happens to black applicants
+        <i>with</i> records, the group the law targets, and is the net effect on black
+        applicants as a whole positive or negative? Fallbacks: callbacks are not hires, since
+        the record check still comes later; and names signal class as well as race.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>How the two fit together</h2>
+    </div>
+
+    <div class="prose">
+      <ul>
+        <li>
+          <b>Two halves of re-integration.</b> What the prison spell does to later crime and
+          work, and what the labour market does to people once they are out.
+        </li>
+        <li>
+          <b>Norway is already a "no box" labour market.</b> Bhuller et al. note that
+          Norwegian employers usually do not ask about records on applications, and short
+          spells leave gaps of months, not years. If hiding records triggers racial
+          discrimination in the US, why does it not undermine re-employment in Norway?
+        </li>
+        <li>
+          <b>Callbacks versus jobs.</b> Agan and Starr measure callbacks in an experiment;
+          the optional Doleac and Hansen paper measures employment in survey data. Same sign,
+          different outcome and design.
+        </li>
+        <li>
+          <b>Continuity with last week.</b> The Finnish financial-crime paper and this one
+          both use random judges in a Nordic country and both find prison deters someone. The
+          question is always who.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>What you should be able to do afterwards</h2></div>
+    <div class="prose">
+      <ul>
+        <li>Explain why random judges plus differences in stringency give an instrument, and name relevance, exclusion and monotonicity</li>
+        <li>Say why the effect after month 24 separates prison's lasting effect from incapacitation</li>
+        <li>State the split by prior employment and what it implies for policy</li>
+        <li>Explain statistical discrimination, and why removing information can increase it</li>
+        <li>Say what Agan and Starr's triple difference compares, and what has to hold for it</li>
+      </ul>
+      <p style="font-size:14px; color:var(--ink-2);">
+        The final exam (Thursday 10 December, 10:00, room 2.61) tests economic insights,
+        methods and policy implications; the syllabus says precise results from articles are
+        not assessed. The design logic matters more than the coefficients.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel aside" style="border-left-color: var(--c3); background: color-mix(in oklab, var(--c3) 6%, var(--surface));">
+      <span class="lbl" style="color: var(--c3);">Looking ahead</span>
+      <p>
+        Session 7, Wednesday 14 October: fines and monetary sanctions. Mello (2025),
+        <i>ReStud</i>, on fines and financial wellbeing, and Kaila (2026), <i>ReStud</i>, on
+        income-based speeding fines. Then the fall break, and session 8 on Wednesday
+        28 October: migration and crime.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Session primer, written from the syllabus, the NBER working paper of Bhuller et al., the 2016 working paper of Agan and Starr, and the published abstracts.</span>
+    <span><a href="../" style="color:inherit;">Back to the semester overview</a></span>
+  </footer>
+
+</div>
+
+</body>
+</html>

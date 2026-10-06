@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 6, Likelihood · C23</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="crumb"><a href="../">← Fall 2026 Coordinator</a></div>
+    <div class="eyebrow">GRAD-C23-Lab1 · Mathematics for Data Science · Lab 6</div>
+    <h1>Lab 6: limit theorems and likelihood</h1>
+    <p class="standfirst">
+      Thursday 8 October 2026, 12:00–14:00, room 2.30, Camilo Pedraza. Also Wednesday
+      7 October at 18:00 and Thursday at 16:00, both in 3.30; no group is enforced.
+      <b>The materials were not released as of Tuesday 6 October</b>, so the topic in the
+      title is an inference from lecture 6, not an announcement.
+    </p>
+  </header>
+
+  <section>
+    <div class="sec-head">
+      <h2>When to expect the materials</h2>
+    </div>
+
+    <div class="prose">
+      <p>
+        They will appear in <code>labs/06_lab</code> of the materials repository. The course
+        website dates the lab 6 entry <b>Wednesday 7 October at 09:00</b>, and lab 5's
+        handout landed at exactly that hour the week before, with its solutions on the
+        Friday at 07:00. So Wednesday morning, which leaves the day for the evening sitting.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>What lab 5 covered, and what it left</h2>
+    </div>
+
+    <div class="prose">
+      <p>
+        Lab 5 was the first half of lecture 5 plus integration: the mean and variance of
+        the Uniform and the Exponential by integration, a density of the form cx² on [0, 3],
+        Monte Carlo integration, and the Normal by standardising, with memorylessness and
+        Riemann sums as optional extras. It left out joint densities, covariance and
+        correlation, and all of lecture 6. Unlike lab 4, it says nothing about what comes
+        next.
+      </p>
+      <p style="font-size:14px; color:var(--ink-2);">
+        A reasonable guess, from how labs 3 to 5 were built (simulate, then compare with
+        the exact answer): the law of large numbers as a running average; the central limit
+        theorem as a histogram of sample means from a skewed distribution; the likelihood
+        evaluated on a grid and laid over a Beta density; maximum likelihood found
+        numerically and compared with the closed forms. Possibly covariance from simulated
+        data, which lecture 5 left untouched. That is an inference.
+      </p>
+      <p>
+        <b>Three traps worth knowing before you start.</b> NumPy's exponential sampler takes
+        the scale 1/λ and its Normal sampler the standard deviation. <code>np.var</code>
+        divides by n, which is the Normal maximum likelihood estimate, while
+        <code>np.cov</code> divides by n − 1. And optimisers minimise, so hand them the
+        negative log-likelihood.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Checks worth doing by hand first</h2>
+    </div>
+
+    <div class="prose">
+      <ul>
+        <li>The mean of 36 Exponential(1) draws: the CLT puts P(mean &gt; 1.2) at 0.115; the exact value is 0.118.</li>
+        <li>The black box, 14 wins in 41: the likelihood peaks at 14/41 ≈ 0.341, the mode of Beta(15, 28), not its mean 15/43.</li>
+        <li>Saves of 2 in 4, 6 in 10 and 1 in 2: the estimate is 9/16 = 0.5625, not 0.533, the average of the rates.</li>
+        <li>Data 2, 4, 4, 4, 5, 5, 7, 9: mean 5, maximum likelihood variance 4, sample variance 4.57.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>What you should be able to do afterwards</h2></div>
+    <div class="prose">
+      <ul>
+        <li>Show the law of large numbers and the central limit theorem by simulation</li>
+        <li>Evaluate a likelihood on a grid and find its peak</li>
+        <li>Find a maximum likelihood estimate numerically and check it against the formula</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel aside">
+      <span class="lbl">What it feeds</span>
+      <p>
+        <b>Quiz 3 on Tuesday 13 October</b>, covering lectures 5 and 6. <b>Assignment 2</b>,
+        now due Sunday 11 October, uses neither lecture.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Lab primer, written before the lab materials were released, from the lecture 6 deck, the lab 5 handout and solutions, and the course website.</span>
+    <span><a href="../" style="color:inherit;">Back to the semester overview</a></span>
+  </footer>
+
+</div>
+
+</body>
+</html>

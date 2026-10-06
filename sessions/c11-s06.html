@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web Scraping and APIs · C11 Session 6</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="crumb"><a href="../">← Fall 2026 Coordinator</a></div>
+    <div class="eyebrow">GRAD-C11 · Introduction to Data Science · Session 6</div>
+    <h1>Web scraping and APIs</h1>
+    <p class="standfirst">
+      Thursday 8 October 2026, 10:00-12:00, Forum (A+B). Simon Munzert. One chapter of R for
+      Data Science on scraping with <code>rvest</code>, and the first two chapters of
+      <i>APIs for Social Scientists</i>, plus one chapter on an API of your choice.
+      <b>Quiz 5 runs in the first five minutes</b>, and it covers last week's web data
+      lecture plus these readings, not today's lecture. Assignment 3 is released the same day.
+    </p>
+  </header>
+
+  <section>
+    <div class="sec-head">
+      <h2>Quiz 5 covers web data, plus the reading</h2>
+      <p>
+        The rule from the session 1 deck: content comes from the lecture of the past week
+        and the readings of the current one.
+      </p>
+    </div>
+
+    <div class="prose">
+      <p>
+        So quiz 5 is <b>the session 5 lecture</b>, web data and technologies, in the version
+        revised the night before it was given, together with <b>this week's readings</b>.
+        Thursday's scraping lecture is not on it, although R4DS chapter 24 covers much of the
+        same ground, so <code>rvest</code> is examinable from the book this week. The course's
+        <code>assignments-schedule</code> repository puts Q5 on session 6.
+      </p>
+      <p>
+        From the session 5 deck, the likeliest material: what counts as web data, and which
+        technology does what (XPath and CSS selectors locate content, AJAX and Selenium handle
+        dynamic pages, APIs serve JSON and XML); elements, tags, content and attributes; the
+        common tags, <code>&lt;div&gt;</code> against <code>&lt;span&gt;</code>; that R parses
+        a page but does not render it. Then XPath on the deck's small example page: absolute
+        and relative paths, the wildcard, <code>.</code> and <code>..</code>, axes, numeric and
+        textual predicates, and the extractor functions. CSS: the three ways to add it, and id
+        and class selectors. Regular expressions on the deck's example sentence: anchors,
+        escaping a dot three ways, character classes and ranges, shorthand classes, greedy and
+        lazy quantifiers, back references.
+      </p>
+      <p>
+        Five minutes, <b>single choice</b>, pen and paper. The best eight of ten count, 3%
+        each. <b>Taking the quiz is how attendance is recorded.</b>
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>The reading</h2>
+      <p>R4DS is free at r4ds.hadley.nz. <i>APIs for Social Scientists</i> is free at paulcbauer.github.io/apis_for_social_scientists_a_review.</p>
+    </div>
+
+    <div class="panel" style="padding: 16px 20px;">
+      <table class="pages text" style="max-width: 100%;">
+        <thead>
+          <tr><th>Chapter</th><th>What it covers</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><b>R4DS 24 · Web scraping</b></td><td>Ethics and law (terms of service, personal data, copyright); HTML elements and attributes; CSS selectors; <code>html_elements()</code> against <code>html_element()</code>; text, attributes and tables; finding selectors; two case studies; why JavaScript-built pages need a real browser</td></tr>
+          <tr><td>APIs for Social Scientists 1 · Introduction</td><td>Where the book comes from, and the five questions every API chapter answers; authentication, packages, replication with <code>checkpoint</code></td></tr>
+          <tr><td>APIs for Social Scientists 2 · Best practices</td><td>Read the developer agreement; never hardcode keys, keep them in <code>.Renviron</code>; cache your calls with <code>memoise</code></td></tr>
+          <tr><td>One API chapter of your choice</td><td>At least one, "to get an impression". Wikipedia and Genderize.io are short, free and need no key</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="prose" style="margin-top: 14px;">
+      <p>
+        This is the syllabus's list as it stands. Last week Munzert posted reading priorities
+        on Moodle on the Tuesday; nothing for this session had come by Tuesday morning, so it
+        is worth checking Moodle before Thursday.
+      </p>
+      <p style="font-size:14px; color:var(--ink-2);">
+        Optional: <i>Automated Data Collection with R</i>, chapter 9 (Scraping the web).
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>R4DS 24: scraping with rvest, and whether you may</h2>
+    </div>
+
+    <div class="prose">
+      <p>
+        The chapter starts with the law, not the code. Scraping is likely to be fine when the
+        data are <b>public, non-personal and factual</b>. Terms of service bind a US visitor
+        only after an explicit action such as creating an account, but European courts have
+        enforced them without one. Personal data is the real danger: the 2016 release of
+        70,000 scraped dating profiles is the cautionary case. Facts are not protected by US
+        copyright, although Europe adds a separate right over databases. Wait between
+        requests, and use an API where one exists, because it gives more reliable data.
+      </p>
+      <p>
+        Then the mechanics. <code>read_html()</code> parses a page; CSS selectors find
+        elements (<code>p</code>, <code>.class</code>, <code>#id</code>). The distinction that
+        matters is <b><code>html_elements()</code> against <code>html_element()</code></b>: the
+        first returns every match, the second exactly one result per input, with a missing
+        value where nothing matches, which keeps rows aligned when some items lack a field.
+        <code>html_text2()</code> extracts text as a browser would show it,
+        <code>html_attr()</code> extracts attributes (always as strings), and
+        <code>html_table()</code> turns HTML tables into tibbles. <code>rvest</code> runs no
+        JavaScript, so a page built in the browser needs a real one behind it.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>APIs for Social Scientists: the ground rules</h2>
+    </div>
+
+    <div class="prose">
+      <p>
+        A collaborative review of APIs useful in social science, each chapter answering the
+        same questions: what the API provides and who runs it, how to get access, what a
+        simple call looks like, how to reach it from R, and which research has used it.
+      </p>
+      <p>
+        The best-practice chapter has three rules. <b>Read the developer agreement</b>, even
+        when a package does the calls for you, because it says what you may do with the data;
+        Cambridge Analytica is its example of API data abused by a researcher. <b>Never put a
+        key in your code</b>: it leaks when the code is shared and stays in your command
+        history. Store it in your user-level <code>.Renviron</code> as
+        <code>NAME=value</code>, restart R, and read it with <code>Sys.getenv()</code>.
+        And <b>cache your calls</b> with <code>memoise</code>, so an identical request is
+        answered locally instead of spending the rate limit again.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel aside">
+      <span class="lbl">The deck is not the final one yet</span>
+      <p>
+        The session 6 deck in the <code>lectures</code> repository is still last year's: its
+        closing slide announces the previous year's assignment. Decks 4 and 5 were each
+        revised the night before their lecture, so expect this one to move too.
+      </p>
+      <p>
+        The current draft scrapes static pages with <code>rvest</code> (a Wikipedia list,
+        SelectorGadget, HTML tables), covers good practice (robots.txt, pausing between
+        requests, saving pages before parsing, identifying yourself), then web APIs: the
+        vocabulary of client, server, endpoint, request and response, a free IP geolocation
+        API called from R, API clients and access tokens, and JSON with
+        <code>jsonlite</code>.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>What you should be able to do afterwards</h2></div>
+    <div class="prose">
+      <ul>
+        <li>Scrape a static page with <code>rvest</code>: parse, locate with XPath or CSS, extract, tidy</li>
+        <li>Use <code>html_elements()</code> for rows and <code>html_element()</code> for columns, so missing fields stay aligned</li>
+        <li>Read an HTML table into a tibble and fix its types</li>
+        <li>Scrape politely: robots.txt, pauses, local copies, an identifiable user agent</li>
+        <li>Call a web API from R and turn its JSON response into a data frame</li>
+        <li>Keep API keys out of your code</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel aside" style="border-left-color: var(--c1); background: color-mix(in oklab, var(--c1) 6%, var(--surface));">
+      <span class="lbl" style="color: var(--c1);">This week and next</span>
+      <p>
+        <b>Lab, Tuesday 6 October, 16:00, room 2.34</b> (C11-Lab3), with the 18:00 sitting in
+        the same room as a fallback. Lab 5, "Regular Expressions, XPath, &amp; Webdata": the
+        <code>stringr</code> functions, the lecture's regex examples and exercises on them, a
+        secret message hidden in noise, and XPath on the same small page as the lecture. It is
+        the quiz 5 lecture material, hands-on. Two of the printed solutions misdescribe
+        their patterns, and one exercise pattern does not parse; trust what the code returns.
+      </p>
+      <p>
+        <b>Assignment 3</b> is released on Thursday 8 October. The schedule's rule, Friday at
+        18:00 in the week after release, puts it at <b>Friday 16 October, 18:00</b>, the day
+        before the fall break; that date is inferred, not yet announced. The session 5 deck
+        promised that web technologies would feature in it.
+      </p>
+      <p>
+        Session 7, Thursday 15 October, is relational databases and SQL, opened by quiz 6 on
+        today's lecture. Reading: R4DS chapters 19 to 21, on joins, spreadsheets and
+        databases. Then the fall break: the next session after that is 29 October.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Session primer, written from R4DS chapter 24, the first two chapters of <i>APIs for Social Scientists</i>, the session 5 and 6 decks and the course GitHub organisation.</span>
+    <span><a href="../" style="color:inherit;">Back to the semester overview</a></span>
+  </footer>
+
+</div>
+
+</body>
+</html>
