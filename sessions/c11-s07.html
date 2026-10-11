@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Relational Databases and SQL · C11 Session 7</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="crumb"><a href="../">← Fall 2026 Coordinator</a></div>
+    <div class="eyebrow">GRAD-C11 · Introduction to Data Science · Session 7</div>
+    <h1>Relational databases and SQL</h1>
+    <p class="standfirst">
+      Thursday 15 October 2026, 10:00-12:00, Forum (A+B). Simon Munzert. Three chapters of
+      R for Data Science: joins, spreadsheets and databases.
+      <b>Quiz 6 runs in the first five minutes</b>, and it covers last week's scraping and APIs
+      lecture plus these readings, not today's lecture. Assignment 3 is due Friday 23 October,
+      inside the fall break.
+      <a href="https://claude.ai/artifact/Ca6McCJ2PqygXTHQveu932">Quiz 6 drill</a>: 50 questions, a five-minute mock of 8, cheat sheet.
+    </p>
+  </header>
+
+  <section>
+    <div class="sec-head">
+      <h2>Quiz 6 covers scraping and APIs, plus the reading</h2>
+      <p>
+        The rule from the session 1 deck: content comes from the lecture of the past week
+        and the readings of the current one.
+      </p>
+    </div>
+
+    <div class="prose">
+      <p>
+        So quiz 6 is <b>the session 6 lecture</b>, web scraping and APIs, in the version revised
+        the morning it was given, together with <b>this week's readings</b>. Thursday's databases
+        lecture is not on it, although R4DS chapters 19 and 21 cover much of the same ground, so
+        keys, joins and SQL are examinable from the book this week. The course's
+        <code>assignments-schedule</code> repository puts Q6 on session 7.
+      </p>
+      <p>
+        From the session 6 deck, the likeliest material: what scraping is and the three key
+        <code>rvest</code> verbs; reading the Wikipedia XPath piece by piece; the arguments of
+        <code>html_table()</code>; why websites now resist scrapers (generated class names,
+        content security policies, pages built by JavaScript) and what to do instead; robots.txt,
+        pausing between requests, saving pages before parsing, identifying yourself, and the
+        <code>polite</code> package; scraping in the age of AI. Then APIs: client, server,
+        endpoint, request and response, the restaurant analogy, calling an API with
+        <code>httr2</code> (and when the method becomes POST), keeping keys out of code; and JSON,
+        with the <code>jsonlite</code> conversion rules.
+      </p>
+      <p>
+        Five minutes, <b>single choice</b>, pen and paper. The best eight of ten count, 3%
+        each. <b>Taking the quiz is how attendance is recorded.</b>
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>The reading</h2>
+      <p>R4DS is free at r4ds.hadley.nz.</p>
+    </div>
+
+    <div class="panel" style="padding: 16px 20px;">
+      <table class="pages text" style="max-width: 100%;">
+        <thead>
+          <tr><th>Chapter</th><th>What it covers</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><b>R4DS 19 · Joins</b></td><td>Primary, foreign, compound and surrogate keys; mutating joins (<code>left_join()</code> above all) and filtering joins (<code>semi_join()</code>, <code>anti_join()</code>); specifying keys with <code>join_by()</code>; how rows match, and when they multiply; cross, inequality, rolling and overlap joins</td></tr>
+          <tr><td><b>R4DS 20 · Spreadsheets</b></td><td>Reading Excel with <code>readxl</code>: column names, missing values, column types, worksheets and cell ranges; how Excel stores data; writing with <code>writexl</code>; Google Sheets with <code>googlesheets4</code></td></tr>
+          <tr><td><b>R4DS 21 · Databases</b></td><td>Connecting with <code>DBI</code>; querying lazily with <code>dbplyr</code>; <code>show_query()</code> and <code>collect()</code>; SQL learned through its dplyr translation: <code>SELECT</code>, <code>FROM</code>, <code>WHERE</code>, <code>GROUP BY</code>, <code>ORDER BY</code>, joins, window functions</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="prose" style="margin-top: 14px;">
+      <p>
+        This is the syllabus's list as it stands. Munzert has posted reading priorities on
+        Moodle on a Tuesday before; nothing for this session had come by Sunday, so it is worth
+        checking Moodle before Thursday.
+      </p>
+      <p style="font-size:14px; color:var(--ink-2);">
+        Optional: <i>Automated Data Collection with R</i>, chapter 7 (SQL and relational
+        databases); Weidmann (2023), <i>Data Management for Social Scientists</i>; the game
+        <i>Lost at SQL</i>.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>R4DS 19: keys, and which join keeps what</h2>
+    </div>
+
+    <div class="prose">
+      <p>
+        Every join pairs a <b>primary key</b>, which identifies each row of its own table, with a
+        <b>foreign key</b> that points to it from another. In the flights data, a plane's tail
+        number is the primary key of <code>planes</code> and a foreign key in
+        <code>flights</code>; the weather table needs two variables together, place and hour.
+        The one trap in that data is <code>year</code>: flight year in one table, build year in
+        the other. Join without naming the key and dplyr uses every shared name, both of them,
+        and most planes find no match.
+      </p>
+      <p>
+        <code>left_join()</code> keeps every row of the first table and is the one to reach for;
+        right, full and inner keep the second table, both, or only matches. Filtering joins
+        keep or drop rows by whether they match, without adding columns: <code>anti_join()</code>
+        is how to find what is missing. A row that matches twice appears twice, and keys
+        duplicated on both sides multiply rows, which dplyr flags with a warning.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>R4DS 20 and 21: spreadsheets, then databases</h2>
+    </div>
+
+    <div class="prose">
+      <p>
+        Spreadsheets are read with <code>read_excel()</code> by trial and error: name the
+        columns (and skip the old header), say which strings mean missing, choose types, pick a
+        worksheet or a cell range. Excel stores no integers and keeps dates as day counts, and a
+        round trip through Excel loses column types.
+      </p>
+      <p>
+        For databases, <b>DBI</b> connects and runs SQL, and <b>dbplyr</b> translates ordinary
+        dplyr code into SQL. A database table in R is lazy: nothing runs until you
+        <code>collect()</code>, and <code>show_query()</code> shows the SQL. Written order is
+        <code>SELECT, FROM, WHERE, GROUP BY, ORDER BY</code>; evaluation runs
+        <code>FROM, WHERE, GROUP BY, SELECT, ORDER BY</code>, which is why a filter on a summary
+        becomes <code>HAVING</code>. SQL compares with a single <code>=</code>, quotes strings
+        with single quotes, and drops missing values silently when summarising.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel aside">
+      <span class="lbl">The deck is not the final one yet</span>
+      <p>
+        The session 7 deck in the <code>lectures</code> repository is still last year's. Decks 5
+        and 6 were each revised in the day and a half before their lecture, so expect this one
+        to move too.
+      </p>
+      <p>
+        The current draft argues why data outgrows a single spreadsheet, builds up Codd's
+        relational model and normalization from a small example, links tidy data to the third
+        normal form, joins the flights tables in dplyr, introduces SQL and its order of
+        operations, and ends with a hands-on SQLite session from R: connect, copy a table in,
+        query it lazily, see the SQL, collect.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>What you should be able to do afterwards</h2></div>
+    <div class="prose">
+      <ul>
+        <li>Explain why data is split into related tables, and what normalization buys</li>
+        <li>Name the primary and foreign keys in a set of tables, and check a key is unique</li>
+        <li>Choose the right join and predict how many rows it returns</li>
+        <li>Specify join keys explicitly and handle clashing column names</li>
+        <li>Read a basic SQL query and map each clause onto a dplyr verb</li>
+        <li>Query a database from R with dplyr, see the SQL, and collect the result</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel aside" style="border-left-color: var(--c1); background: color-mix(in oklab, var(--c1) 6%, var(--surface));">
+      <span class="lbl" style="color: var(--c1);">This week and next</span>
+      <p>
+        <b>Lab, Tuesday 13 October, 16:00, room 2.34</b> (C11-Lab3), with the 18:00 sitting in
+        the same room and the Monday 12:00 sitting in 2.61 as alternatives. Lab 6, "Web
+        Scraping": a Wikipedia page two ways, browser tools for writing selectors, a table of
+        streaming records, downloading many pages politely, and two APIs with
+        <code>httr2</code>. It is the quiz 6 lecture material, hands-on. One printed solution
+        splits artist names on "and" without word boundaries, so it cuts a name in two; trust
+        what the code returns.
+      </p>
+      <p>
+        <b>Assignment 3, "Web data"</b>, is online since Friday 9 October and due <b>Friday
+        23 October, 18:00</b>, inside the fall break. Regular expressions or XPath, scraping a
+        Wikipedia table and downloading pages politely, and a function around a web API. Graded
+        pass or fail.
+      </p>
+      <p>
+        Then the <b>fall break</b>, 19 to 25 October: no session. Session 8, Thursday
+        29 October, is modeling, opened by quiz 7 on this week's databases lecture. Reading: the
+        tidymodels "Get Started" articles 1 to 5 and a paper on specification curve analysis.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Session primer, written from R4DS chapters 19 to 21, the session 6 and 7 decks and the course GitHub organisation.</span>
+    <span><a href="../" style="color:inherit;">Back to the semester overview</a></span>
+  </footer>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 7, Posteriors · C23</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="crumb"><a href="../">← Fall 2026 Coordinator</a></div>
+    <div class="eyebrow">GRAD-C23-Lab1 · Mathematics for Data Science · Lab 7</div>
+    <h1>Lab 7: priors and posteriors</h1>
+    <p class="standfirst">
+      Thursday 15 October 2026, 12:00–14:00, room 2.30, Camilo Pedraza. Also Wednesday
+      14 October at 18:00 and Thursday at 16:00, both in 3.30; no group is enforced.
+      <b>Neither the lab materials nor the lecture 7 deck were out as of Sunday
+      11 October</b>, so the topic in the title is an inference from the session 7 reading
+      list, not an announcement.
+    </p>
+  </header>
+
+  <section>
+    <div class="sec-head">
+      <h2>When to expect the materials</h2>
+    </div>
+
+    <div class="prose">
+      <p>
+        They will appear in <code>labs/07_lab</code> of the materials repository. The course
+        website dates the lab 7 entry <b>Wednesday 14 October at 09:00</b>, the hour at which
+        the lab 4, 5 and 6 handouts all landed, with solutions on the Friday at 07:00. So
+        Wednesday morning, in time for the evening sitting.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>What lab 6 covered, and what it suggests</h2>
+    </div>
+
+    <div class="prose">
+      <p>
+        Lab 6 was lecture 6 plus lecture 5's leftovers: a maximum likelihood estimate by hand
+        from two kinds of free-throw data, covariance and correlation, the law of large
+        numbers as a running average, the central limit theorem as an approximation and by
+        simulation, and Monte Carlo integration. It opened with a pen-and-paper exercise on
+        the lecture's main recipe, and its code cells left one or two lines to fill in.
+      </p>
+      <p style="font-size:14px; color:var(--ink-2);">
+        A reasonable guess, if lecture 7 is Bayesian inference: Bayes' rule on a discrete
+        unknown by hand; a posterior computed on a grid and laid over the matching Beta; the
+        same data under weak and strong priors; sequential updating; summarising a posterior
+        from random draws; predicting the next observation by simulation. That is an
+        inference. If the deck turns out to be linear algebra, as the syllabus has it, the
+        lab follows the deck.
+      </p>
+      <p>
+        <b>Traps worth knowing before you start.</b> SciPy's Gamma takes a scale, which is
+        one over the rate in Gelman's notation, so his Gamma(6, 7) is
+        <code>stats.gamma(6, scale=1/7)</code>. A posterior on a grid has to be divided by
+        its sum times the grid step to integrate to one. A Beta posterior counts successes and
+        failures, not successes and trials: 14 in 41 under a flat prior is Beta(15, 28).
+        And under a flat prior the posterior's mode is the maximum likelihood estimate, its
+        mean is not.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Checks worth doing by hand first</h2>
+    </div>
+
+    <div class="prose">
+      <ul>
+        <li>A Beta(2, 2) prior and 7 successes in 10: posterior Beta(9, 5), mean 0.643, between the prior's 0.5 and the data's 0.7.</li>
+        <li>Ten trials 1, 0, 1, 1, 0, 1, 1, 1, 0, 1 from a flat prior, one at a time: Beta(8, 4), the same as all at once.</li>
+        <li>Prior N(0, 4), four observations with variance 1 and mean 2: precision 4.25, posterior mean 1.88, variance 0.235.</li>
+        <li>Lecture 2 recall: 1% prevalence and a 95%-accurate test make a positive result worth 16%.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>What you should be able to do afterwards</h2></div>
+    <div class="prose">
+      <ul>
+        <li>Compute a posterior on a grid and check it against the conjugate answer</li>
+        <li>See how a stronger prior moves the posterior, and how more data move it back</li>
+        <li>Summarise a posterior from draws and compare with the exact distribution</li>
+        <li>Simulate the prediction for the next observation</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel aside">
+      <span class="lbl">What it feeds</span>
+      <p>
+        <b>Quiz 4 on Tuesday 3 November</b>, covering lectures 7 and 8. Quiz 3 comes before
+        this lab and does not include lecture 7. <b>Assignment 3</b> opens Tuesday
+        13 October and is due Sunday 8 November; its content is not known yet. Next week is
+        the fall break, so the next lab is Thursday 29 October.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Lab primer, written before the lab materials and the lecture deck were released, from the session 7 reading list, the lab 6 handout and solutions, and the course website.</span>
+    <span><a href="../" style="color:inherit;">Back to the semester overview</a></span>
+  </footer>
+
+</div>
+
+</body>
+</html>

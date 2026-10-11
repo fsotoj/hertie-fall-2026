@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bayesian Inference · C23 Session 7</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="crumb"><a href="../">← Fall 2026 Coordinator</a></div>
+    <div class="eyebrow">GRAD-C23 · Mathematics for Data Science · Session 7</div>
+    <h1>Bayesian inference</h1>
+    <p class="standfirst">
+      Tuesday 13 October 2026, 08:00–10:00, Forum (A+B). Jan Gieseler. From the likelihood
+      to the posterior: prior times likelihood, the Beta and the Binomial, credible
+      intervals, and how the prior's pull fades as data accumulate.
+      <b>Quiz 3 opens the session: lectures 5 and 6.</b>
+      <a href="https://claude.ai/artifact/GZvT7Kus7WQQFD8Qnkrg3i">Quiz 3 drill</a>: practice, a ten-minute mock of 10, cheat sheet.
+    </p>
+  </header>
+
+  <section>
+    <div class="panel aside">
+      <span class="lbl">Provisional: written before the deck</span>
+      <p>
+        The slides usually appear at 06:00 Berlin time on the morning of the lecture, so
+        this page is a forecast from the reading list, not a review of the deck. The topic
+        itself rests on the course's reading list alone: it assigns Gelman et al.,
+        <i>Bayesian Data Analysis</i>, chapters 1 and 2. <b>The syllabus puts linear algebra
+        here and Bayesian analysis in session 9</b>; the materials repository is the live
+        document, so expect Bayes. Where linear algebra went is not yet known.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>What the deck is likely to cover</h2>
+      <p>From the reading and from how lectures 2 and 6 set it up. A guess until Tuesday.</p>
+    </div>
+
+    <div class="prose">
+      <p>
+        <b>Bayes' rule for a parameter.</b> Lecture 2 used Bayes' rule on events (the disease
+        test, Monty Hall). The same rule with an unknown parameter θ in place of the event:
+        the posterior is proportional to the prior times the likelihood. The data enter only
+        through the likelihood, the same object as last week's L(θ).
+      </p>
+      <p>
+        <b>The black box again.</b> Lecture 6 found that the likelihood of 14 wins in 41 has
+        the shape of a Beta(15, 28). Read this week, that curve is the posterior under a flat
+        prior. With a Beta(α, β) prior, y successes in n trials give a Beta(α + y, β + n − y)
+        posterior: the same family again, which is what conjugate means.
+      </p>
+      <p>
+        <b>The posterior as a compromise.</b> Its mean, (α + y)/(α + β + n), always sits
+        between the prior mean and the maximum likelihood estimate, and the prior matters
+        less and less as n grows. Yesterday's posterior is today's prior: updating one
+        observation at a time gives the same answer as all at once.
+      </p>
+      <p>
+        <b>Summaries.</b> Posterior mean, median and mode; a 95% credible interval, which
+        means what people wish a confidence interval meant: a 95% probability that the
+        parameter is inside. Possibly also Normal data with known variance (precisions
+        add) and the Gamma prior for Poisson counts.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>The reading</h2>
+      <p>
+        Gelman, Carlin, Stern, Dunson, Vehtari and Rubin, <i>Bayesian Data Analysis</i>,
+        third edition. The authors post it free for non-commercial use; in that PDF,
+        printed page + 10 = PDF page.
+      </p>
+    </div>
+
+    <div class="panel" style="padding: 16px 20px;">
+      <table class="pages" style="max-width: 680px;">
+        <thead>
+          <tr><th>Printed</th><th>PDF</th><th>What</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>ch. 1, p. 3–13</td><td>13–23</td><td>the three steps; notation and exchangeability; Bayes' rule, prediction, the likelihood, odds; a genetics example and a spell checker</td></tr>
+          <tr><td>ch. 2, p. 29–56</td><td>39–66</td><td>the Binomial with a flat prior; posterior as compromise; summaries and intervals; conjugate priors; the Normal with known variance; Poisson and exponential; cancer rates; noninformative and weakly informative priors</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin:0; font-size:14px; color:var(--ink-2); max-width:70ch;">
+      If time is short: section 1.3 and the genetics example (p. 6–9), then 2.1 and 2.4 up
+      to the end of the placenta previa example (p. 29–31, 34–38). The exponential-family
+      derivation, the cancer-rates example and pivotal quantities can wait for the deck to
+      say whether they matter.
+    </p>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Worked examples from the book</h2>
+    </div>
+
+    <div class="prose">
+      <ul>
+        <li><b>A carrier of hemophilia?</b> Prior one half; two unaffected sons are four times likelier if she is not; posterior 0.20. A third unaffected son, starting from 0.20: 0.111.</li>
+        <li><b>'radom' typed.</b> Word frequencies as the prior, typing errors as the likelihood: 0.325 random, 0.002 radon, 0.673 radom. The likelihood is not a distribution over the three words.</li>
+        <li><b>Girls born with placenta previa</b>: 437 of 980. Flat prior, posterior Beta(438, 544): mean 0.446, 95% interval [0.415, 0.477], which leaves out the population's 0.485.</li>
+        <li><b>Asthma deaths</b>: 3 in 200,000, Gamma(3, 5) prior, posterior Gamma(6, 7): mean 0.86 per 100,000, against a crude rate of 1.5. Strong shrinkage from one year of data.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>What you should be able to do afterwards</h2></div>
+    <div class="prose">
+      <ul>
+        <li>Write posterior ∝ prior × likelihood and normalise it, on a grid or by recognising the density</li>
+        <li>Update a Beta prior with Binomial data, and a Gamma prior with Poisson counts, by hand</li>
+        <li>Say why the posterior mean sits between the prior mean and the maximum likelihood estimate</li>
+        <li>Read a credible interval and say how it differs from a confidence interval</li>
+        <li>Show that sequential updating equals one batch update</li>
+        <li>Combine a Normal prior with Normal data by adding precisions</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Graded soon</h2>
+    </div>
+
+    <div class="prose">
+      <ul>
+        <li><b>Assignment 2</b>, team repository, due <b>Sunday 11 October at 23:59</b>. Team joining closes the same day.</li>
+        <li><b>Quiz 3, Tuesday 13 October at 08:00</b>: lectures 5 and 6, ten multiple-choice questions on paper. Neither deck has changed since 6 October.</li>
+        <li><b>Assignment 3</b> opens Tuesday 13 October and is due <b>Sunday 8 November at 23:59</b>. Its content is not out yet.</li>
+        <li><b>Quiz 4, Tuesday 3 November</b>, covers lectures 7 and 8, so <b>this lecture is in it</b>. Lecture 8's topic is not yet published.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel aside">
+      <span class="lbl">Looking ahead</span>
+      <p>
+        Lab 7 is Thursday 15 October at 12:00 in 2.30, or Wednesday 14 October at 18:00 and
+        Thursday at 16:00, both in 3.30. The course website expects its materials on
+        Wednesday at 09:00.
+      </p>
+      <p>
+        <b>Fall break, 19–25 October</b>: no lecture and no lab. Session 8 is Tuesday
+        27 October.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Session primer, written before the lecture from the course reading list, the book itself, the earlier decks and the course website.</span>
+    <span><a href="../" style="color:inherit;">Back to the semester overview</a></span>
+  </footer>
+
+</div>
+
+</body>
+</html>
