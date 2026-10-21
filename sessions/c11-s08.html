@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modeling and evaluation · Fall 2026</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="masthead">
+    <div class="crumb"><a href="../">← Fall 2026 Coordinator</a></div>
+    <div class="eyebrow">GRAD-C11 · Introduction to Data Science · Session 8</div>
+    <h1>Modeling and evaluation</h1>
+    <p class="standfirst">Thursday 29 October, 10:00–12:00, Forum (A+B). Quiz 7 opens the session.</p>
+  </header>
+  <section class="prose">
+
+    <h2>Quiz 7: two sources</h2>
+    <p><b>The previous lecture, databases and SQL, plus this week's required readings.</b> This week's modeling lecture is not the quiz's lecture component. The break adds no extra lecture.</p>
+    <ul>
+      <li><a href="https://www.tidymodels.org/start/">tidymodels Get Started, articles 1–5</a>: build a model; preprocess with recipes; evaluate with resamples; tune parameters; predictive modeling case study.</li>
+      <li>Simonsohn, Simmons and Nelson (2020), <a href="https://doi.org/10.1038/s41562-020-0912-z">Specification curve analysis</a>; <a href="https://faculty.wharton.upenn.edu/wp-content/uploads/2016/11/33-Simonsohn-Simmons-Nelson-2020.pdf">author-hosted paper</a>.</li>
+    </ul>
+    <h2>Weekend reading</h2>
+    <p><b>Saturday, 90 minutes:</b> articles 1–3. Trace one example from specification to fitting and prediction. Explain the role of the recipe and where its preprocessing is learned.</p>
+    <p><b>Sunday, 90 minutes:</b> articles 4–5 and specification curves. If unfinished, use Monday's reading block. For the paper, record the admissible specifications, how estimates vary and what joint inference adds.</p>
+    <h2>Database recall before Thursday</h2>
+    <p>Use <a href="c11-s07.html">session 7</a> and the lecture. Review primary and foreign keys, normalization, join types and duplicated keys, SQL clauses, lazy tables, <code>show_query()</code>, <code>collect()</code>, DBI and database drivers.</p>
+    <p>Wednesday 15:00–16:00 is for recall and corrections. Thursday 08:45–09:15 is a final pass, with time left to arrive before the quiz.</p>
+    <h2>The modeling workflow</h2>
+    <p>The <a href="https://github.com/intro-to-data-science-26/lectures/blob/main/08_modeling/08-modeling.Rmd">current lecture source</a> covers formulas, interactions and transformations; tidymodels; splitting, preprocessing, resampling and tuning; and reporting. Future-session files can still change.</p>
+    <p><code>split → recipe + model → resample/tune → finalize → test</code></p>
+    <p>Learn preprocessing within the training and resampling process. Use resampling to compare candidates and keep the test set for a final independent evaluation. Explain fitted parameters versus hyperparameters.</p>
+    <h2>Tuesday lab</h2>
+    <p><b>27 October, 18:00–20:00, room 2.34.</b> The repository contains a databases folder, while its README still links last year's modeling lab. Verify the TA announcement before preparing packages; databases is likely, not confirmed.</p>
+    <h2 id="a3">First: finish Assignment 3</h2>
+    <p><b>Web data is due Friday 23 October, 18:00.</b> Target submission at 13:00, with 15:45–17:00 reserved for problems. Finish the required tasks, knit and inspect HTML, push your own work and verify remote <code>main</code>.</p>
+    <p>The live README grades visible effort on every task and the knitted HTML. Leave time for compilation and output checks. The preparation guide does not supply an assignment solution. No new homework release is listed for session 8; A4 is listed for 5 November.</p>
+
+  </section>
+  <footer><span>Prepared 21 October 2026 · All times Europe/Berlin.</span><a href="../weeks/2026-10-21.html">Work plan, 21–29 October</a></footer>
+</div>
+</body>
+</html>

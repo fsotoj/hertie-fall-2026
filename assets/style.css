@@ -632,6 +632,7 @@ footer {
 footer code { font-family: var(--mono); font-size: 12px; color: var(--ink-2); }
 
 @media (max-width: 760px) {
+  .seg::after { content: none; }
   .wrap { padding: 26px 14px 56px; gap: 28px; }
   .q { grid-template-columns: 1fr; gap: 4px; padding: 13px 16px; }
   .swipe { display: block; }
@@ -690,6 +691,7 @@ a.note:hover { background: color-mix(in oklab, var(--c) 5%, var(--surface)); }
 a.note:focus-visible { outline: 2px solid var(--c); outline-offset: -2px; }
 a.note.c1 { --c: var(--c1); } a.note.c2 { --c: var(--c2); }
 a.note.c3 { --c: var(--c3); } a.note.c4 { --c: var(--c4); }
+a.note.all { --c: var(--muted); }
 a.note .sess {
   font-family: var(--mono);
   font-size: 11px;
