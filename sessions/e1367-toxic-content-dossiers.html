@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Resolved reading questions on heterogeneous effects, engagement indices and welfare in Beknazar-Yuzbashev et al., May 2026 draft.">
+<title>Toxic content: reading dossiers · Fall 2026</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/dossiers.css">
+</head>
+<body>
+<main class="wrap dossier-page">
+  <header class="masthead">
+    <div class="crumb"><a href="../">← Fall 2026 Coordinator</a></div>
+    <div class="eyebrow">Economics of Media · Reading record · Reviewed 23 October 2026</div>
+    <h1>Toxic content:<br>questions already checked</h1>
+    <p class="standfirst">Two concerns resolved against the paper, plus a clarified distinction between engagement and welfare.</p>
+    <p class="source-version">Beknazar-Yuzbashev, Jiménez-Durán, McCrosky and Stalinski, <cite>Toxic Content and User Engagement on Social Media: Evidence from a Field Experiment</cite>. Assigned draft: <b>18 May 2026</b>.</p>
+  </header>
+
+  <nav class="dossier-nav" aria-label="Reading dossiers">
+    <a href="#users"><span>01</span><b>Different users, different effects?</b><small>Resolved</small></a>
+    <a href="#components"><span>02</span><b>Could an index hide opposing effects?</b><small>Resolved</small></a>
+    <a href="#welfare"><span>03</span><b>Does less engagement mean greater welfare?</b><small>Boundary clarified</small></a>
+  </nav>
+
+  <aside class="source-key"><b>How to find the evidence.</b> “PDF page” means the page counter in the assigned 149-page PDF. Printed numbering restarts in the appendix. These locators refer to the May 2026 draft; the paper itself is not hosted here.</aside>
+
+  <article id="users" class="dossier">
+    <header class="dossier-heading"><span class="eyebrow">Dossier 01</span><span class="verdict">Resolved</span><h2>Different users, different effects?</h2></header>
+    <div class="prose">
+      <h3>My original concern</h3>
+      <p>The average decline might mix opposite responses: some users could leave when toxic content disappears, while others could engage more with a cleaner feed. Younger users were one possible example, not an established mechanism.</p>
+
+      <h3>What the paper actually tests</h3>
+      <p><b>It explicitly estimates heterogeneous treatment effects.</b> Its preregistered comparison splits users above and below median toxicity exposure during the baseline period. Figure 8 and Table A12 report treatment-by-high-exposure interactions. Appendix figures also examine individual engagement outcomes.</p>
+      <p>The main specification is stacked difference-in-differences with individual fixed effects and recruitment-date-by-period fixed effects. Individual fixed effects account for stable user differences; the interaction estimates whether the treatment effect differs across exposure groups.</p>
+
+      <details class="method-fold">
+        <summary>Read the regression and its coefficients</summary>
+        <div class="fold-body">
+          <p>In simplified notation:</p>
+          <p class="equation">Y<sub>it</sub> = α<sub>i</sub> + δ<sub>t,s(i)</sub> + βD<sub>it</sub> + θ(D<sub>it</sub> × High<sub>i</sub>) + ε<sub>it</sub></p>
+          <p><b>D</b> is one when hiding is active. <b>High</b> identifies above-median baseline exposure. The low-exposure effect is <b>β</b>; the high-exposure effect is <b>β + θ</b>; their difference is <b>θ</b>.</p>
+          <p>In Table A12, use the row labels. <b>Treated</b> is the low-exposure coefficient; <b>Treated × High Toxicity</b> is the difference. Numbers in parentheses are standard errors, not another group’s effects. Recruitment cohorts group people by entry date, not age.</p>
+        </div>
+      </details>
+
+      <h3>The example that answered the concern</h3>
+      <p>Table A12, top panel, Facebook preferred engagement index:</p>
+      <table class="dossier-table">
+        <caption>Effects by baseline average toxicity exposure</caption>
+        <thead><tr><th scope="col">Quantity</th><th scope="col">Estimate</th><th scope="col">What it means</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Low-exposure effect</th><td>+0.028<br><small>SE 0.024</small></td><td>Positive estimate; not significant at 10%.</td></tr>
+          <tr><th scope="row">High minus low</th><td>−0.176<br><small>SE 0.038</small></td><td>More negative response among highly exposed users; significant at 1%.</td></tr>
+          <tr><th scope="row">Implied high-exposure effect</th><td>−0.148</td><td>Calculated as 0.028 − 0.176. Its standard error requires the covariance; do not add the reported standard errors.</td></tr>
+        </tbody>
+      </table>
+      <p><b>Decision:</b> close the concern that the paper ignores differences between users. It studies those differences directly. This exposure-based comparison does not establish an age mechanism or a statistically supported increase among low-exposure users.</p>
+      <p class="locator"><b>Return to:</b> §3.1.7, Equation 1, PDF pp. 16–17; §3.2.9, pp. 25–26; Figure 8, p. 27; Table A12, p. 57. Component heterogeneity: Figures A10–A15, pp. 44–47.</p>
+      <p class="remember"><b>Keep the distinction:</b> a significant effect in one group and an insignificant effect in another do not themselves establish a difference. Test the interaction.</p>
+    </div>
+  </article>
+
+  <article id="components" class="dossier">
+    <header class="dossier-heading"><span class="eyebrow">Dossier 02</span><span class="verdict">Resolved</span><h2>Could an index hide opposing effects?</h2></header>
+    <div class="prose">
+      <h3>My original concern</h3>
+      <p>If the headline rests on an engagement index, a negative total could conceal increases in some behaviors and decreases in others. Was time the primary outcome, and were the components inspected separately?</p>
+
+      <h3>What the paper actually reports</h3>
+      <p><b>Time spent was the preregistered primary outcome.</b> Appendix A.9 states this explicitly. The original preregistered index combines time, content shown, and reactions/posts/retweets. The expanded preferred index adds sessions, ad impressions, ad clicks, and post clicks. The authors explain that they did not anticipate being able to measure the added components at preregistration.</p>
+      <p>The headline concerns lower engagement across several measures, alongside lower authored-content toxicity and substitution to untreated platforms. It is broader than time alone. The paper reports time and other outcomes separately, and <b>Table A19 decomposes the preferred index</b>. Table A20 also rebuilds it with content offered, including hidden content, to check mechanical removal.</p>
+
+      <h3>The example that answered the concern</h3>
+      <p>Table A19, YouTube panel, in control-group standard deviation units:</p>
+      <table class="dossier-table">
+        <caption>A negative index can coexist with a positive component</caption>
+        <thead><tr><th scope="col">Outcome</th><th scope="col">Estimate</th><th scope="col">Standard error</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Preferred index</th><td>−0.019</td><td>0.011</td></tr>
+          <tr><th scope="row">Active time</th><td>−0.023</td><td>0.014</td></tr>
+          <tr><th scope="row">Reactions/posts</th><td>+0.037</td><td>0.019</td></tr>
+        </tbody>
+      </table>
+      <p>Each estimate has one star in the source: significant at <b>10%, not 5%</b>. The directions differ, but the evidence is relatively weak. A lower index does not mean every component fell. These are standardized effects, not minutes or percentage changes.</p>
+      <p><b>Decision:</b> close the concern that aggregation conceals components the authors never examine. The decomposition and separate outcome results are present. Preserve the mixed pattern when describing the findings; it does not overturn the aggregate estimate.</p>
+      <p class="locator"><b>Return to:</b> §3.1.5, PDF pp. 14–15; §§3.2.2–3.2.6, pp. 19–24; Tables A4–A9, pp. 54–55; component heterogeneity, Figures A10–A15, pp. 44–47; Table A19, p. 68; Table A20, p. 69; Appendix A.9, pp. 122–123.</p>
+      <p class="remember"><b>Keep the distinction:</b> differences across users and differences across behaviors are separate aggregation questions. An index answers neither automatically.</p>
+    </div>
+  </article>
+
+  <article id="welfare" class="dossier">
+    <header class="dossier-heading"><span class="eyebrow">Dossier 03</span><span class="verdict boundary-status">Boundary clarified</span><h2>Does less engagement mean greater welfare?</h2></header>
+    <div class="prose">
+      <h3>My original intuition</h3>
+      <p>Spending less time on a platform could free time for more valuable activities. But that judgment depends on what replaces the browsing and on the user’s preferences. Different engagement responses might therefore have different welfare implications.</p>
+
+      <h3>What the paper contributes</h3>
+      <p>The field experiment measures substitution to untreated websites. Lost engagement on treated platforms cannot all be counted as time gained offline. The separate survey experiment shows that hate-speech exposure can increase clicking while reducing entertainment and increasing compensation requested for future transcription.</p>
+      <p>The field endline survey finds no significant effects on its welfare-related outcomes. <b>The authors explicitly warn that low power prevents reading those nulls as zero effects.</b> The transcription task also differs from freely browsing social media.</p>
+      <p><b>Decision:</b> the conceptual distinction is settled: engagement is not sufficient to determine welfare. The net welfare effect remains empirically uncertain. This is not an established benefit or harm, and it does not reopen the two resolved concerns above.</p>
+      <p class="locator"><b>Return to:</b> §3.2.8, PDF pp. 24–26; Table A11, p. 56; §3.2.10, p. 26; §4, pp. 30–31; Appendix A.4.3, pp. 74–75; Tables A31–A33, pp. 83–85; limitations in Appendix A.5.5, p. 86.</p>
+      <p class="remember"><b>Keep the distinction:</b> a valid negative average can coexist with opposing subgroup responses. Neither the average nor the heterogeneity alone tells us who benefits from moderation.</p>
+    </div>
+  </article>
+
+  <footer><span>Reading record · 23 October 2026 · Conversation-assisted notes, checked against the assigned PDF.</span><a href="../">Back to the semester overview</a></footer>
+</main>
+</body>
+</html>

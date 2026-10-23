@@ -27,6 +27,12 @@ The file and its URL do not change.
 `sessions/reading-a-paper.html` is not a session: it is the method page, the seven
 questions to ask of a paper, linked from the top of the Session notes list.
 
+`sessions/e1367-toxic-content-dossiers.html` records reading questions already
+checked against the May 2026 toxic-content paper. It distinguishes resolved
+concerns from remaining empirical limits and uses `assets/dossiers.css` alongside
+the shared stylesheet. Its page references use the assigned PDF's physical page
+count; the PDF and private debate drafts are not published here.
+
 ## The week counters
 
 The two counters in the masthead are computed in the browser from the `ITEMS` list in
