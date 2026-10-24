@@ -33,6 +33,14 @@ concerns from remaining empirical limits and uses `assets/dossiers.css` alongsid
 the shared stylesheet. Its page references use the assigned PDF's physical page
 count; the PDF and private debate drafts are not published here.
 
+`sessions/e1169-pinotti/` holds the Econ of Crime presentation as two HTML decks: the
+slide draft (`index.html`) and the related-literature backup slides (`literature.html`).
+They have their own `style.css`, not `assets/style.css`, and `img/` carries figures
+cropped from Pinotti (2017). Published at Felipe's explicit choice on 24 Oct, as an
+exception to "course documents are not here". The working copy lives in the private repo
+(`EconCrime/presentacion/slides/`); this folder is a published snapshot and is replaced
+wholesale, never edited here.
+
 ## The week counters
 
 The two counters in the masthead are computed in the browser from the `ITEMS` list in

@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pinotti Slides Draft</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="toolbar">
+  <strong>Pinotti (2017): slide draft</strong>
+  <span class="key"><span class="sw" style="background:#1f4e79"></span>Felipe (worked out)</span>
+  <span class="key"><span class="sw" style="background:#8a8f98"></span>Beatrice (skeleton for her)</span>
+  <label><input type="checkbox" id="tn" checked> speaker notes</label>
+  <label><input type="checkbox" id="tb" checked> Beatrice's slides</label>
+  <a href="literature.html" style="color:#9fc3e6">related literature →</a>
+  <span style="opacity:.7">Print → "Save as PDF" gives one slide per page</span>
+</div>
+
+<main class="deck">
+
+<!-- 1 TITLE -->
+<div class="wrap">
+<section class="slide f" style="border-top-color:#1d1f24">
+  <div class="body" style="opacity:1;margin-top:6cqw">
+    <div class="kicker">Economics of Crime and Security · Session 8 · Migration and Crime</div>
+    <h1>Clicking on Heaven's Door</h1>
+    <div style="font-size:2.3cqw;color:#3b3e45;margin-bottom:4cqw">The Effect of Immigrant Legalization on Crime</div>
+    <div style="font-size:1.8cqw">Paolo Pinotti, <i>American Economic Review</i> 107(1), 2017, 138-168</div>
+    <div style="font-size:1.8cqw;margin-top:5cqw;color:var(--muted)">Beatrice Baldini &amp; Felipe Soto · 28 October 2026</div>
+  </div>
+  <span class="num">1</span>
+</section>
+</div>
+
+<!-- 2 INTRO (BEA) -->
+<div class="wrap bea">
+<section class="slide b">
+  <div class="kicker">Introduction</div>
+  <h2>Does legal status itself reduce immigrant crime?</h2>
+  <div class="body">
+    <div class="cols">
+      <div>
+        <ul>
+          <li><b>Question.</b> Irregular immigrants: 80% of immigrants arrested for serious crimes in Italy (2006), under 20% of the foreign population. Selection or causal effect of status?</li>
+          <li><b>Experiment.</b> Italy's click days: fixed permit quotas, first come first served. A few minutes decide who gets legal status.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="stat">
+          <div><span class="big">−0.6 pp</span><small>serious crime in 2008, all applicants, on a 1.1% base (about −55%)</small></div>
+          <div><span class="big">−1.3 pp</span><small>type-A applicants, on a 1.8% base; type B: zero</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="num">2</span><span class="tag">Beatrice · draft</span>
+</section>
+<div class="notes bn"><h4>Beatrice · 1:00</h4>Headline numbers from Table 3. Suggest leading with type A, since the pooled −0.6 pp is only significant at 10%.</div>
+</div>
+
+<!-- 3 BACKGROUND 1 (BEA) -->
+<div class="wrap bea">
+<section class="slide b">
+  <div class="kicker">Background 1/2</div>
+  <h2>Click days: a race against an unknown cutoff</h2>
+  <div class="body">
+    <div class="cols wide-r">
+      <ul>
+        <li>Annual quota per province × permit type: <b>170,000 permits, 610,239 applications</b> for 2008</li>
+        <li>Employers apply online from 08:00; processed in order of arrival until the quota runs out</li>
+        <li>1,580 lotteries; median cutoff <b>08:39</b>; nobody knows it in advance</li>
+      </ul>
+      <div><img class="fig" src="img/fig2.png" alt="Figure 2: timing of applications and probability of obtaining a permit, Milan and Bergamo"><div class="src">Pinotti (2017), Figure 2</div></div>
+    </div>
+  </div>
+  <span class="num">3</span><span class="tag">Beatrice · draft</span>
+</section>
+<div class="notes bn"><h4>Beatrice · 1:15</h4>Milan type A: last accepted 08:27:04. Bergamo type B: the probability drops at 08:22. An application at 08:25 is in time in Milan and late in Bergamo: this is what makes the cutoff impossible to target.</div>
+</div>
+
+<!-- 4 BACKGROUND 2 (BEA) -->
+<div class="wrap bea">
+<section class="slide b">
+  <div class="kicker">Background 2/2</div>
+  <h2>Who applies, and why status should matter</h2>
+  <div class="body">
+    <div class="cols">
+      <ul>
+        <li><b>Type A</b>: domestic and care workers for families. 46% of male applicants in Lombardy, against 2.5% of employed immigrant men (ISMU). Shared surname with sponsor in 21%: many fictitious job offers</li>
+        <li><b>Type B</b>: firm employees; sponsors checked against business registries</li>
+      </ul>
+      <ul>
+        <li><b>Mechanism</b> (Becker): legal status raises legitimate earnings, so it raises the opportunity cost of crime</li>
+        <li><b>Institutions</b>: a de facto regularisation (most applicants already in Italy); deportation risk only about 5% a year, so status is about the labour market</li>
+      </ul>
+    </div>
+  </div>
+  <span class="num">4</span><span class="tag">Beatrice · draft</span>
+</section>
+<div class="notes bn"><h4>Beatrice · 1:15</h4>Table 2 says 46.1%, the text says 40.9%: small inconsistency inside the paper. Type A vs B is what Felipe's results and channel slides lean on, so worth landing clearly.</div>
+</div>
+
+<!-- 5 DATA (FELIPE) -->
+<div class="wrap">
+<section class="slide f">
+  <div class="kicker">Data</div>
+  <h2>Applications matched to police records</h2>
+  <div class="body">
+    <div class="cols">
+      <div>
+        <ul>
+          <li><b>Where from.</b> Ministry of Interior: every application of the <b>December 2007 click days</b> (quotas for 2008)
+            <ul><li>nationality, age, gender, permit type, province, timing to the millisecond, outcome</li></ul></li>
+          <li>Matched individually to <b>all offenders reported by the police</b> for a serious crime in <b>2007 and 2008</b>
+            <ul><li>robbery, theft, drug trafficking, smuggling, extortion, kidnapping, murder, rape</li>
+            <li>migration offences excluded: being irregular is not a crime here</li></ul></li>
+        </ul>
+      </div>
+      <div>
+        <div class="stat">
+          <div><span class="big">186,608</span><small>applications within ±1 hour of the cutoff</small></div>
+          <div><span class="big">110,337</span><small>men only: the final sample<br>40,451 type A · 69,886 type B</small></div>
+        </div>
+        <div class="callout">
+          <b>Why men only?</b> Women's serious-crime rate is close to zero.<br>
+          <b>Why one year after?</b> Rejected applicants were reprocessed for 2009: after 2008, the control group gets treated.
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="num">5</span><span class="tag">Felipe</span>
+</section>
+<div class="notes"><h4>Felipe · 0:45</h4>
+<ul>
+<li>Outcome C = 1 if reported for at least one serious crime in 2008; 2007 is the pre-period (placebo).</li>
+<li>Footnote 23: the first 150,000 excluded were reprocessed in Dec 2008, announced only days before, so 2008 behaviour is unaffected; anticipation would only shrink the gap (lower bound).</li>
+<li><span class="flag">Check before saying it:</span> the plan said "first year of click days". The paper does not say 2007 was the first; it only uses the 2007 round. Say "the 2007 round" unless we find a source.</li>
+<li>Cost of "men only": the result says nothing about women applicants.</li>
+</ul></div>
+</div>
+
+<!-- 6 EMPIRICAL STRATEGY (FELIPE) -->
+<div class="wrap">
+<section class="slide f">
+  <div class="kicker">Empirical strategy</div>
+  <h2>Fuzzy regression discontinuity in application time</h2>
+  <div class="body">
+    <div class="chain">
+      <div class="node"><b>Z = 1{X ≤ 0}</b>applied before the cutoff</div>
+      <div class="arrow"><b>→</b>first stage<br>+0.46</div>
+      <div class="node"><b>L</b>obtained a permit</div>
+      <div class="arrow"><b>→</b>effect<br>of interest</div>
+      <div class="node"><b>C</b>serious crime in 2008</div>
+    </div>
+    <div class="cols wide-l">
+      <ul>
+        <li><b>X</b> = application time relative to the lottery's cutoff (estimated per lottery, Andrews test)</li>
+        <li><b>Identifying assumption:</b> near X = 0, landing before or after is as good as random. The cutoff depends on everyone's clicks and is revealed only afterwards</li>
+        <li><b>Fuzzy</b>, not sharp: early files rejected, some late ones accepted</li>
+        <li><b>Estimation:</b> 2SLS, Z instruments L; quadratic in X within ±1 h, plus local linear (IK, CCT)</li>
+      </ul>
+      <div>
+        <div class="eq">LATE =
+          <span class="frac"><span>E(C | X&lt;0) − E(C | X&gt;0)</span><span>E(L | X&lt;0) − E(L | X&gt;0)</span></span>
+        </div>
+        <div class="callout"><b>LATE:</b> the effect for <b>compliers near the cutoff</b>, applicants whose status depends on which side they landed. Assumes monotonicity.</div>
+      </div>
+    </div>
+  </div>
+  <span class="num">6</span><span class="tag">Felipe</span>
+</section>
+<div class="notes"><h4>Felipe · 1:30</h4>
+<ul>
+<li>Equation (2) in the paper, limits as the bandwidth goes to zero; I simplified the notation on the slide.</li>
+<li>Why fuzzy: before the cutoff, incomplete or fraudulent files are rejected (more for type B); after it, some late applicants are accepted when earlier ones fail. First stage 0.459 overall, 0.610 type A, 0.372 type B.</li>
+<li>Compliers look like the sample: 1.2% prior offenders vs 1.1%, similar age. That is what lets us generalise a little beyond the cutoff.</li>
+<li>If asked about manipulation: sponsors can click early, but cannot know where the cutoff falls. Density (McCrary) and covariates smooth (Figs 4-5).</li>
+<li>Estimated cutoffs: if Andrews over-detects breaks, it includes lotteries with no jump, which biases toward zero.</li>
+</ul></div>
+</div>
+
+<!-- 7 RESULTS: FIGURE 3 (FELIPE) -->
+<div class="wrap">
+<section class="slide f">
+  <div class="kicker">Results 1/4</div>
+  <h2>No jump before click days, a jump after: only for type A</h2>
+  <div class="body">
+    <div style="display:grid;grid-template-columns:4cqw 1fr;align-items:center;margin-top:-1cqw">
+      <div style="font-size:1.4cqw;font-weight:700;color:var(--muted);line-height:2">
+        <div style="height:14.5cqw;display:flex;align-items:center">2007</div>
+        <div style="height:14.5cqw;display:flex;align-items:center;color:var(--felipe)">2008</div>
+      </div>
+      <img class="fig" src="img/fig3_grid.png" alt="Figure 3: crimes per applicant before (2007) and after (2008) click days, all, type A and type B" style="height:29cqw;width:auto;max-width:100%">
+    </div>
+    <div class="src" style="margin-left:4cqw">Pinotti (2017), Figure 3, panels rearranged: rows are years, columns all / type A / type B. Minutes from the cutoff; green just in time, red just too late.</div>
+    <div class="cols" style="grid-template-columns:1fr 1fr 1fr;gap:2cqw;margin-top:1.2cqw;font-size:1.55cqw">
+      <div><b>2007: no jump.</b> Before click days, early and late applicants are alike: a placebo</div>
+      <div><b>2008: a jump at 0.</b> Late applicants commit more crime than those just in time</div>
+      <div>Carried by <b>type A</b>; type B is flat</div>
+    </div>
+  </div>
+  <span class="num">7</span><span class="tag">Felipe</span>
+</section>
+<div class="notes"><h4>Felipe · 1:15</h4>
+<ul>
+<li>Dots: means in five-minute bins; lines: quadratic fits with confidence bands. Axis is minutes, cutoff at 0, before on the left.</li>
+<li>Read it in this order: top-left vs top-right (placebo then effect), then the type-A row, then type B.</li>
+<li>Reduced form, so this is the effect of applying in time, not of the permit itself. The next slide rescales by the first stage.</li>
+</ul></div>
+</div>
+
+<!-- 8 RESULTS: TABLE 3 (FELIPE) -->
+<div class="wrap">
+<section class="slide f">
+  <div class="kicker">Results 2/4</div>
+  <h2>Legal status cuts type-A crime by 1.3 points, on a 1.8% base</h2>
+  <div class="body">
+    <div class="cols wide-l" style="grid-template-columns:1.5fr 1fr">
+      <table>
+        <thead><tr><th></th><th>All</th><th>Type A</th><th>Type B</th></tr></thead>
+        <tbody>
+          <tr class="panel"><td colspan="4">2008, the year after</td></tr>
+          <tr><td>Reduced form</td><td class="neg">−0.003</td><td class="neg">−0.008</td><td>0.000</td></tr>
+          <tr><td></td><td class="se">(0.002)</td><td class="se">(0.003)</td><td class="se">(0.002)</td></tr>
+          <tr><td>First stage</td><td>0.459</td><td>0.610</td><td>0.372</td></tr>
+          <tr><td><b>2SLS: effect of legal status</b></td><td class="neg"><b>−0.006</b></td><td class="neg hl">−0.013</td><td>0.000</td></tr>
+          <tr><td></td><td class="se">(0.003)</td><td class="se">(0.005)</td><td class="se">(0.005)</td></tr>
+          <tr class="panel"><td colspan="4">2007, the year before (placebo)</td></tr>
+          <tr><td>Reduced form</td><td>−0.000</td><td>0.002</td><td>−0.002</td></tr>
+          <tr><td>Baseline: late applicants, 2007</td><td>1.1%</td><td>1.8%</td><td>0.8%</td></tr>
+          <tr><td>Observations</td><td>110,337</td><td>40,451</td><td>69,886</td></tr>
+        </tbody>
+      </table>
+      <div>
+        <div class="stat" style="flex-direction:column;gap:1.5cqw">
+          <div><span class="big">−1.3 pp</span><small>type A, on a 1.8% base</small></div>
+          <div><span class="big" style="color:#3b3e45">0</span><small>type B, already working for their sponsor</small></div>
+        </div>
+        <div class="callout">2SLS = reduced form ÷ first stage.<br>Same numbers with lottery fixed effects and lottery-clustered errors.</div>
+      </div>
+    </div>
+    <div class="src">Pinotti (2017), Table 3, columns 1-3 (global quadratic, ±1 h). Robust standard errors in parentheses.</div>
+  </div>
+  <span class="num">8</span><span class="tag">Felipe</span>
+</section>
+<div class="notes"><h4>Felipe · 1:00</h4>
+<ul>
+<li>Say it as people: among type-A applicants, legal status means about 1.3 fewer people per 100 reported for a serious crime in the next year.</li>
+<li>Honest framing: the pooled −0.006 is only significant at 10%, and with clustered errors it is −0.006 (0.004). <b>The robust result is type A</b> (−0.013, s.e. 0.005, in every specification).</li>
+<li>Columns 4-6 (lottery FE, clustered): −0.006 (0.004), −0.013 (0.005), 0.001 (0.005). Fixed effects change nothing, so this is not aggregation across lotteries with different baseline crime.</li>
+<li>Baselines are the 2007 crime rate of late applicants (square brackets in Table 3). Pooled: 0.6 / 1.1 = 55%, the paper's own framing. Type A: 1.3 / 1.8 = 72% is our arithmetic, not a number the paper states.</li>
+<li>Hand over to Beatrice: "is this robust to how we draw the line?"</li>
+</ul></div>
+</div>
+
+<!-- 9 RESULTS: FIGURE 6 (BEA) -->
+<div class="wrap bea">
+<section class="slide b">
+  <div class="kicker">Results 3/4</div>
+  <h2>The type-A estimate survives any reasonable specification</h2>
+  <div class="body">
+    <div class="cols wide-r">
+      <ul>
+        <li>Top: polynomial order 0 to 6</li>
+        <li>Bottom: local linear, bandwidth 1 to 30 minutes</li>
+        <li>Type A stays negative throughout; type B stays at zero</li>
+      </ul>
+      <div><img class="fig" src="img/fig6.png" alt="Figure 6: sensitivity analysis"><div class="src">Pinotti (2017), Figure 6</div></div>
+    </div>
+  </div>
+  <span class="num">9</span><span class="tag">Beatrice · draft</span>
+</section>
+<div class="notes bn"><h4>Beatrice · 0:45</h4>Bias-variance trade-off: higher order and narrower bandwidth reduce bias, raise variance. The IK and CCT bandwidths are marked on the axis (6-11 minutes). Could merge with Figure 7 on one slide to save time.</div>
+</div>
+
+<!-- 10 RESULTS: FIGURE 7 (BEA) -->
+<div class="wrap bea">
+<section class="slide b">
+  <div class="kicker">Results 4/4</div>
+  <h2>Placebo cutoffs: the real estimate is an outlier</h2>
+  <div class="body">
+    <div class="cols wide-r">
+      <ul>
+        <li>1,000 random reassignments of cutoffs across lotteries</li>
+        <li>Type A: only <b>0.3%</b> of placebos as negative as the real estimate</li>
+        <li>Type B: p = 0.129 and 0.636</li>
+        <li>Rules out a small-sample artefact from many small lotteries</li>
+      </ul>
+      <div><img class="fig" src="img/fig7.png" alt="Figure 7: distribution of placebo estimates"><div class="src">Pinotti (2017), Figure 7</div></div>
+    </div>
+  </div>
+  <span class="num">10</span><span class="tag">Beatrice · draft</span>
+</section>
+<div class="notes bn"><h4>Beatrice · 0:45</h4>Vertical line = the real estimate. Same p = 0.003 with both parametric and nonparametric methods for type A.</div>
+</div>
+
+<!-- 11 THREATS 1 (BEA) -->
+<div class="wrap bea">
+<section class="slide b">
+  <div class="kicker">Threats to identification 1/3</div>
+  <h2>Where were the applicants?</h2>
+  <div class="body">
+    <div class="cols">
+      <div>
+        <b>Presence in Italy before click days</b>
+        <ul>
+          <li>Applicants are supposed to be abroad; some may really be</li>
+          <li>Only the legalised could then enter Italy, which would <b>raise</b> their measured crime</li>
+          <li>So the estimate is a <b>lower bound</b></li>
+        </ul>
+      </div>
+      <div>
+        <b>Collecting the entry visa</b>
+        <ul>
+          <li>Legalised applicants must go home, collect a visa, re-enter</li>
+          <li>Time abroad mechanically lowers crime in Italy</li>
+          <li>To explain the effect they would need <b>more than six months abroad</b> (8.7 for type A)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout">Testable: if the visa trip drives it, the effect should be larger for far countries and vanish late in 2008. → next slide</div>
+  </div>
+  <span class="num">11</span><span class="tag">Beatrice · draft</span>
+</section>
+<div class="notes bn"><h4>Beatrice · 1:00</h4>Merged the two threats into one slide. The callout is the handover line to Felipe's Table 5.</div>
+</div>
+
+<!-- 12 THREATS 2: TABLE 5 (FELIPE) -->
+<div class="wrap">
+<section class="slide f">
+  <div class="kicker">Threats to identification 2/3</div>
+  <h2>Not the visa trip: same effect near and far, and it persists</h2>
+  <div class="body">
+    <table>
+      <thead>
+        <tr><th></th><th>Baseline</th><th>Near<br>countries</th><th>Far<br>countries</th><th>Apr-Dec</th><th>Jun-Dec</th><th>Oct-Dec</th><th>Red-hand</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b>2SLS effect</b></td><td class="neg">−0.014</td><td class="neg hl">−0.014</td><td class="neg hl">−0.016</td><td class="neg">−0.009</td><td class="neg">−0.006</td><td class="neg">−0.004</td><td class="neg">−0.012</td></tr>
+        <tr><td></td><td class="se">(0.006)</td><td class="se">(0.006)</td><td class="se">(0.008)</td><td class="se">(0.004)</td><td class="se">(0.004)</td><td class="se">(0.002)</td><td class="se">(0.005)</td></tr>
+        <tr><td>Annualised effect</td><td></td><td></td><td></td><td>[0.012]</td><td>[0.012]</td><td class="hl">[0.016]</td><td></td></tr>
+        <tr><td>Observations</td><td>13,454</td><td>3,163</td><td>10,832</td><td>14,000</td><td>14,094</td><td>12,788</td><td>12,247</td></tr>
+      </tbody>
+    </table>
+    <div class="cols" style="margin-top:2cqw">
+      <ul>
+        <li><b>Distance:</b> far countries mean longer trips, yet the effect is the same</li>
+        <li><b>Timing:</b> dropping the first months of 2008 keeps the effect; annualised it does not shrink by Oct-Dec</li>
+      </ul>
+      <div class="callout">Time spent abroad cannot account for the drop in crime.</div>
+    </div>
+    <div class="src">Pinotti (2017), Table 5. Type-A applicants only; local linear, CCT bandwidth. Robust standard errors in parentheses.</div>
+  </div>
+  <span class="num">12</span><span class="tag">Felipe</span>
+</section>
+<div class="notes"><h4>Felipe · 0:50</h4>
+<ul>
+<li>Type A only, because that is where the effect is. Baseline −0.014 here (local linear, CCT) vs −0.013 in Table 3 (global quadratic).</li>
+<li>Columns 4-6 drop crimes from Q1, Q1-Q2, Q1-Q3 of 2008: by October everyone who went home for the visa is back, and the effect is still there. Raw coefficients shrink because the window shrinks; the annualised row is the comparable one. The paper prints it without a sign.</li>
+<li>Leave the red-hand column for the next slide.</li>
+</ul></div>
+</div>
+
+<!-- 13 THREATS 3: MEASUREMENT ERROR (FELIPE) -->
+<div class="wrap">
+<section class="slide f">
+  <div class="kicker">Threats to identification 3/3</div>
+  <h2>Measurement error works against the result</h2>
+  <div class="body">
+    <div class="eq">E(C̃ | L=1) − E(C̃ | L=0) = μ · [ E(C | L=1) − E(C | L=0) ],&nbsp;&nbsp; μ ≤ 1</div>
+    <div style="text-align:center;font-size:1.5cqw;color:var(--muted);margin-top:-.6cqw;margin-bottom:1.6cqw">Symmetric under-reporting only shrinks the gap: bias toward zero</div>
+    <div class="cols">
+      <div>
+        <b>1. Police treat irregulars more harshly?</b>
+        <ul>
+          <li>Data are police reports, not convictions</li>
+          <li>Red-handed arrests: <b>82%</b> of cases, little discretion</li>
+          <li>Effect there: <b class="neg">−0.012</b> (0.005), unchanged</li>
+        </ul>
+      </div>
+      <div>
+        <b>2. Name matching and false identities?</b>
+        <ul>
+          <li>Legalised immigrants are fingerprinted (Law 189/2002); irregulars are not</li>
+          <li>Missed matches are more likely for <b>irregulars</b></li>
+          <li>Their crime is understated: bias toward zero</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <span class="num">13</span><span class="tag">Felipe</span>
+</section>
+<div class="notes"><h4>Felipe · 0:50</h4>
+<ul>
+<li>Equation (4). C̃ is reported crime, C true crime, μ the reporting rate, assumed equal for both groups.</li>
+<li>Only differential error could create a spurious effect, so the two concerns are both about asymmetry.</li>
+<li>Red-hand column is Table 5, col. 7. Caught in the act: the decision to charge does not hinge on legal status.</li>
+<li>Possible merge with slide 12 if we run long: the red-hand number is already in that table.</li>
+</ul></div>
+</div>
+
+<!-- 14 CHANNEL: TABLE 6 (FELIPE) -->
+<div class="wrap">
+<section class="slide f">
+  <div class="kicker">Channel</div>
+  <h2>Economic crimes, by applicants with the worst job prospects</h2>
+  <div class="body">
+    <table>
+      <thead>
+        <tr><th></th><th colspan="4" style="text-align:center">Type A</th><th colspan="4" style="text-align:center">Type B</th></tr>
+        <tr><th></th><th>Economic</th><th>Violent</th><th>Foreign<br>sponsor</th><th>Native<br>sponsor</th><th>Economic</th><th>Violent</th><th>Foreign<br>sponsor</th><th>Native<br>sponsor</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><b>2SLS effect</b></td><td class="neg hl">−0.009</td><td>−0.002</td><td class="neg hl">−0.015</td><td>−0.008</td><td>−0.000</td><td>−0.001</td><td>−0.003</td><td>0.002</td></tr>
+        <tr><td></td><td class="se">(0.004)</td><td class="se">(0.002)</td><td class="se">(0.007)</td><td class="se">(0.007)</td><td class="se">(0.004)</td><td class="se">(0.002)</td><td class="se">(0.006)</td><td class="se">(0.008)</td></tr>
+        <tr><td>Observations</td><td>40,451</td><td>40,386</td><td>23,390</td><td>16,859</td><td>69,886</td><td>69,840</td><td>30,441</td><td>39,308</td></tr>
+      </tbody>
+    </table>
+    <div class="cols" style="margin-top:2cqw">
+      <ul>
+        <li><b>Economic</b> crimes (theft, robbery, drugs, extortion, smuggling) fall; violent ones do not</li>
+        <li>Strongest for type A <b>sponsored by other immigrants</b>, the group most likely to hold fictitious job offers</li>
+      </ul>
+      <div class="callout">Consistent with legal status raising the <b>opportunity cost</b> of crime for those with the weakest outside options. Inferred: there are no employment or earnings data.</div>
+    </div>
+    <div class="src">Pinotti (2017), Table 6. Global quadratic, lottery fixed effects, errors clustered by lottery.</div>
+  </div>
+  <span class="num">14</span><span class="tag">Felipe</span>
+</section>
+<div class="notes"><h4>Felipe · 1:00</h4>
+<ul>
+<li>Three patterns, one story: type A not B; economic not violent; foreign not native sponsor. Each fits the labour-market channel; none tests it directly.</li>
+<li>Careful: foreign −0.015 vs native −0.008 are not shown to be significantly different from each other (native s.e. 0.007). Say "driven by", as the paper does, not "only".</li>
+<li>Welfare ruled out by institutions: no universal income support in Italy; basic health and schooling open to irregulars anyway.</li>
+<li>Type B: already working informally for the sponsoring firm, high opportunity cost before legalisation.</li>
+</ul></div>
+</div>
+
+<!-- 15 CONCLUSIONS (FELIPE) -->
+<div class="wrap">
+<section class="slide f">
+  <div class="kicker">Conclusions</div>
+  <h2>Legalisation lowers crime, most where job prospects are worst</h2>
+  <div class="body">
+    <div class="cols">
+      <div>
+        <b>Takeaways</b>
+        <ul>
+          <li>Legal status cuts serious crime by <b>1.3 pp among type A</b>, about 0.6 pp overall</li>
+          <li>Clean design: an unknown cutoff makes status as good as random</li>
+          <li>Driven by economic crime: an opportunity-cost story</li>
+          <li>Policy: amnesty has a crime dividend, largest for the group a demand-driven quota is designed to exclude</li>
+        </ul>
+      </div>
+      <div>
+        <b>Limits</b>
+        <ul>
+          <li><b>One year only</b>: the control group is legalised in 2009</li>
+          <li><b>Behaviour or exit?</b> No data on rejected applicants leaving</li>
+          <li><b>External validity</b>: men, near the cutoff, Italy with about 5% deportation risk; the US differs</li>
+          <li><b>Partial equilibrium</b>: applicants' own crime, not total crime or future inflows</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <span class="num">15</span><span class="tag">Felipe</span>
+</section>
+<div class="notes"><h4>Felipe · 1:00</h4>
+<ul>
+<li>This is where our own assessment goes: the syllabus grades whether we identify the key points, so the limits slide matters.</li>
+<li>On exit: if rejected applicants leave Italy, their measured crime falls, which works <i>against</i> the result. Pinotti argues the unconditional effect is the policy-relevant one.</li>
+<li>Link to the other reading today (Andersen, Dustmann and Landersø 2019): both change migrants' legitimate income and look at crime. <span class="flag">Not read yet</span>; check before using.</li>
+<li>Syllabus asks to disclose AI use; one line on the last slide or in the email is the safe default.</li>
+</ul></div>
+</div>
+
+</main>
+
+<script>
+const tn=document.getElementById('tn'),tb=document.getElementById('tb');
+tn.onchange=()=>document.body.classList.toggle('hide-notes',!tn.checked);
+tb.onchange=()=>document.body.classList.toggle('hide-bea',!tb.checked);
+</script>
+</body>
