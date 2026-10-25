@@ -18,7 +18,7 @@ html,body{margin:0;background:var(--bg);color:var(--ink);
   padding:4.2% 5% 6% 5%;container-type:inline-size}
 .slide.f{border-top:10px solid var(--felipe)}
 .slide.b{border-top:10px solid var(--bea)}
-.slide.b .body{opacity:.82}
+.slide.b .body{opacity:1}
 h1{font-size:4.4cqw;margin:0 0 1cqw;line-height:1.1}
 h2{font-size:3.1cqw;margin:0 0 2cqw;line-height:1.15}
 .f h2{color:var(--felipe)}
