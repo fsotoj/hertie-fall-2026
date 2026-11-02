@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 9, PCA · C23</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="crumb"><a href="../">← Fall 2026 Coordinator</a></div>
+    <div class="eyebrow">GRAD-C23-Lab1 · Mathematics for Data Science · Lab 9</div>
+    <h1>Lab 9: Lagrange multipliers and PCA</h1>
+    <p class="standfirst">
+      Thursday 5 November 2026, 12:00–14:00, room 2.30, Camilo Pedraza. Also Wednesday
+      4 November at 18:00 and Thursday at 16:00, both in 3.30; no group is enforced.
+      <b>Neither the lab materials nor the lecture 9 deck were out on Monday 2 November</b>,
+      so the topic in the title is an inference from the reading list and the syllabus,
+      not an announcement.
+    </p>
+  </header>
+
+  <section>
+    <div class="sec-head">
+      <h2>When to expect the materials</h2>
+    </div>
+
+    <div class="prose">
+      <p>
+        They will appear in <code>labs/09_lab</code> of the materials repository. The course
+        website dates the lab 9 entry <b>Wednesday 4 November at 09:00</b>. Last week the
+        lab 8 handout landed Wednesday at 08:00, but the student file only at 19:30, after the
+        Wednesday sitting had begun, and the solutions on Friday at 07:00. Check Wednesday
+        morning for the handout and Thursday morning for the student file.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>What lab 8 covered, and what it suggests</h2>
+    </div>
+
+    <div class="prose">
+      <p>
+        Lab 8 was a tour of lecture 8: matrix products, transpose, norm, determinant,
+        independence, inverse and a step-by-step SVD, each computed by hand first and then
+        checked with NumPy. The syllabus lists the <i>ISLR</i> 12.5.1 PCA lab as
+        “will do together in lab” for the session whose readings we have now.
+      </p>
+      <p style="font-size:14px; color:var(--ink-2);">
+        A reasonable guess: gradients of linear and quadratic functions checked numerically;
+        a small Lagrange problem by hand and then with SciPy; PCA from scratch by centring,
+        the covariance matrix and its eigenvectors, then the same through the SVD; variance
+        explained and a scree plot; scaled against unscaled data. The course environment has
+        NumPy, SciPy, pandas and matplotlib but not scikit-learn, so PCA would be done with
+        <code>np.linalg</code>. That is an inference.
+      </p>
+      <p>
+        <b>Traps worth knowing before you start.</b> <code>np.linalg.eigh</code> returns
+        eigenvalues in ascending order, so the first component is the last column until you
+        reverse it. <code>np.linalg.svd</code> returns Vᵀ, so loadings are its rows.
+        <code>np.cov</code> treats rows as variables unless you pass
+        <code>rowvar=False</code>. Centre before the SVD. Loadings are unique only up to sign.
+        And ∇(xᵀAx) = 2Ax needs A symmetric; in general it is (A + Aᵀ)x.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Checks worth doing by hand first</h2>
+    </div>
+
+    <div class="prose">
+      <ul>
+        <li>Minimum of x + y on the unit circle: x = y = −1/√2, value −√2.</li>
+        <li>Maximum of xy with x + y = 10: 25 at (5, 5); one more unit of budget is worth about 5, which is what the multiplier measures.</li>
+        <li>Covariance [[2, 1], [1, 2]]: eigenvalues 3 and 1, first component (1, 1)/√2, 75% of the variance.</li>
+        <li>Least-squares line through (0, 1), (1, 2), (2, 2): intercept 7/6, slope 1/2, from the normal equations.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>What you should be able to do afterwards</h2></div>
+    <div class="prose">
+      <ul>
+        <li>Check a gradient numerically</li>
+        <li>Solve a small constrained problem and say what the multiplier means</li>
+        <li>Run PCA by eigen-decomposition and by SVD and show they agree</li>
+        <li>Read loadings, scores and a scree plot, and decide whether to scale</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel aside">
+      <span class="lbl">What it feeds, and what is due</span>
+      <p>
+        <b>Quiz 5 on Tuesday 17 November</b>, covering lectures 9 and 10. <b>Assignment 3</b>
+        (limit theorems, maximum likelihood, Bayesian inference; 43 points) is due
+        <b>Sunday 8 November, 23:59</b>: what is on <code>main</code> at the cutoff is marked,
+        and each member records their part in <code>CONTRIBUTIONS.md</code>. Agree in the team
+        who takes which question, and leave Sunday for review rather than writing. <b>Assignment 4</b> opens Tuesday 10 November and is due Sunday
+        29 November.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Lab primer, written 2 November before the lab materials and the lecture deck were released, from the session 9 reading list, the syllabus, the lab 8 handout and solutions, and the course website.</span>
+    <span><a href="../" style="color:inherit;">Back to the semester overview</a></span>
+  </footer>
+
+</div>
+
+</body>
+</html>

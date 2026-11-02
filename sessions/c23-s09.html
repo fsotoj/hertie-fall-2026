@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Constrained optimisation and PCA · Fall 2026</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="masthead">
+    <div class="crumb"><a href="../">← Fall 2026 Coordinator</a></div>
+    <div class="eyebrow">GRAD-C23 · Mathematics for Data Science · Session 9</div>
+    <h1>Constrained optimisation and PCA</h1>
+    <p class="standfirst">Tuesday 3 November, 08:00–10:00, Forum (A+B). <b>Quiz 4 opens the lecture</b> and covers lectures 7 and 8, not this session. The lecture 9 deck was not out on Monday 2 November, so the title is inferred from the reading list: re-check the deck on Tuesday morning.</p>
+  </header>
+  <section class="prose">
+
+    <h2>Tonight: quiz 4 first</h2>
+    <p>Work through the <a href="https://claude.ai/artifact/5kCn1Be4WBhMxwQq98QxDS">quiz 4 drill</a> (Bayesian analysis and linear algebra, with labs 7 and 8). The professor's emphasis for the linear algebra is intuition, not computing everything by hand. Session 9's readings belong to quiz 5.</p>
+
+    <h2>Read for session 9</h2>
+    <p>From the <a href="https://github.com/hertie-maths-data-science-f2026/materials/blob/main/readings/09_week-9/READINGS.md">week 9 reading list</a>, printed page numbers checked against the PDFs:</p>
+    <ul>
+      <li>Kolter and Do, <a href="https://www.cs.cmu.edu/~zkolter/course/15-884/linalg-review.pdf"><i>Linear Algebra Review and Reference</i></a>, section 4, matrix calculus, pp. 20–26: gradient, Hessian, gradients of linear and quadratic functions, least squares, eigenvalues as optimisation.</li>
+      <li>Hertzmann, Fleet and Brubaker, <a href="https://www.cs.toronto.edu/~mbrubake/teaching/C11/Handouts/LagrangeMultipliers.pdf">CSC 411 notes, ch. 14, Lagrange multipliers</a>, pp. 83–91: the condition, a circle example, the multinomial MLE, PCA derived twice.</li>
+      <li><i>ISLR</i> 6.3.1, pp. 253–256: only the “Overview of PCA”; stop at “The Principal Components Regression Approach”.</li>
+      <li><i>ISLR</i> 12.2, pp. 496–508: what principal components are, variance explained and the scree plot, scaling, signs. 12.5.1 (pp. 530–533) is the PCA lab.</li>
+    </ul>
+    <p>The page numbers match <i>ISLR</i> 2nd edition (R). In the Python edition (<i>ISLP</i>) the same sections are pp. 255–257, 504–515 and 535–539. Ridge regression is not assigned this week: 6.3.1 is principal components regression.</p>
+    <p>The syllabus has this exact reading list under “Constrained Optimization and PCA”, one session earlier than now, since Bayesian analysis moved up to session 7. It also says 12.5.1 will be done in the lab.</p>
+
+    <h2>How it connects to lecture 8</h2>
+    <p>Lecture 8 ended with the SVD as an X-ray of the data: small singular values mean redundancy, so the data fit in fewer dimensions. Session 9 turns that into a method. Maximise the variance of a projection subject to a unit-length direction, form the Lagrangian, set its gradient to zero, and the answer is an eigenvector equation. So principal component loadings are the eigenvectors of the covariance matrix, and for centred data they are the right singular vectors from lecture 8.</p>
+
+    <h2>Be able to explain afterwards</h2>
+    <ul>
+      <li>What a gradient is, and the rules ∇(bᵀx) = b and ∇(xᵀAx) = 2Ax for symmetric A, by analogy with one variable.</li>
+      <li>Why, at a constrained optimum, the objective's gradient is parallel to the constraint's, and what the multiplier λ measures.</li>
+      <li>PCA in one sentence; loadings, scores, proportion of variance explained, the scree plot.</li>
+      <li>Why to centre, when to scale, and why signs of loadings can flip.</li>
+    </ul>
+    <p>Self-checks: the minimum of x + y on the unit circle is −√2 at x = y = −1/√2. For covariance [[2, 1], [1, 2]] the first component is (1, 1)/√2 and explains 75% of the variance.</p>
+
+    <h2>Quiz 5 and next week</h2>
+    <p><b>Quiz 5, Tuesday 17 November, covers lectures 9 and 10</b>, so this session is half of it. Session 10 is Tuesday 10 November; its topic is not released yet. <b>Assignment 4</b> is released Tuesday 10 November and due Sunday 29 November, 23:59, inside the Chile trip.</p>
+    <p><b>Assignment 3 is due Sunday 8 November, 23:59.</b> See the <a href="c23-lab09.html">lab 9 page</a> for what to check in the team repository.</p>
+
+  </section>
+  <footer><span>Prepared 2 November 2026, before the lecture 9 deck was released, from the reading list, the readings themselves, the syllabus and the course website · All times Europe/Berlin.</span><a href="c23-lab09.html">Lab 9</a></footer>
+</div>
+</body>
+</html>
